@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import logo from '../assets/logo.svg'
 import { FaBars } from 'react-icons/fa'
@@ -8,14 +8,28 @@ import CartButtons from './CartButtons'
 import { useProductsContext } from '../context/products_context'
 import { useUserContext } from '../context/user_context'
 const Nav = () => {
+  const [colorChange, setColorchange] = useState(false);
+  const changeNavbarColor = () =>{
+    if(window.scrollY >= 80){
+      setColorchange(true);
+    }
+    else{
+      setColorchange(false);
+    }
+  }
+  window.addEventListener('scroll', changeNavbarColor);
   const { openSidebar } = useProductsContext()
   const { myUser } = useUserContext()
   return (
-    <NavContainer>
+    
+    
+    <NavContainer >
+      <div className={colorChange ? 'navbar-colorChange' : 'navbar'}>
       <div className='nav-center'>
         <div className='nav-header'>
           <Link to='/'>
-            <img src={logo} alt='comfy sloth' />
+            {/* <img src={logo} alt='Kline Decor' /> */}
+            <h2>Kline Decor</h2>
           </Link>
           <button type='button' className='nav-toggle' onClick={openSidebar}>
             <FaBars />
@@ -38,16 +52,32 @@ const Nav = () => {
         </ul>
         <CartButtons />
       </div>
+      </div>
     </NavContainer>
+    
+    
   )
 }
 
 const NavContainer = styled.nav`
-  height: 5rem;
+  height: 3.3rem;
   display: flex;
   align-items: center;
   justify-content: center;
-
+  position: fixed;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  z-index: 9999;
+  font: Helvetica;
+  .navbar{
+    background: transparent;
+  } 
+  .navbar-colorChange{
+    width: 100%;
+    background: var(--clr-white);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
   .nav-center {
     width: 90vw;
     margin: 0 auto;
@@ -60,6 +90,12 @@ const NavContainer = styled.nav`
     img {
       width: 175px;
       margin-left: -15px;
+    }
+    h2{
+      padding-top: 30px;
+      padding-bottom: 20px;
+      font-size: 2.5rem;
+      color: rgb(50,50,50); 
     }
   }
   .nav-toggle {
