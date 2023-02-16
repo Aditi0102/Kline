@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import pageHeroimg from '../assets/PageHeroimg.png'
 const PageHero = ({ title, product }) => {
   return (
     <Wrapper>
@@ -10,6 +11,7 @@ const PageHero = ({ title, product }) => {
           <Link to='/'>Home </Link>
           {product && <Link to='/products'>/ Products</Link>}/ {title}
         </span>
+        
       </div>
     </Wrapper>
   )
@@ -22,8 +24,11 @@ const Wrapper = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-
   color: var(--clr-text-black);
+
+  background-image: url(${pageHeroimg});
+  background-width: screen.width;
+
   a {
     color: var(--clr-text-black);
     // padding: 0.5rem;
