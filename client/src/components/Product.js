@@ -1,14 +1,14 @@
-import React from 'react'
-import styled from 'styled-components'
-import { formatPrice } from '../utils/helpers'
-import { FaSearch } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import React from "react";
+import styled from "styled-components";
+import { formatPrice } from "../utils/helpers";
+import { FaSearch } from "react-icons/fa";
+import { Link } from "react-router-dom";
 const Product = ({ image, name, price, id }) => {
   return (
     <Wrapper>
-      <div className='container'>
+      <div className="container">
         <img src={image} alt={name} />
-        <Link to={`/products/${id}`} className='link'>
+        <Link to={`/products/${id}`} className="link">
           <FaSearch />
         </Link>
       </div>
@@ -17,19 +17,19 @@ const Product = ({ image, name, price, id }) => {
         <p>{formatPrice(price)}</p>
       </footer>
     </Wrapper>
-  )
-}
+  );
+};
 const Wrapper = styled.article`
   .container {
     position: relative;
     background: var(--clr-black);
-    border-radius: var(--radius);
+    // border-radius: var(--radius);
   }
   img {
     width: 100%;
     display: block;
     object-fit: cover;
-    border-radius: var(--radius);
+    // border-radius: var(--radius);
     transition: var(--transition);
   }
   .link {
@@ -43,7 +43,7 @@ const Wrapper = styled.article`
     justify-content: center;
     width: 2.5rem;
     height: 2.5rem;
-    border-radius: 50%;
+    // border-radius: 50%;
     transition: var(--transition);
     opacity: 0;
     cursor: pointer;
@@ -74,5 +74,5 @@ const Wrapper = styled.article`
     color: var(--clr-primary-5);
     letter-spacing: var(--spacing);
   }
-`
-export default Product
+`;
+export default Product;

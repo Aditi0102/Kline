@@ -67,7 +67,7 @@ const Wrapper = styled.section`
       width: 100%;
       height: 550px;
       position: relative;
-      border-radius: var(--radius);
+      // border-radius: var(--radius);
       display: block;
       object-fit: cover;
     }
@@ -77,7 +77,7 @@ const Wrapper = styled.section`
       left: 0;
       width: 250px;
       transform: translateX(-50%);
-      border-radius: var(--radius);
+      // border-radius: var(--radius);
     }
     .img-container::before {
       content: '';
@@ -87,7 +87,7 @@ const Wrapper = styled.section`
       background: var(--clr-primary-9);
       bottom: 0%;
       left: -8%;
-      border-radius: var(--radius);
+      // border-radius: var(--radius);
     }
   }
 `
