@@ -33,7 +33,7 @@ const Wrapper = styled.section`
   min-height: 60vh;
   display: grid;
   place-items: center;
-  background: #f5f5f5;
+  background: var(--clr-white);
   .img-container {
     display: none;
   }

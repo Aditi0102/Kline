@@ -244,6 +244,7 @@ const Wrapper = styled.section`
   .price {
     margin-bottom: 0.25rem;
   }
+ 
   .shipping {
     display: grid;
     grid-template-columns: auto 1fr;
@@ -252,6 +253,7 @@ const Wrapper = styled.section`
     column-gap: 0.5rem;
     font-size: 1rem;
   }
+  
   .clear-btn {
     background: Black; ;
     color: var(--clr-white);
