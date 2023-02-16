@@ -6,6 +6,7 @@ Variables
 
 :root {
   /* dark shades of primary color*/
+  --clr-bg: hsl(0, 0%, 96%);
   --clr-primary-1: hsl(22, 28%, 21%);
   --clr-primary-2: hsl(22, 28%, 29%);
   --clr-primary-3: hsl(22, 28%, 37%);
@@ -23,6 +24,8 @@ Variables
   --clr-grey-2: hsl(211, 39%, 23%);
   --clr-grey-3: hsl(209, 34%, 30%);
   --clr-grey-4: hsl(209, 28%, 39%);
+  --clr-text-black: hsl(0, 0%, 20%);
+  --clr-text-brown: hsl(31,47%,51%);
   /* grey used for paragraphs */
   --clr-grey-5: hsl(210, 22%, 49%);
   --clr-grey-6: hsl(209, 23%, 60%);
