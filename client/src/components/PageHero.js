@@ -27,8 +27,10 @@ const Wrapper = styled.section`
   color: var(--clr-text-black);
 
   background-image: url(${pageHeroimg});
-  background-width: screen.width;
-
+  background-size: cover;
+  .section-center {
+    text-align: center;
+  }
   a {
     color: var(--clr-text-black);
     // padding: 0.5rem;
