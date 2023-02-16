@@ -97,7 +97,7 @@ const Filters = () => {
                         color === 'all' ? 'all-btn active' : 'all-btn'
                       }`}
                     >
-                      all
+                      All
                     </button>
                   )
                 }
@@ -135,7 +135,7 @@ const Filters = () => {
           {/* end of price */}
           {/* shipping */}
           <div className='form-control shipping'>
-            <label htmlFor='shipping'>free shipping</label>
+            <label htmlFor='shipping'>Free shipping</label>
             <input
               type='checkbox'
               name='shipping'
@@ -155,16 +155,22 @@ const Filters = () => {
 }
 
 const Wrapper = styled.section`
+  
+
   .form-control {
+    text-transform: capitalize;
+    
     margin-bottom: 1.25rem;
     h5 {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
+      font-size: 1.5rem;
     }
+    
   }
   .search-input {
-    padding: 0.5rem;
-    background: var(--clr-grey-10);
-    border-radius: var(--radius);
+    padding: 0.75rem;
+    background: clr-white;
+    
     border-color: transparent;
     letter-spacing: var(--spacing);
   }
@@ -173,25 +179,32 @@ const Wrapper = styled.section`
   }
 
   button {
+    font-size: 1rem;
     display: block;
-    margin: 0.25em 0;
+    margin: 0.75em 0;
     padding: 0.25rem 0;
     text-transform: capitalize;
     background: transparent;
     border: none;
     border-bottom: 1px solid transparent;
     letter-spacing: var(--spacing);
-    color: var(--clr-grey-5);
+    color: rgb(50,50,50);
     cursor: pointer;
+    &:hover, 
+      &:active {
+        color: #bc8246 ;
+      }
   }
   .active {
     border-color: var(--clr-grey-5);
   }
+ 
   .company {
-    background: var(--clr-grey-10);
-    border-radius: var(--radius);
-    border-color: transparent;
-    padding: 0.25rem;
+    background: black;
+    font-size: 1rem;
+    color: white;
+    padding: 0.5rem;
+    width: 60%;
   }
   .colors {
     display: flex;
@@ -240,10 +253,14 @@ const Wrapper = styled.section`
     font-size: 1rem;
   }
   .clear-btn {
-    background: var(--clr-red-dark);
+    background: Black; ;
     color: var(--clr-white);
-    padding: 0.25rem 0.5rem;
-    border-radius: var(--radius);
+    padding: 0.75rem 0.75rem;
+    letter-spacing: initial;
+    &:hover {
+      background: #bc8246 ;
+      color: var(--clr-white);
+    }
   }
   @media (min-width: 768px) {
     .content {
