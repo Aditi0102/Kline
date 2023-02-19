@@ -76,7 +76,7 @@ const NavContainer = styled.nav`
   .navbar-colorChange{
     width: 100%;
     background: var(--clr-white);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   }
   .nav-center {
     width: 90vw;
@@ -93,9 +93,10 @@ const NavContainer = styled.nav`
     }
     h2{
       padding-top: 30px;
-      padding-bottom: 20px;
+      padding-bottom: 30px;
       font-size: 2.5rem;
-      color: rgb(50,50,50); 
+      color: rgb(50,50,50);
+      
     }
   }
   .nav-toggle {
@@ -117,6 +118,13 @@ const NavContainer = styled.nav`
     .nav-toggle {
       display: none;
     }
+    h2{
+      padding-top: 30px;
+      padding-bottom: 10px;
+      font-size: 2.5rem;
+      color: rgb(50,50,50);
+      border-bottom: 2px solid var(--clr-primary-7);
+    }
     .nav-center {
       display: grid;
       grid-template-columns: auto 1fr auto;
@@ -129,7 +137,7 @@ const NavContainer = styled.nav`
         margin: 0 0.5rem;
       }
       a {
-        color: var(--clr-grey-3);
+        color: var(--clr-text-black);
         font-size: 1rem;
         text-transform: capitalize;
         letter-spacing: var(--spacing);

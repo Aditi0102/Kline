@@ -27,7 +27,7 @@ const Wrapper = styled.section`
   color: var(--clr-text-black);
 
   background-image: url(${pageHeroimg});
-  background-size: cover;
+  background-size: 100% 100%;
   .section-center {
     text-align: center;
   }
