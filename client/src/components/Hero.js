@@ -1,29 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import heroBcg from '../assets/hero-bcg.jpeg'
-import heroBcg2 from '../assets/hero-bcg-2.jpeg'
+import heroBcg from '../assets/hero-bcg.jpeg';
+import heroBcg2 from '../assets/hero-bcg-2.jpeg';
+// import { RxDotFilled } from "react-icons/rx";
+
 const Hero = () => {
   return (
     <Wrapper className='section-center'>
       <article className='content'>
-        <h1>
+        <h3>
           design your <br />
           comfort zone
-        </h1>
+        </h3>
         <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto, at
-          sed omnis corporis doloremque possimus velit! Repudiandae nisi odit,
-          aperiam odio ducimus, obcaecati libero et quia tempora excepturi quis
-          alias?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero animi porro maiores architecto. Totam accusantium molestiae necessitatibus tempora ex quaerat?
         </p>
         <Link to='/products' className='btn hero-btn'>
-          shop now
+          Discover Now
         </Link>
       </article>
       <article className='img-container'>
         <img src={heroBcg} alt='nice table' className='main-img' />
-        <img src={heroBcg2} alt='person working' className='accent-img' />
+        {/* <img src={heroBcg2} alt='person working' className='accent-img' /> */}
       </article>
     </Wrapper>
   )
@@ -37,23 +36,25 @@ const Wrapper = styled.section`
   .img-container {
     display: none;
   }
-
   p {
-    line-height: 2;
+    line-height: 1.5;
     max-width: 45em;
     margin-bottom: 2rem;
-    color: var(--clr-grey-5);
-    font-size: 1rem;
+    color: var(--clr-text-black);
+    font-size: 1 rem;
   }
+
+  
   @media (min-width: 992px) {
     height: calc(100vh - 5rem);
     grid-template-columns: 1fr 1fr;
     gap: 8rem;
-    h1 {
+    h3 {
       margin-bottom: 2rem;
+      line-height: 1.2;
     }
     p {
-      font-size: 1.25rem;
+      font-size: 1rem;
     }
     .hero-btn {
       padding: 0.75rem 1.5rem;
