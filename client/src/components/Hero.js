@@ -32,7 +32,8 @@ const Wrapper = styled.section`
   min-height: 60vh;
   display: grid;
   place-items: center;
-  background: var(--clr-white);
+  background: #f5f5f5;
+  margin: 0 0 0 0;
   .img-container {
     display: none;
   }
@@ -46,9 +47,11 @@ const Wrapper = styled.section`
 
   
   @media (min-width: 992px) {
+    max-width: 100%;
+    margin: 0 0;
     height: calc(100vh - 5rem);
     grid-template-columns: 1fr 1fr;
-    gap: 8rem;
+    gap: 1rem;
     h3 {
       margin-bottom: 2rem;
       line-height: 1.2;
@@ -59,6 +62,7 @@ const Wrapper = styled.section`
     .hero-btn {
       padding: 0.75rem 1.5rem;
       font-size: 1rem;
+      
     }
     .img-container {
       display: block;
