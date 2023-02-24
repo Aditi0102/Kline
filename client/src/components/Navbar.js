@@ -60,7 +60,6 @@ const Nav = () => {
 }
 
 const NavContainer = styled.nav`
-  height: 3.3rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -68,15 +67,17 @@ const NavContainer = styled.nav`
   top: 0;
   width: 100%;
   overflow: hidden;
-  z-index: 9999;
+  z-index: 1;
   font: Helvetica;
   .navbar{
     background: transparent;
+    
   } 
   .navbar-colorChange{
     width: 100%;
     background: var(--clr-white);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    padding-top: 0.5rem;
   }
   .nav-center {
     width: 90vw;
@@ -87,14 +88,12 @@ const NavContainer = styled.nav`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    img {
-      width: 175px;
-      margin-left: -15px;
-    }
+    // img {
+    //   width: 175px;
+    //   margin-left: -15px;
+    // }
     h2{
-      padding-top: 30px;
-      padding-bottom: 30px;
-      font-size: 2.5rem;
+      font-size: 2.3rem;
       color: rgb(50,50,50);
       
     }
@@ -108,22 +107,27 @@ const NavContainer = styled.nav`
       font-size: 2rem;
     }
   }
+
   .nav-links {
     display: none;
   }
+
   .cart-btn-wrapper {
     display: none;
   }
+
   @media (min-width: 992px) {
+    .navbar{
+      background: transparent;
+      padding-top: 0.5rem;
+    }
     .nav-toggle {
       display: none;
     }
     h2{
-      padding-top: 30px;
-      padding-bottom: 10px;
-      font-size: 2.5rem;
+      font-size: 2.3rem;
       color: rgb(50,50,50);
-      border-bottom: 2px solid var(--clr-primary-7);
+      letter-spacing: 1;
     }
     .nav-center {
       display: grid;
