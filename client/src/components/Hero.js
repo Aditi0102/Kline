@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import heroBcg from '../assets/hero-bcg.jpeg';
 import heroBcg2 from '../assets/hero-bcg-2.jpeg';
+import Carousel from './Carousel';
 // import { RxDotFilled } from "react-icons/rx";
 
 const Hero = () => {
