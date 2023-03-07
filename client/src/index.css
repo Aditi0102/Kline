@@ -39,6 +39,8 @@ Variables
   --clr-green-dark: hsl(125, 67%, 44%);
   --clr-green-light: hsl(125, 71%, 66%);
   --clr-black: #222;
+  --clr-whitesmoke: #f5f5f5;
+  --clr-footer-white: #b4b3b3;
   --transition: all 0.3s linear;
   
   --spacing: 0.1rem;
