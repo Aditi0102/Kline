@@ -69,14 +69,16 @@ const NavContainer = styled.nav`
   overflow: hidden;
   z-index: 1;
   font: Helvetica;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);  
+
   .navbar{
     background: transparent;
     item-align: center;
+    
   } 
   .navbar-colorChange{
     width: 100%;
     background: var(--clr-white);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     padding-top: 0.9rem;
     height: 80px;
     items-align: center;
@@ -104,6 +106,7 @@ const NavContainer = styled.nav`
     svg {
       font-size: 2rem;
     }
+    
   }
 
   .nav-links {
@@ -115,6 +118,7 @@ const NavContainer = styled.nav`
   }
 
   @media (min-width: 992px) {
+    
     .navbar{
       background: transparent;
       padding-top: 0.9rem;
