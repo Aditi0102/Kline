@@ -43,11 +43,11 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  width: 225px;
+  width: 200px;
 
   .cart-btn {
     color: var(--clr-grey-1);
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     letter-spacing: var(--spacing);
     color: var(--clr-grey-1);
     display: flex;
@@ -59,7 +59,7 @@ const Wrapper = styled.div`
     align-items: center;
     position: relative;
     svg {
-      height: 1.6rem;
+      height: 1.2rem;
       margin-left: 5px;
     }
   }
@@ -83,7 +83,7 @@ const Wrapper = styled.div`
     align-items: center;
     background: transparent;
     border-color: transparent;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     cursor: pointer;
     color: var(--clr-grey-1);
     letter-spacing: var(--spacing);
