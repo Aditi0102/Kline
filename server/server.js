@@ -1,15 +1,11 @@
-const express = require('express');
-const cors = require('cors');
-const app = express();
-const port = 3001;
+const app = require("./app");
 
-app.use(cors());
-app.use(express.json());
+const dotenv = require("dotenv");
+const connectDatabase = require("./config/database");
+//config
+dotenv.config({ path: "./config/config.env" });
 
-app.get('/', (req, res) => {
-  res.status(200).send('Hello World!');
-})
-
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-})
+connectDatabase();
+app.listen(process.env.PORT, () => {
+  console.log(`Server is running on port ${process.env.PORT}`);
+});
