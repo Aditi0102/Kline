@@ -23,7 +23,7 @@ const Nav = () => {
   return (
     
     
-    <NavContainer >
+    <NavContainer>
       <div className={colorChange ? 'navbar-colorChange' : 'navbar'}>
         <div className='nav-center'>
           <div className='nav-header'>
@@ -67,14 +67,14 @@ const NavContainer = styled.nav`
   top: 0;
   width: 100%;
   overflow: hidden;
-  z-index: 1;
+  z-index: 9999;
   font: Helvetica;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);  
-
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  
   .navbar{
     background: transparent;
     item-align: center;
-    
+    height: 80px;
   } 
   .navbar-colorChange{
     width: 100%;
@@ -106,7 +106,6 @@ const NavContainer = styled.nav`
     svg {
       font-size: 2rem;
     }
-    
   }
 
   .nav-links {
@@ -118,7 +117,6 @@ const NavContainer = styled.nav`
   }
 
   @media (min-width: 992px) {
-    
     .navbar{
       background: transparent;
       padding-top: 0.9rem;
