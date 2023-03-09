@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled, { css, keyframes } from "styled-components";
 import { Link } from "react-router-dom";
 
@@ -124,6 +124,11 @@ const StyledIndicator = styled.div`
 
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentImage, setCurrentImage] = useState('');
+  
+  useEffect(() => {
+    setCurrentImage(slides[currentIndex].img);
+  }, [currentIndex]);
 
   const setSlide = (index) => {
     console.log(index);
@@ -132,16 +137,21 @@ const Carousel = () => {
 
   return (
     <StyledCarouselContainer>
-      <StyledImageContainer>
-        <StyledImage src={slides[currentIndex].img} />
-      </StyledImageContainer>
-      <StyledTextContainer>
-        <h2>{slides[currentIndex].name}</h2>
-        <p>{slides[currentIndex].discription}</p>
-        <Link to="/products" className="btn hero-btn">
-          Discover Now
-        </Link>
-      </StyledTextContainer>
+      {currentImage===slides[currentIndex].img &&
+        <StyledImageContainer>
+          <StyledImage src={slides[currentIndex].img} />
+        </StyledImageContainer>
+      }
+      {currentImage===slides[currentIndex].img &&
+        <StyledTextContainer>
+          <h2>{slides[currentIndex].name}</h2>
+          <p>{slides[currentIndex].discription}</p>
+          <Link to="/products" className="btn hero-btn">
+            Discover Now
+          </Link>
+        </StyledTextContainer>
+      }
+
       <StyledIndicatorContainer>
         {slides.map((img, index) => (
           <StyledIndicator
