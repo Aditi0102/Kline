@@ -74,10 +74,10 @@ const StyledCarouselContainer = styled.div`
 `;
 
 const StyledImageContainer = styled.div`
-  width: 30%;
-  height: 45%;
+  width: 40%;
+  height: 55%;
   position: absolute;
-  right: 15%;
+  right: 10%;
   animation: ${ImageAnimation} 1s ease-out;
 `;
 
@@ -90,10 +90,14 @@ const StyledImage = styled.img`
 const StyledTextContainer = styled.div`
   width: 30%;
   height: 30%;
-  left: 19%;
+  left: 15%;
   bottom: 35%;
   position: absolute;
   animation: ${TextAnimation} 1s ease-out;
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
   p {
     margin-top: 2rem;
   }
