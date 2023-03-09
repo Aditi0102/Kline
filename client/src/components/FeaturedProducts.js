@@ -24,7 +24,7 @@ const FeaturedProducts = () => {
         <div className="underline"></div>
       </div>
       <div className="section-center featured">
-        {featured.slice(0, 6).map((product) => {
+        {featured.slice(0, 8).map((product) => {
           return <Product key={product.id} {...product} />;
         })}
       </div>
@@ -48,13 +48,14 @@ const Wrapper = styled.section`
   }
   .btn {
     display: block;
-    width: 160px;
+    max-width: 200px;
     margin: 0 auto;
     text-align: center;
+    padding: 0.7rem 0;
   }
   @media (min-width: 576px) {
     .featured {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 `;

@@ -52,6 +52,45 @@ const Footer = () => {
 };
 
 const StyledFooterContainer = styled.footer`
+background: var(--clr-black);
+padding: 3rem 18%;
+border-bottom: 2px solid #2a2a2a;
+  h3 {
+    width: 100%;
+    color: var(--clr-text-brown);
+    letter-spacing: -0.9px;
+  }
+  span {
+    width: 50%;
+    color: var(--clr-footer-white);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 3rem;
+  }
+  article {
+    color: var(--clr-footer-white);
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+  }
+
+  .Container2 {
+    margin-top: 2rem;
+    h5 {
+      width: 100%;
+      color: var(--clr-white);
+    }
+    ul {
+      font-size: 0.9rem;
+      color: var(--clr-footer-white);
+    }
+    li {
+      margin: 0.5rem 0;
+    }
+    li:hover {
+      border-bottom: 1px solid var(--clr-footer-white);
+    }
+  }
+
   @media (min-width: 776px) {
     display: flex;
     background: var(--clr-black);
@@ -59,13 +98,10 @@ const StyledFooterContainer = styled.footer`
     border-bottom: 2px solid #2a2a2a;
 
     .Container1 {
-      width: 50%;
-    }
-    .Container2 {
-      margin-left: 15rem;
+      width: 60%;
     }
     h3 {
-      width: 50%;
+      width: 100%;
       color: var(--clr-text-brown);
       letter-spacing: -0.9px;
     }
@@ -82,14 +118,23 @@ const StyledFooterContainer = styled.footer`
       margin: 0.5rem 0;
     }
     .Container2 {
+      margin-left: 10rem;
+      width: 40%;
+      // border: 1px solid var(--clr-footer-white);
+      display: flex;
+      flex-direction: column;
       h5 {
+        width: 100%;
         color: var(--clr-white);
+        margin-left: 20%;
       }
       ul {
         font-size: 0.9rem;
         color: var(--clr-footer-white);
+        margin-left: 20%;
       }
       li {
+        width: 100%;
         margin: 0.5rem 0;
       }
       li:hover {
