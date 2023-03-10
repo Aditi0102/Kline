@@ -61,7 +61,7 @@ const Wrapper = styled.article`
     width: 100%;
     height: 100%;
     display: block;
-    border-radius: var(--radius);
+    // border-radius: var(--radius);
     object-fit: cover;
   }
   h5 {
@@ -84,7 +84,7 @@ const Wrapper = styled.article`
       height: 0.5rem;
       background: red;
       margin-left: 0.5rem;
-      border-radius: var(--radius);
+      // border-radius: var(--radius);
     }
   }
   .price-small {
@@ -112,7 +112,7 @@ const Wrapper = styled.article`
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: var(--radius);
+    // border-radius: var(--radius);
     font-size: 0.75rem;
     cursor: pointer;
   }

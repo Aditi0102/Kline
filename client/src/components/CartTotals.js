@@ -65,7 +65,10 @@ const Wrapper = styled.section`
     width: 100%;
     margin-top: 1rem;
     text-align: center;
-    font-weight: 700;
+    font-weight: 400;
+    padding: 1rem 0;
+    letter-spacing: 1px;
+
   }
 `
 
