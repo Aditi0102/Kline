@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { TfiLocationPin } from "react-icons/tfi";
 import { FiMail, FiPhone } from "react-icons/fi";
-import { BsPinterest, BsLinkedin, BsInstagram, BsTwitter } from "react-icons/bs";
+import { BsPinterest, BsLinkedin, BsInstagram } from "react-icons/bs";
 import { FaSnapchat } from "react-icons/fa";
-import { AiFillTwitterCircle, AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
+import { AiFillTwitterCircle } from "react-icons/ai";
 const Footer = () => {
   return (
     <>
