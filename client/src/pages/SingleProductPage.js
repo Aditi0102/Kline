@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useProductsContext } from '../context/products_context';
 import { single_product_url as url } from '../utils/constants';
 import { formatPrice } from '../utils/helpers';
+import indvProduct from '../assets/products/products_indv.json'
 import {
   Loading,
   Error,
@@ -14,6 +15,7 @@ import {
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 const SingleProductPage = () => {
+  const [singleproduct, setsingleproduct] = useState([]);
   const { id } = useParams();
   const navigate = useNavigate();
   const {
@@ -24,7 +26,12 @@ const SingleProductPage = () => {
   } = useProductsContext();
 
   useEffect(() => {
-    fetchSingleProduct(`${url}${id}`);
+    indvProduct.forEach((item) => {
+      if (item.id === id) {
+        setsingleproduct(item);
+      }
+    })
+      // fetchSingleProduct(`${url}${id}`);
     // eslint-disable-next-line
   }, [id]);
   useEffect(() => {
@@ -41,6 +48,7 @@ const SingleProductPage = () => {
   if (error) {
     return <Error />;
   }
+  
 
   const {
     name,
@@ -52,7 +60,7 @@ const SingleProductPage = () => {
     id: sku,
     company,
     images,
-  } = product;
+  } = singleproduct;
   return (
     <Wrapper>
       <PageHero title={name} product />
