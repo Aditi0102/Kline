@@ -17,7 +17,7 @@ const productSchema = new mongoose.Schema({
         maxLength: [5, 'Product price cannot exceed 5 characters'],
         default: 0.0
     },
-    rating: {
+    ratings: {
         type: Number,
         default: 0
     },
@@ -76,6 +76,11 @@ const productSchema = new mongoose.Schema({
             }
         }
     ],
+    user: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'User',
+        required: true,
+    },
     createAt: {
         type: Date,
         default: Date.now
@@ -84,5 +89,6 @@ const productSchema = new mongoose.Schema({
     
 
 })
+
 
 module.exports = mongoose.model('Product', productSchema);
