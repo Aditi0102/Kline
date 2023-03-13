@@ -14,16 +14,12 @@ const AboutPage = () => {
             <div className='underline'></div>
           </div>
           <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat
-            accusantium sapiente tempora sed dolore esse deserunt eaque
-            excepturi, delectus error accusamus vel eligendi, omnis beatae.
-            Quisquam, dicta. Eos quod quisquam esse recusandae vitae neque
-            dolore, obcaecati incidunt sequi blanditiis est exercitationem
-            molestiae delectus saepe odio eligendi modi porro eaque in libero
-            minus unde sapiente consectetur architecto. Ullam rerum, nemo iste
-            ex, eaque perspiciatis nisi, eum totam velit saepe sed quos
-            similique amet. Ex, voluptate accusamus nesciunt totam vitae esse
-            iste.
+            Kline Decor is a Home Decor and Premium Glassware company that specializes in creating elegant and sophisticated pieces to enhance the beauty of any living space. The company offers a wide range of products including glassware, vases, candle holders, decorative bowls, and other home accessories.
+
+            We takes great pride in the quality of their products, using only the finest materials and craftsmanship to create pieces that are both functional and visually stunning. Our glassware is particularly noteworthy, with a focus on creating intricate and delicate designs that showcase the beauty of glass as a material.
+
+            In addition to our high-quality products, Kline Decor also offers exceptional customer service, with a commitment to ensuring that every customer is completely satisfied with their purchase.
+            Overall, Kline Decor is a company that is dedicated to providing customers with premium home decor and glassware that is both functional and aesthetically pleasing.
           </p>
         </article>
       </Wrapper>

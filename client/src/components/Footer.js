@@ -2,6 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { TfiLocationPin } from "react-icons/tfi";
 import { FiMail, FiPhone } from "react-icons/fi";
+import { BsPinterest, BsLinkedin, BsInstagram } from "react-icons/bs";
+import { FaSnapchat } from "react-icons/fa";
+import { AiFillTwitterCircle } from "react-icons/ai";
 const Footer = () => {
   return (
     <>
@@ -9,9 +12,7 @@ const Footer = () => {
         <div className="Container1">
           <h3>Kline Decor</h3>
           <span>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste non
-            ipsam consequatur veritatis rerum. Explicabo obcaecati repellat
-            similique placeat dignissimos!
+          Kline Decor is a Home Decor and Premium Glassware company that specializes in creating elegant and sophisticated pieces to enhance the beauty of any living space.
           </span>
           <br />
           <article>
@@ -41,11 +42,29 @@ const Footer = () => {
       </StyledFooterContainer>
 
       <StyledFooterContainer4 className="footer-bottom">
-        <h5>
-          &copy; {new Date().getFullYear()}
-          <span> Kline Decor</span>
-        </h5>
-        <h5>All rights reserved</h5>
+        <div>
+          <h5>
+            &copy; {new Date().getFullYear()}
+            <span> Kline Decor </span>
+          All rights reserved</h5>
+        </div>
+        <div className="social-media-handles">
+          <a href="https://twitter.com/KlineDecor" target="blank">
+            <AiFillTwitterCircle></AiFillTwitterCircle>
+          </a>
+          <a href="https://www.instagram.com/klinedecor/" target="blank">
+            <BsInstagram></BsInstagram>
+          </a>
+          <a href="https://in.pinterest.com/klinedecor/" target="blank">
+            <BsPinterest></BsPinterest>
+          </a>
+          <a href="https://www.snapchat.com/add/klinedecor.us" target="blank">
+            <FaSnapchat></FaSnapchat>
+          </a>
+          <a href="https://www.linkedin.com/klinedecor/" target="blank">
+            <BsLinkedin></BsLinkedin>
+          </a>
+        </div>
       </StyledFooterContainer4>
     </>
   );
@@ -100,6 +119,7 @@ border-bottom: 2px solid #2a2a2a;
     .Container1 {
       width: 60%;
     }
+    
     h3 {
       width: 100%;
       color: var(--clr-text-brown);
@@ -147,7 +167,7 @@ const StyledFooterContainer4 = styled.footer`
   height: 5rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   background: var(--clr-black);
   text-align: center;
@@ -162,6 +182,11 @@ const StyledFooterContainer4 = styled.footer`
     text-transform: none;
     line-height: 1.25;
     font-size: 0.9rem;
+  }
+  a{
+    margin-left:1.5rem;
+    color: var(--clr-footer-white);
+    font-size: 1.2em;
   }
   @media (min-width: 776px) {
     flex-direction: row;

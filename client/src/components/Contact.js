@@ -49,6 +49,7 @@ const Wrapper = styled.section`
     margin: 0 auto;
     justify-content: center;
     max-width: 500px;
+    border: none;
   }
   .btn {
     display: block;
@@ -56,7 +57,7 @@ const Wrapper = styled.section`
     margin: 0 auto;
     margin-top: 2rem;
     text-align: center;
-    padding: 0.9rem 2rem;
+    padding: 0.9rem 2.5rem;
   }
   .form-input{
     border: none;
@@ -66,10 +67,14 @@ const Wrapper = styled.section`
     text-align: center;
     width: 100%;
   }
+  .form-input:focus {
+    outline: none;
+  }
   .form-input::placeholder {
     color: var(--clr-grey-11);
     text-transform: capitalize;
     text-align: center;
+
   }
   @media (min-width: 992px) {
   }

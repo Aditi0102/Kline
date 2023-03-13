@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled, { css, keyframes } from "styled-components";
 import { Link } from "react-router-dom";
 
@@ -74,10 +74,10 @@ const StyledCarouselContainer = styled.div`
 `;
 
 const StyledImageContainer = styled.div`
-  width: 30%;
-  height: 45%;
+  width: 40%;
+  height: 55%;
   position: absolute;
-  right: 15%;
+  right: 10%;
   animation: ${ImageAnimation} 1s ease-out;
 `;
 
@@ -90,10 +90,14 @@ const StyledImage = styled.img`
 const StyledTextContainer = styled.div`
   width: 30%;
   height: 30%;
-  left: 19%;
+  left: 15%;
   bottom: 35%;
   position: absolute;
   animation: ${TextAnimation} 1s ease-out;
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
   p {
     margin-top: 2rem;
   }
@@ -124,6 +128,11 @@ const StyledIndicator = styled.div`
 
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentImage, setCurrentImage] = useState('');
+  
+  useEffect(() => {
+    setCurrentImage(slides[currentIndex].img);
+  }, [currentIndex]);
 
   const setSlide = (index) => {
     console.log(index);
@@ -132,16 +141,21 @@ const Carousel = () => {
 
   return (
     <StyledCarouselContainer>
-      <StyledImageContainer>
-        <StyledImage src={slides[currentIndex].img} />
-      </StyledImageContainer>
-      <StyledTextContainer>
-        <h2>{slides[currentIndex].name}</h2>
-        <p>{slides[currentIndex].discription}</p>
-        <Link to="/products" className="btn hero-btn">
-          Discover Now
-        </Link>
-      </StyledTextContainer>
+      {currentImage===slides[currentIndex].img &&
+        <StyledImageContainer>
+          <StyledImage src={slides[currentIndex].img} />
+        </StyledImageContainer>
+      }
+      {currentImage===slides[currentIndex].img &&
+        <StyledTextContainer>
+          <h2>{slides[currentIndex].name}</h2>
+          <p>{slides[currentIndex].discription}</p>
+          <Link to="/products" className="btn hero-btn">
+            Discover Now
+          </Link>
+        </StyledTextContainer>
+      }
+
       <StyledIndicatorContainer>
         {slides.map((img, index) => (
           <StyledIndicator
