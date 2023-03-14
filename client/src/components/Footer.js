@@ -61,7 +61,7 @@ const Footer = () => {
           <a href="https://www.snapchat.com/add/klinedecor.us" target="blank">
             <FaSnapchat></FaSnapchat>
           </a>
-          <a href="https://www.linkedin.com/klinedecor/" target="blank">
+          <a href="https://www.linkedin.com/company/klinedecor/" target="blank">
             <BsLinkedin></BsLinkedin>
           </a>
         </div>
