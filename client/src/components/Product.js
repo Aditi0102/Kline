@@ -4,7 +4,7 @@ import { formatPrice } from "../utils/helpers";
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 const Product = ({ images, name, price, _id }) => {
-  // console.log(images);
+  console.log(images);
   const id = _id;
   // console.log(id, "product id");
   let img_id = images[0].url;
@@ -14,6 +14,7 @@ const Product = ({ images, name, price, _id }) => {
     return str.substring(pos, str.indexOf(endStr, pos));
   }
   img_id = string_between_strings("/d/", "/view?", img_id);
+
   return (
     <Wrapper>
       <div className="container">
