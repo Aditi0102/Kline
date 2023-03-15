@@ -12,7 +12,7 @@ import {
   GET_SINGLE_PRODUCT_SUCCESS,
   GET_SINGLE_PRODUCT_ERROR,
 } from '../actions'
-import product_s from '../assets/products/products.json' 
+// import product_s from '../assets/products/products.json' 
 
 const initialState = {
   isSidebarOpen: false,
@@ -41,7 +41,7 @@ export const ProductsProvider = ({ children }) => {
     dispatch({ type: GET_PRODUCTS_BEGIN })
     try {
       const response = await axios.get(url)
-      console.log(response.data)
+      // console.log(response.data)
       // const products = product_s
       const products = response.data.products
       dispatch({ type: GET_PRODUCTS_SUCCESS, payload: products })
@@ -51,6 +51,7 @@ export const ProductsProvider = ({ children }) => {
   }
   
   const fetchSingleProduct = async (url) => {
+    // console.log(url);
     dispatch({ type: GET_SINGLE_PRODUCT_BEGIN })
     try {
       const response = await axios.get(url)

@@ -6,8 +6,9 @@ import { useCartContext } from '../context/cart_context'
 import AmountButtons from './AmountButtons'
 const AddToCart = ({ product }) => {
   // add to cart
+  console.log(product , 'add to cart'); 
   const { addToCart } = useCartContext()
-  const { id, stock, colors } = product
+  const { _id : id, stock } = product;
   const [mainColor, setMainColor] = useState(colors[0])
   const [amount, setAmount] = useState(1)
 
@@ -114,3 +115,5 @@ const Wrapper = styled.section`
   }
 `
 export default AddToCart
+
+const colors = ['#222', '#f15025', '#ff523b', '#fcb045', '#eccc68', '#f5cd79']

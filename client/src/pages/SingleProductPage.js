@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useProductsContext } from "../context/products_context";
 import { single_product_url as url } from "../utils/constants";
 import { formatPrice } from "../utils/helpers";
-import indvProduct from "../assets/products/products_indv.json";
+// import indvProduct from "../assets/products/products_indv.json";
 import {
   Loading,
   Error,
@@ -12,11 +12,12 @@ import {
   Stars,
   PageHero,
 } from "../components";
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import { Link } from "react-router-dom";
-const SingleProductPage = () => {
-  const [singleproduct, setsingleproduct] = useState([]);
-  const { id } = useParams();
+const SingleProduct = () => {
+  const { productid } = useParams();
+  const id = productid;
+  // console.log(`ye useParam ke baad wali hai ${id}`)
   const navigate = useNavigate();
   const {
     single_product_loading: loading,
@@ -31,6 +32,7 @@ const SingleProductPage = () => {
     //     setsingleproduct(item);
     //   }
     // })
+    // console.log(`ye useEffect ke andar wali hai ${id}`)
     fetchSingleProduct(`${url}${id}`);
     // eslint-disable-next-line
   }, [id]);
@@ -48,18 +50,21 @@ const SingleProductPage = () => {
   if (error) {
     return <Error />;
   }
-
+  console.log(product , 'single product')
+  const single_product = {...product.product};
   const {
     name,
     price,
     description,
     stock,
-    stars,
+    rating: stars,
     reviews,
-    id: sku,
-    company,
+    _id: sku,
     images,
-  } = product;
+  } = single_product;
+  console.log(name , 'name');
+  // const name = "singh";
+  console.log(images , 'images');
   return (
     <Wrapper>
       <PageHero title={name} product />
@@ -82,12 +87,12 @@ const SingleProductPage = () => {
               <span>SKU :</span>
               {sku}
             </p>
-            <p className="info">
+            {/* <p className="info">
               <span>Brand :</span>
               {company}
-            </p>
+            </p> */}
             <hr />
-            {stock > 0 && <AddToCart product={product} />}
+            {stock > 0 && <AddToCart product={single_product} />}
           </section>
         </div>
       </div>
@@ -129,4 +134,4 @@ const Wrapper = styled.main`
   }
 `;
 
-export default SingleProductPage;
+export default SingleProduct;
