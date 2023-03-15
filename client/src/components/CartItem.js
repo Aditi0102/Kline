@@ -12,10 +12,11 @@ const CartItem = ({ id, image, name, color, price, amount }) => {
   const decrease = () => {
     toggleAmount(id, 'dec')
   }
+ 
   return (
     <Wrapper>
       <div className='title'>
-        <img src={image} alt={name} />
+        <img src={image}alt={name} />
         <div>
           <h5 className='name'>{name}</h5>
           <p className='color'>
@@ -63,6 +64,7 @@ const Wrapper = styled.article`
     display: block;
     // border-radius: var(--radius);
     object-fit: cover;
+    border: 1px solid var(--clr-grey-10);
   }
   h5 {
     font-size: 0.75rem;
