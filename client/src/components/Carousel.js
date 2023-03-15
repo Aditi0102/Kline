@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled, { css, keyframes } from "styled-components";
 import { Link } from "react-router-dom";
 
-import first from "../assets/carouselImg/img1.png";
+import first from "../assets/carouselImg/kline-decor.png";
 import second from "../assets/carouselImg/img2.png";
 import third from "../assets/carouselImg/img3.png";
 import fourth from "../assets/carouselImg/img4.png";
@@ -10,10 +10,10 @@ import fifth from "../assets/carouselImg/img5.png";
 
 const slides = [
   {
-    name: "Product 1",
+    name: "Pre Order Now...",
     url: "https://drive.google.com/file/d/14wQLMFP32zvdIlC3TYaHFasLnhEBQTC2/view?usp=sharing",
     discription:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, saepe tenetur et ratione voluptatum debitis.",
+      "Buy from our table lamp series and get a chance to win this",
     img: first,
   },
   {
@@ -74,17 +74,16 @@ const StyledCarouselContainer = styled.div`
 `;
 
 const StyledImageContainer = styled.div`
-  width: 40%;
-  height: 55%;
+  width: 25%;
+  height: 60%;
   position: absolute;
-  right: 10%;
+  right: 17%;
   animation: ${ImageAnimation} 1s ease-out;
 `;
 
 const StyledImage = styled.img`
   width: 100%;
   height: 100%;
-  margin-bottom: 4rem;
 `;
 
 const StyledTextContainer = styled.div`

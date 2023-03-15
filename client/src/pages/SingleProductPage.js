@@ -17,7 +17,8 @@ import { Link } from "react-router-dom";
 const SingleProduct = () => {
   const { productid } = useParams();
   const id = productid;
-  // console.log(`ye useParam ke baad wali hai ${id}`)
+  // console.log(url);
+  // console.log(`ye useParam ke baad wali hai ${id}`);
   const navigate = useNavigate();
   const {
     single_product_loading: loading,
@@ -25,14 +26,8 @@ const SingleProduct = () => {
     single_product: product,
     fetchSingleProduct,
   } = useProductsContext();
-
+  // console.log(`${url}${id}`, "d");
   useEffect(() => {
-    // indvProduct.forEach((item) => {
-    //   if (item.id === id) {
-    //     setsingleproduct(item);
-    //   }
-    // })
-    // console.log(`ye useEffect ke andar wali hai ${id}`)
     fetchSingleProduct(`${url}${id}`);
     // eslint-disable-next-line
   }, [id]);
@@ -44,14 +39,8 @@ const SingleProduct = () => {
     }
     // eslint-disable-next-line
   }, [error]);
-  if (loading) {
-    return <Loading />;
-  }
-  if (error) {
-    return <Error />;
-  }
-  console.log(product , 'single product')
-  const single_product = {...product.product};
+  console.log(product, "single product");
+  const single_product = { ...product.product };
   const {
     name,
     price,
@@ -62,11 +51,49 @@ const SingleProduct = () => {
     _id: sku,
     images,
   } = single_product;
-  console.log(name , 'name');
-  // const name = "singh";
-  console.log(images , 'images');
-  return (
-    <Wrapper>
+  
+  const Wrapper = styled.main`
+  .product-center {
+      display: grid;
+      gap: 4rem;
+      margin-top: 2rem;
+    }
+    .price {
+      color: var(--clr-primary-5);
+    }
+    .desc {
+      line-height: 2;
+      max-width: 45em;
+    }
+    .info {
+      text-transform: capitalize;
+      width: 300px;
+      display: grid;
+      grid-template-columns: 125px 1fr;
+      span {
+        font-weight: 700;
+      }
+    }
+    
+    @media (min-width: 992px) {
+      .product-center {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+      }
+      .price {
+        font-size: 1.25rem;
+      }
+    }
+    `;
+    
+    if (loading) {
+      return <Loading />;
+    }
+    if (error) {
+      return <Error />;
+    }
+    return (
+      <Wrapper>
       <PageHero title={name} product />
       <div className="section section-center page">
         <Link to="/products" className="btn">
@@ -99,39 +126,5 @@ const SingleProduct = () => {
     </Wrapper>
   );
 };
-
-const Wrapper = styled.main`
-  .product-center {
-    display: grid;
-    gap: 4rem;
-    margin-top: 2rem;
-  }
-  .price {
-    color: var(--clr-primary-5);
-  }
-  .desc {
-    line-height: 2;
-    max-width: 45em;
-  }
-  .info {
-    text-transform: capitalize;
-    width: 300px;
-    display: grid;
-    grid-template-columns: 125px 1fr;
-    span {
-      font-weight: 700;
-    }
-  }
-
-  @media (min-width: 992px) {
-    .product-center {
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-    }
-    .price {
-      font-size: 1.25rem;
-    }
-  }
-`;
 
 export default SingleProduct;

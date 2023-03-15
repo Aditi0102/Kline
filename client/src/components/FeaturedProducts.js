@@ -1,22 +1,29 @@
-import React from "react";
-import { useProductsContext } from "../context/products_context";
+import React, { useEffect } from "react";
+import { useFilterContext} from "../context/filter_context";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Error from "./Error";
 import Loading from "./Loading";
 import Product from "./Product";
+import {products_url as url} from "../utils/constants";
+
 const FeaturedProducts = () => {
-  const {
-    products_loading: loading,
-    products_error: error,
-    featured_products: featured,
-  } = useProductsContext();
+  // const {
+  //   products_loading: loading,
+  //   products_error: error,
+  //   featured_products: featured,
+  // } = useProductsContext();
+  const { filtered_products: featured , loading , error } = useFilterContext()
+
   if (loading) {
     return <Loading />;
   }
   if (error) {
     return <Error />;
   }
+
+  console.log(featured, "featured products")
+
   return (
     <Wrapper className="section">
       <div className="title">
@@ -25,7 +32,7 @@ const FeaturedProducts = () => {
       </div>
       <div className="section-center featured">
         {featured.slice(0, 6).map((product) => {
-          return <Product key={product.id} {...product} />;
+          return <Product key={product._id} {...product} />;
         })}
       </div>
       <Link to="/products" className="btn">

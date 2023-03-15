@@ -4,7 +4,7 @@ import { formatPrice } from "../utils/helpers";
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 const Product = ({ images, name, price, _id }) => {
-  console.log(images);
+  // console.log(images);
   const id = _id;
   // console.log(id, "product id");
   let img_id = images[0].url;
@@ -24,7 +24,7 @@ const Product = ({ images, name, price, _id }) => {
           src={`https://drive.google.com/uc?export=view&id=${img_id}`}
           alt={name}
         />
-        <Link to={`/products/${id}`} className="link">
+        <Link to={`/product/${id}`} className="link">
           <FaSearch />
         </Link>
       </div>

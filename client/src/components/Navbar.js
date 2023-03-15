@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo_transparent.png";
 import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { links } from "../utils/constants";
@@ -25,8 +25,8 @@ const Nav = () => {
         <div className="nav-center">
           <div className="nav-header">
             <Link to="/">
-              {/* <img src={logo} alt="Kline Decor" /> */}
-              <h2>Kline Decor</h2>
+              <img src={logo} alt="Kline Decor" />
+              {/* <h2>Kline Decor</h2> */}
             </Link>
             <button type="button" className="nav-toggle" onClick={openSidebar}>
               <FaBars />
@@ -78,6 +78,10 @@ const NavContainer = styled.nav`
     height: 80px;
     items-align: center;
   }
+  img{
+    width: 120px;
+    height: auto;
+  }
   .nav-center {
     width: 90vw;
     margin: 0 auto;
@@ -112,11 +116,7 @@ const NavContainer = styled.nav`
   }
 
   @media (min-width: 992px) {
-    img{
-      width: 100px;
-      height: 100px;
-
-    }
+    
     .navbar {
       background: transparent;
       padding-top: 0.9rem;

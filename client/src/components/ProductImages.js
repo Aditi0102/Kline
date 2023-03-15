@@ -1,39 +1,54 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
 const ProductImages = ({ images = [[]] }) => {
-  console.log(images)
+  //STATES
+
+  const [main, setMain] = useState(images[0]);
+  //FUNCTIONS
   function string_between_strings(startStr, endStr, str) {
-    let pos = str.indexOf(startStr) + startStr.length;
-    return str.substring(pos, str.indexOf(endStr, pos));
+    let pos = str?.indexOf(startStr) + startStr?.length;
+    return str?.substring(pos, str.indexOf(endStr, pos));
   }
-  
-  images=images.map((image) => {
-      console.log(image.url, "image.url")
-      let img_id = image.url;
-      img_id = string_between_strings("/d/", "/view?", img_id);
-      return { ...image, url: `https://drive.google.com/uc?export=view&id=${img_id}` }
-    })
-    
-  const [main, setMain] = useState(images[0])
+  const newImages = images.map((image) => {
+    // console.log(image.url, "image.url")
+    let img_id = image.url;
+    img_id = string_between_strings("/d/", "/view?", img_id);
+    return {
+      ...image,
+      url: `https://drive.google.com/uc?export=view&id=${img_id}`,
+    };
+  });
+
+  //EFFECTS
+
+  useEffect(() => {
+    setMain(newImages[0]);
+  }, []);
+  // console.log(main, "mains");
+  // console.log(newImages, "newImages");
+  //RENDER
+
   return (
     <Wrapper>
-      <img src={main.url} alt='' className='main ' />
-      <div className='gallery'>
-        {images.map((image, index) => {
+      <img src={main?.url} alt="" className="main " />
+      <div className="gallery">
+        {newImages?.map((newImages, index) => {
           return (
             <img
-              src={image.url}
-              alt=''
+              src={newImages.url}
+              alt=""
               key={index}
-              className={`${image.url === main.url ? 'active' : null}`}
-              onClick={() => setMain(images[index])}
+              className={`${newImages?.url === main?.url ? "active" : null}`}
+              onClick={() => {
+                setMain(newImages);
+              }}
             />
-          )
+          );
         })}
       </div>
     </Wrapper>
-  )
-}
+  );
+};
 
 const Wrapper = styled.section`
   .main {
@@ -78,6 +93,6 @@ const Wrapper = styled.section`
       }
     }
   }
-`
+`;
 
-export default ProductImages
+export default ProductImages;
