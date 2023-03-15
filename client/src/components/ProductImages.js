@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 const ProductImages = ({ images = [[]] }) => {
-  
+  console.log(images)
   function string_between_strings(startStr, endStr, str) {
     let pos = str.indexOf(startStr) + startStr.length;
     return str.substring(pos, str.indexOf(endStr, pos));

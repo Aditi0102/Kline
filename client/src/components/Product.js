@@ -14,6 +14,7 @@ const Product = ({ images, name, price, _id }) => {
     return str.substring(pos, str.indexOf(endStr, pos));
   }
   img_id = string_between_strings("/d/", "/view?", img_id);
+  // console.log(img_id)
   return (
     <Wrapper>
       <div className="container">
