@@ -33,7 +33,7 @@ const AddToCart = ({ product }) => {
   return (
     <Wrapper>
       <div className='colors'>
-        <span>colors :</span>
+        {/* <span>colors :</span>
         <div>
           {colors.map((color, index) => {
             return (
@@ -49,7 +49,7 @@ const AddToCart = ({ product }) => {
               </button>
             )
           })}
-        </div>
+        </div> */}
       </div>
       <div className='btn-container'>
         <AmountButtons
@@ -63,7 +63,7 @@ const AddToCart = ({ product }) => {
           className='btn'
           onClick={() => addToCart(id, mainColor, amount, product)}
         >
-          add to cart
+          Pre-order NOW
         </Link>
       </div>
     </Wrapper>
@@ -111,7 +111,7 @@ const Wrapper = styled.section`
 
   .btn {
     margin-top: 1rem;
-    width: 140px;
+    width: auto;
   }
 `
 export default AddToCart

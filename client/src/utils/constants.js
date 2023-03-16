@@ -11,11 +11,11 @@ export const links = [
     text: 'about',
     url: '/about',
   },
-  {
-    id: 3,
-    text: 'products',
-    url: '/products',
-  },
+  // {
+  //   id: 3,
+  //   text: 'products',
+  //   url: '/products',
+  // },
 ]
 
 export const services = [

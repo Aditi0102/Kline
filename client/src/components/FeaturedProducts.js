@@ -7,13 +7,19 @@ import Loading from "./Loading";
 import Product from "./Product";
 import {products_url as url} from "../utils/constants";
 
-const FeaturedProducts = () => {
+const FeaturedProducts = ({title, start, end}) => {
   // const {
   //   products_loading: loading,
   //   products_error: error,
   //   featured_products: featured,
   // } = useProductsContext();
   const { filtered_products: featured , loading , error } = useFilterContext()
+
+  // console.log(featured, "featured products")
+  // console.log(title, "featured products props")
+  // console.log(start, `featured products ${title} start`)
+  // console.log(typeof(start), `featured products ${title} start`)
+  // console.log(end, `featured products ${title} end`)
 
   if (loading) {
     return <Loading />;
@@ -22,22 +28,20 @@ const FeaturedProducts = () => {
     return <Error />;
   }
 
-  console.log(featured, "featured products")
-
   return (
     <Wrapper className="section">
       <div className="title">
-        <h2>featured products</h2>
+        <h2>{title}</h2>
         <div className="underline"></div>
       </div>
       <div className="section-center featured">
-        {featured.slice(0, 6).map((product) => {
+        {featured.slice(start, end).map((product) => {
           return <Product key={product._id} {...product} />;
         })}
       </div>
-      <Link to="/products" className="btn">
+      {/* <Link to="/products" className="btn">
         all products
-      </Link>
+      </Link> */}
     </Wrapper>
   );
 };
