@@ -17,8 +17,9 @@ const Nav = () => {
     }
   };
   window.addEventListener("scroll", changeNavbarColor);
-  const { openSidebar } = useProductsContext();
+  const { openSidebar, isSidebarOpen } = useProductsContext();
   const { myUser } = useUserContext();
+  console.log(isSidebarOpen, "sidebar status");
   return (
     <NavContainer>
       <div className={colorChange ? "navbar-colorChange" : "navbar"}>
@@ -70,6 +71,7 @@ const NavContainer = styled.nav`
     background: transparent;
     item-align: center;
     height: 80px;
+    padding-top: 0.9rem;
   }
   .navbar-colorChange {
     width: 100%;
@@ -78,7 +80,7 @@ const NavContainer = styled.nav`
     height: 80px;
     items-align: center;
   }
-  img{
+  img {
     width: 120px;
     height: auto;
   }
@@ -116,9 +118,10 @@ const NavContainer = styled.nav`
   }
 
   @media (min-width: 992px) {
-    
     .navbar {
       background: transparent;
+      item-align: center;
+      height: 80px;
       padding-top: 0.9rem;
     }
     .nav-toggle {

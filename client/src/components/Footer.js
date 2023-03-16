@@ -15,7 +15,7 @@ const Footer = () => {
           Kline Decor is a Home Decor and Premium Glassware company that specializes in creating elegant and sophisticated pieces to enhance the beauty of any living space.
           </span>
           <br />
-          <article>
+          {/* <article>
             {" "}
             <TfiLocationPin /> Address of the company, street, city, state,
             country, zip code
@@ -23,10 +23,10 @@ const Footer = () => {
           <article>
             {" "}
             <FiPhone /> Phone: +1 234 567 890
-          </article>
+          </article> */}
           <article>
             {" "}
-            <FiMail /> Email: dummy@gmail.com.
+            <FiMail /> Email: support@klinedecor.com.
           </article>
         </div>
         <div className="Container2">

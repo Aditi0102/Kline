@@ -1,17 +1,32 @@
 import React from "react";
 import styled from "styled-components";
+import iphone from "../assets/carouselImg/iphone14.webp";
+import smartwatch from "../assets/carouselImg/smartwatch.webp";
 const Contact = () => {
   return (
     <Wrapper>
       <div className="section-center">
         <div className="title">
-          <h2>Get Discount Info</h2>
+          <h2>Pre Order Now and get...</h2>
+        </div>
+        <div className="image-box">
+          <div className="image-container">
+            <img src={smartwatch } alt="watch" />
+            <h4>Free Smartwatch <br /></h4>
+            <h5>Worth $199*</h5>
+          </div>
+          <div><h1>+</h1></div>
+          <div className="image-container">
+            <img src={iphone} alt="iphone14" />
+            <h5>A Chance to win</h5>
+            <h4> iPhone 14 Pro Max</h4>
+          </div>
         </div>
         <div className="content">
-          <p>
+          {/* <p>
             Subscribe to the Kline Decor's mailing list to receive updates on
             new arrivals, special offers and other discount information.
-          </p>
+          </p> */}
         </div>
         <form className="email-form">
           <input
@@ -20,15 +35,37 @@ const Contact = () => {
             placeholder="Subscribe to our mailing list.."
           />
         </form>
-          <button type="submit" className="btn">
-            subscribe
-          </button>
+        <button type="submit" className="btn">
+          subscribe
+        </button>
       </div>
     </Wrapper>
   );
 };
 const Wrapper = styled.section`
   margin: 4rem auto;
+  .image-box {
+    // margin-top: 4rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1rem auto;
+  }
+  .image-container {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+  }
+  img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    // border: 1px solid var(--clr-grey-10);
+    margin: 1rem auto;
+  }
+  .title {
+    margin-bottom: 4rem;
+  }
   h3 {
     text-transform: none;
   }
@@ -59,7 +96,7 @@ const Wrapper = styled.section`
     text-align: center;
     padding: 0.9rem 2.5rem;
   }
-  .form-input{
+  .form-input {
     border: none;
     border-bottom: 1px solid var(--clr-grey-11);
     font-size: 1rem;
@@ -74,7 +111,6 @@ const Wrapper = styled.section`
     color: var(--clr-grey-11);
     text-transform: capitalize;
     text-align: center;
-
   }
   @media (min-width: 992px) {
   }
