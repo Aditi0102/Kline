@@ -33,13 +33,13 @@ const Footer = () => {
         <div className="Container2">
           <h5>Customer Service</h5>
           <ul>
-            <li>Shipping Policy</li>
-            <li>Help & ContactUs</li>
-            <li>Returns & Refunds</li>
-            <li>Online Stores</li>
+            <li><Link to="/" style={{color: `var(--clr-footer-white)`}}>Shipping Policy</Link></li>
             <li>
-              <Link to="/terms">Terms & Conditions</Link>
-              </li>
+              <Link to="/" style={{color: `var(--clr-footer-white)`}}>Returns & Refunds</Link>
+            </li>
+            <li>
+              <Link to="/terms" style={{color: `var(--clr-footer-white)`}}>Terms & Conditions</Link>
+            </li>
           </ul>
         </div>
       </StyledFooterContainer>
@@ -77,6 +77,7 @@ const StyledFooterContainer = styled.footer`
 background: var(--clr-black);
 padding: 3rem 18%;
 border-bottom: 2px solid #2a2a2a;
+  
   h3 {
     width: 100%;
     color: var(--clr-text-brown);
@@ -97,6 +98,9 @@ border-bottom: 2px solid #2a2a2a;
 
   .Container2 {
     margin-top: 2rem;
+    Link {
+      color: var(--clr-footer-white);
+    }
     h5 {
       width: 100%;
       color: var(--clr-white);
@@ -106,11 +110,11 @@ border-bottom: 2px solid #2a2a2a;
       color: var(--clr-footer-white);
     }
     li {
+      color: var(--clr-footer-white);
       margin: 0.5rem 0;
     }
     
-    li:hover {
-     
+    li:hover { 
       border-bottom: 1px solid var(--clr-footer-white);
     }
   }
@@ -161,6 +165,7 @@ border-bottom: 2px solid #2a2a2a;
       li {
         width: 100%;
         margin: 0.5rem 0;
+        color: var(--clr-footer-white);
       }
       li:hover {
         border-bottom: 1px solid var(--clr-footer-white);
