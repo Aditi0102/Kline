@@ -12,7 +12,9 @@ import {
   PrivateRoute,
   AuthWrapper,
   TermsAndConditions,
+  LoginSignUp,
 } from './pages'
+
 function App() {
   return (
     <AuthWrapper>
@@ -26,6 +28,7 @@ function App() {
           <Route path='products' element={<Products />} />
           <Route path='products/:productid' element={<SingleProduct />} />
           <Route path='terms' element={<TermsAndConditions />} />
+          <Route path='login' element={<LoginSignUp/>}/>
           <Route
             path='checkout'
             element={

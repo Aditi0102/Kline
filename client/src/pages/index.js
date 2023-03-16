@@ -8,6 +8,7 @@ import Checkout from './CheckoutPage'
 import PrivateRoute from './PrivateRoute'
 import AuthWrapper from './AuthWrapper'
 import TermsAndConditions from './TermsAndConditions'
+import LoginSignUp from './LoginSignUp'
 export {
   Home,
   SingleProduct,
@@ -19,4 +20,5 @@ export {
   PrivateRoute,
   AuthWrapper,
   TermsAndConditions,
+  LoginSignUp
 }
