@@ -44,12 +44,11 @@ If you have any questions about this promotion or your pre-order, please contact
 }
 const Wrapper = styled.section`
   display: grid;
-  gap: 4rem;
   justify-content: center;
   h2{
     width: 100%;
     align: center;
-    margin-left: 26rem;
+    
    
   }
   img {
@@ -63,7 +62,7 @@ const Wrapper = styled.section`
     line-height: 2;
     font-size: 1.15rem;
     font-weight: 200;
-    max-width: 100rem;
+    max-width: 35rem;
     margin: 0 auto;
     margin-top: 2rem;
     color: var(--clr-grey-5);
@@ -72,9 +71,20 @@ const Wrapper = styled.section`
     text-align: left;
   }
   .underline {
-    margin-left: 35rem;
+    margin-left: 0rem;
   }
   @media (min-width: 992px) {
+     display: block;
+    h2{
+        margin-left: 26rem;
+    }
+    p{
+        width: 100%;
+        max-width: 100%;
+    }
+    .underline {
+      margin-left: 35rem;
+    }
     grid-template-columns: 1fr 1fr;
   }
 `
