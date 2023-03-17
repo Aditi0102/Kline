@@ -1,13 +1,14 @@
 import React, { Fragment, useRef, useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import "./LoginSignUp.css";
 import { useDispatch, useSelector } from 'react-redux'
 import { login, clearErrors, register } from '../actions/userAction'
 import { useAlert } from 'react-alert'
 
 export default function LoginSignUp() {
-    const dispatch = useDispatch();
-    const alert = useAlert();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const alert = useAlert();
  
   const loginTab = useRef(null);
   const registerTab = useRef(null);
@@ -42,7 +43,7 @@ export default function LoginSignUp() {
     myForm.set("email", email);
     myForm.set("password", password);
     myForm.set("avatar", avatar);
-     dispatch(register(myForm));
+    dispatch(register(myForm));
   };
 
   const registerDataChange = (e) => {
@@ -71,9 +72,10 @@ export default function LoginSignUp() {
     }
 
     if (isAuthenticated) {
-      history.push("/account");
+      navigate("/account");
+      // history.push("/account");
     }
-  }, [dispatch, error, alert, history, isAuthenticated]);
+  }, [dispatch, error, alert, navigate, isAuthenticated]);
 
   const switchTabs = (e, tab) => {
     if (tab === "login") {
