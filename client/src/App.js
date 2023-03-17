@@ -5,6 +5,7 @@ import store from './store'
 import { loadUser } from './actions/userAction'
 import UserOptions from './components/UserOptions'
 import { useSelector } from 'react-redux'
+import ProtectedRoute from './components/ProtectedRoute'
 import {
   Home,
   SingleProduct,
@@ -42,7 +43,8 @@ function App() {
           <Route path='products/:productid' element={<SingleProduct />} />
           <Route path='terms' element={<TermsAndConditions />} />
           <Route path='login' element={<LoginSignUp/>}/>
-          <Route path ='account' element={<Profile/>} />
+          {/* <ProtectedRoute path ='account' element={<Profile/>} /> */}
+                    < Route path ='account' element={<Profile/>} />
           <Route
             path='checkout'
             element={
