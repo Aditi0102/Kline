@@ -6,6 +6,10 @@ import { loadUser } from './actions/userAction'
 import UserOptions from './components/UserOptions'
 import { useSelector } from 'react-redux'
 import ProtectedRoute from './components/ProtectedRoute'
+import UpdateProfile from './components/UpdateProfile'
+import UpdatePassword from './components/UpdatePassword'
+import ForgotPassword from './components/ForgotPassword'
+import ResetPassword from './components/ResetPassword'
 import {
   Home,
   SingleProduct,
@@ -18,8 +22,9 @@ import {
   AuthWrapper,
   TermsAndConditions,
   LoginSignUp,
-  Profile
+  Profile,
 } from './pages'
+import { Switch } from '@material-ui/core'
 
 function App() {
   const {isAuthenticated, user} = useSelector((state) => state.user); 
@@ -35,7 +40,7 @@ function App() {
         <Navbar />
         <Sidebar />
         {isAuthenticated && <UserOptions user={user} />}
-        <Routes>
+        <Switch>
           <Route path='/' element={<Home />} />
           <Route path='about' element={<About />} />
           <Route path='cart' element={<Cart />} />
@@ -43,8 +48,11 @@ function App() {
           <Route path='products/:productid' element={<SingleProduct />} />
           <Route path='terms' element={<TermsAndConditions />} />
           <Route path='login' element={<LoginSignUp/>}/>
-          {/* <ProtectedRoute path ='account' element={<Profile/>} /> */}
-                    < Route path ='account' element={<Profile/>} />
+          <ProtectedRoute exact path ='/account' element={<Profile/>} />
+          <ProtectedRoute exact path ='/me/update' element={<UpdateProfile/>} />
+          <ProtectedRoute exact path ='/password/update' element={<UpdatePassword/>} />
+          <Route path ='/password/forgot' element={<ForgotPassword/>} />
+          <Route path ='/password/reset/:token' element={<ResetPassword/>} />
           <Route
             path='checkout'
             element={
@@ -54,7 +62,7 @@ function App() {
             }
           />
           <Route path='error' element={<Error />} />
-        </Routes>
+        </Switch>
         <Footer />
       </Router>
     </AuthWrapper>
