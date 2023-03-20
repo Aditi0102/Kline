@@ -1,6 +1,6 @@
 import Home from './HomePage'
 import Products from './ProductsPage'
-import SingleProduct from './SingleProductPage'
+import SingleProductPage from './SingleProductPage'
 import About from './AboutPage'
 import Cart from './CartPage'
 import Error from './ErrorPage'
@@ -14,7 +14,7 @@ import Shipping from './Shipping'
 
 export {
   Home,
-  SingleProduct,
+  SingleProductPage,
   Cart,
   About,
   Error,

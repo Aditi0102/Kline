@@ -1,11 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useFilterContext} from "../context/filter_context";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Error from "./Error";
 import Loading from "./Loading";
 import Product from "./Product";
-import {products_url as url} from "../utils/constants";
 
 const FeaturedProducts = ({title, start, end}) => {
   // const {

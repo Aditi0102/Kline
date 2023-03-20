@@ -14,23 +14,27 @@ import {
 } from "../components";
 import styled, { createGlobalStyle } from "styled-components";
 import { Link } from "react-router-dom";
-const SingleProduct = () => {
+const SingleProductPage = () => {
   const { productid } = useParams();
   const id = productid;
   // console.log(url);
   // console.log(`ye useParam ke baad wali hai ${id}`);
   const navigate = useNavigate();
+
   const {
     single_product_loading: loading,
     single_product_error: error,
     single_product: product,
     fetchSingleProduct,
   } = useProductsContext();
-  // console.log(`${url}${id}`, "d");
+
+  console.log(`${url}${id}`, "single product url in single product page");
+
   useEffect(() => {
     fetchSingleProduct(`${url}${id}`);
     // eslint-disable-next-line
   }, [id]);
+
   useEffect(() => {
     if (error) {
       setTimeout(() => {
@@ -51,9 +55,9 @@ const SingleProduct = () => {
     _id: sku,
     images,
   } = single_product;
-  
+
   const Wrapper = styled.main`
-  .product-center {
+    .product-center {
       display: grid;
       gap: 4rem;
       margin-top: 2rem;
@@ -74,7 +78,7 @@ const SingleProduct = () => {
         font-weight: 700;
       }
     }
-    
+
     @media (min-width: 992px) {
       .product-center {
         grid-template-columns: 1fr 1fr;
@@ -84,16 +88,16 @@ const SingleProduct = () => {
         font-size: 1.25rem;
       }
     }
-    `;
-    
-    if (loading) {
-      return <Loading />;
-    }
-    if (error) {
-      return <Error />;
-    }
-    return (
-      <Wrapper>
+  `;
+
+  if (loading) {
+    return <Loading />;
+  }
+  if (error) {
+    return <Error />;
+  }
+  return (
+    <Wrapper>
       <PageHero title={name} product />
       <div className="section section-center page">
         <Link to="/products" className="btn">
@@ -127,4 +131,4 @@ const SingleProduct = () => {
   );
 };
 
-export default SingleProduct;
+export default SingleProductPage;

@@ -57,6 +57,7 @@ export const ProductsProvider = ({ children }) => {
     console.log(url, "fetch single product url");
     dispatch({ type: GET_SINGLE_PRODUCT_BEGIN });
     try {
+      console.log(url, 'single product url')
       const response = await axios.get(url);
       const singleProduct = response.data;
       console.log(singleProduct);
