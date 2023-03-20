@@ -11,8 +11,11 @@ import {
   GET_SINGLE_PRODUCT_BEGIN,
   GET_SINGLE_PRODUCT_SUCCESS,
   GET_SINGLE_PRODUCT_ERROR,
-} from "../actions";
-// import product_s from '../assets/products/products.json'
+
+} from '../actions'
+
+// import product_s from '../assets/products/products.json' 
+
 
 const initialState = {
   isSidebarOpen: false,

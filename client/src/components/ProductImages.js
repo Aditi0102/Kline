@@ -5,10 +5,12 @@ const ProductImages = ({ images = [[]] }) => {
 
   const [main, setMain] = useState(images[0]);
   //FUNCTIONS
+
   function string_between_strings(startStr, endStr, str) {
     let pos = str?.indexOf(startStr) + startStr?.length;
     return str?.substring(pos, str.indexOf(endStr, pos));
   }
+
   const newImages = images.map((image) => {
     // console.log(image.url, "image.url")
     let img_id = image.url;
@@ -27,6 +29,7 @@ const ProductImages = ({ images = [[]] }) => {
   // console.log(main, "mains");
   // console.log(newImages, "newImages");
   //RENDER
+
 
   return (
     <Wrapper>

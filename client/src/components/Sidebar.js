@@ -7,10 +7,12 @@ import { links } from '../utils/constants'
 import styled from 'styled-components'
 import CartButtons from './CartButtons'
 import { useUserContext } from '../context/user_context'
+import { useSelector } from 'react-redux'
 
 const Sidebar = () => {
   const { isSidebarOpen, closeSidebar } = useProductsContext()
   const { myUser } = useUserContext()
+  const { isAuthenticated } = useSelector((state) => state.user);
   return (
     <SidebarContainer>
       <aside
@@ -32,7 +34,7 @@ const Sidebar = () => {
               </li>
             )
           })}
-          {myUser && (
+          {isAuthenticated && (
             <li>
               <Link to='/checkout' onClick={closeSidebar}>
                 checkout

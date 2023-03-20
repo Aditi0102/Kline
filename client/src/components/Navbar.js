@@ -7,6 +7,7 @@ import { links } from "../utils/constants";
 import CartButtons from "./CartButtons";
 import { useProductsContext } from "../context/products_context";
 import { useUserContext } from "../context/user_context";
+import { useSelector } from "react-redux";
 const Nav = () => {
   const [colorChange, setColorchange] = useState(false);
   const changeNavbarColor = () => {
@@ -17,9 +18,11 @@ const Nav = () => {
     }
   };
   window.addEventListener("scroll", changeNavbarColor);
-  const { openSidebar, isSidebarOpen } = useProductsContext();
-  const { myUser } = useUserContext();
-  console.log(isSidebarOpen, "sidebar status");
+
+  const { openSidebar } = useProductsContext();
+  // const { myUser } = useUserContext();
+  const { isAuthenticated } = useSelector((state) => state.user);
+
   return (
     <NavContainer>
       <div className={colorChange ? "navbar-colorChange" : "navbar"}>
@@ -42,7 +45,7 @@ const Nav = () => {
                 </li>
               );
             })}
-            {myUser && (
+            {isAuthenticated && (
               <li>
                 <Link to="/checkout">checkout</Link>
               </li>
