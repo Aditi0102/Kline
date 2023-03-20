@@ -4,7 +4,7 @@ import { SpeedDial, SpeedDialAction } from "@material-ui/lab";
 import Backdrop from "@material-ui/core/Backdrop";
  import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { useNavigate } from "react-router-dom";
-import { useAlert } from "react-alert";
+// import { useAlert } from "react-alert";
 import { logout } from "../actions/userAction";
 import { useDispatch, useSelector } from "react-redux";
 import PersonIcon from "@material-ui/icons/Person";
@@ -13,7 +13,7 @@ import ListAltIcon from "@material-ui/icons/ListAlt";
 
 const UserOptions = ({ user }) => {
 
- console.log(user, "useroptions")
+//  console.log(user, "useroptions")
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   
@@ -48,7 +48,7 @@ const UserOptions = ({ user }) => {
 //   }
   function logoutUser() {
     dispatch(logout());
-    alert.success("Logout Successfully");
+    // alert.success("Logout Successfully");
   };
 
   return (

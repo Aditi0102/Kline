@@ -1,25 +1,27 @@
 import React, { Fragment, useEffect } from "react";
 import { useSelector } from "react-redux";
 import Loader from "../components/Loading";
-import { Link , useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Profile.css";
 
-const Profile = ({ navigation }) => {
+const Profile = () => {
+  const navigate = useNavigate();
   const { user, loading, isAuthenticated } = useSelector((state) => state.user);
-  console.log(user);
 
   useEffect(() => {
     if (isAuthenticated === false) {
-      navigation.navigate("/login");
+      navigate("/");
     }
-  }, [navigation, isAuthenticated]);
+  }, [isAuthenticated]);
+
+  if(!isAuthenticated)return null;
+
   return (
     <Fragment>
       {loading ? (
         <Loader />
       ) : (
         <Fragment>
-          
           <div className="profileContainer">
             <div>
               <h1>My Profile</h1>

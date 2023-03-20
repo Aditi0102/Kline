@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 const ProductImages = ({ images = [[]] }) => {
+  
+  const [main, setMain] = useState(images[0])
   console.log(images)
+  
   function string_between_strings(startStr, endStr, str) {
     let pos = str.indexOf(startStr) + startStr.length;
     return str.substring(pos, str.indexOf(endStr, pos));
@@ -14,7 +17,6 @@ const ProductImages = ({ images = [[]] }) => {
       return { ...image, url: `https://drive.google.com/uc?export=view&id=${img_id}` }
     })
     
-  const [main, setMain] = useState(images[0])
   return (
     <Wrapper>
       <img src={main.url} alt='' className='main ' />

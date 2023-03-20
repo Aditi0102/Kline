@@ -3,14 +3,14 @@ import "./ResetPassword.css";
 import Loader from "./layout/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, resetPassword } from "../actions/userAction";
-import { useAlert } from "react-alert";
+// import { useAlert } from "react-alert";
 // import MetaData from "../layout/MetaData";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 import LockIcon from "@material-ui/icons/Lock";
 
 const ResetPassword = ({ history, match }) => {
   const dispatch = useDispatch();
-  const alert = useAlert();
+  // const alert = useAlert();
 
   const { error, success, loading } = useSelector(
     (state) => state.forgotPassword
@@ -32,16 +32,16 @@ const ResetPassword = ({ history, match }) => {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      // alert.error(error);
       dispatch(clearErrors());
     }
 
     if (success) {
-      alert.success("Password Updated Successfully");
+      // alert.success("Password Updated Successfully");
 
       history.push("/login");
     }
-  }, [dispatch, error, alert, history, success]);
+  }, [dispatch, error, history, success]);
 
   return (
     <Fragment>
