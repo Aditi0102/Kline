@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo_transparent.png";
 import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { links } from "../utils/constants";
@@ -18,17 +18,19 @@ const Nav = () => {
     }
   };
   window.addEventListener("scroll", changeNavbarColor);
+
   const { openSidebar } = useProductsContext();
   // const { myUser } = useUserContext();
   const { isAuthenticated } = useSelector((state) => state.user);
+
   return (
     <NavContainer>
       <div className={colorChange ? "navbar-colorChange" : "navbar"}>
         <div className="nav-center">
           <div className="nav-header">
             <Link to="/">
-              {/* <img src={logo} alt="Kline Decor" /> */}
-              <h2>Kline Decor</h2>
+              <img src={logo} alt="Kline Decor" />
+              {/* <h2>Kline Decor</h2> */}
             </Link>
             <button type="button" className="nav-toggle" onClick={openSidebar}>
               <FaBars />
@@ -72,6 +74,7 @@ const NavContainer = styled.nav`
     background: transparent;
     item-align: center;
     height: 80px;
+    padding-top: 0.9rem;
   }
   .navbar-colorChange {
     width: 100%;
@@ -79,6 +82,10 @@ const NavContainer = styled.nav`
     padding-top: 0.9rem;
     height: 80px;
     items-align: center;
+  }
+  img {
+    width: 120px;
+    height: auto;
   }
   .nav-center {
     width: 90vw;
@@ -114,13 +121,10 @@ const NavContainer = styled.nav`
   }
 
   @media (min-width: 992px) {
-    img{
-      width: 100px;
-      height: 100px;
-
-    }
     .navbar {
       background: transparent;
+      item-align: center;
+      height: 80px;
       padding-top: 0.9rem;
     }
     .nav-toggle {

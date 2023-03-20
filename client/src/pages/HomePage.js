@@ -17,7 +17,10 @@ const HomePage = () => {
         <Carousel/>     
       </StyledContainer>
 
-      <FeaturedProducts /> 
+      <FeaturedProducts  title='TABLE LAMP SERIES' start = {3} end = {6}/> 
+      
+      <FeaturedProducts  title='WHISKEY GLASS SERIES' start = {0} end = {3}/> 
+      
 
       <Contact />
     </main>

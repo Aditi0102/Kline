@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Navbar, Sidebar, Footer } from './components'
@@ -22,6 +23,7 @@ import {
   PrivateRoute,
   AuthWrapper,
   TermsAndConditions,
+
   LoginSignUp,
   Profile,
   Shipping,
@@ -56,21 +58,20 @@ function App() {
           <Route path ='/password/forgot' element={<ForgotPassword/>} />
           <Route path ='/password/reset/:token' element={<ResetPassword/>} />
           <Route path ='/shipping' element={<Shipping/>} />
-
           <Route
-            path='checkout'
+            path="checkout"
             element={
               <PrivateRoute>
                 <Checkout />
               </PrivateRoute>
             }
           />
-          <Route path='error' element={<Error />} />
+          <Route path="error" element={<Error />} />
         </Routes>
         <Footer />
       </Router>
     </AuthWrapper>
-  )
+  );
 }
 
-export default App
+export default App;

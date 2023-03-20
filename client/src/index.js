@@ -15,8 +15,6 @@ root.render(
   <Auth0Provider
     domain={process.env.REACT_APP_AUTH_DOMAIN}
     clientId={process.env.REACT_APP_CLIENT_ID}
-    // domain="kline-decor.us.auth0.com"
-    // clientId="kzjdNBgvfuPF8J1KhiI1MbpbPIiNNG5G"
     redirectUri={window.location.origin}
     cacheLocation="localstorage"
   >
