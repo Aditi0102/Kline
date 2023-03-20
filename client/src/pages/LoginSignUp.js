@@ -69,7 +69,7 @@ export default function LoginSignUp() {
 
   useEffect(() => {
     if (error) {
-      alert.error(error);
+      // alert.error(error);
       dispatch(clearErrors());
     }
 
@@ -77,7 +77,7 @@ export default function LoginSignUp() {
       navigate("/account");
       // history.push("/account");
     }
-  }, [dispatch, error, alert, navigate, isAuthenticated]);
+  }, [dispatch, error, navigate, isAuthenticated]);
 
   const switchTabs = (e, tab) => {
     if (tab === "login") {

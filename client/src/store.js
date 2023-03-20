@@ -8,7 +8,14 @@ import { userReducer, profileReducer, forgotPasswordReducer } from "./reducers/u
 //     user: userReducer,
 // });
 
-let initialState = {};
+let initialState = {
+  cart:{
+    cartItems: localStorage.getItem("cart")
+      ? JSON.parse(localStorage.getItem("cart"))
+      : [],
+
+  }
+};
 
 const middleware = [thunk];
 

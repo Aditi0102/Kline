@@ -10,6 +10,8 @@ import AuthWrapper from './AuthWrapper'
 import TermsAndConditions from './TermsAndConditions'
 import LoginSignUp from './LoginSignUp'
 import Profile from './Profile'
+import Shipping from './Shipping'
+
 export {
   Home,
   SingleProduct,
@@ -22,5 +24,6 @@ export {
   AuthWrapper,
   TermsAndConditions,
   LoginSignUp,
-  Profile
+  Profile,
+  Shipping,
 }
