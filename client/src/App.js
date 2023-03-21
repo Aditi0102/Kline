@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Navbar, Sidebar, Footer } from "./components";
 import store from "./store";
@@ -11,6 +11,8 @@ import UpdatePassword from "./components/UpdatePassword";
 import ForgotPassword from "./components/ForgotPassword";
 import ResetPassword from "./components/ResetPassword";
 import ConfirmOrder from "./components/ConfirmOrder";
+import Payment from "./components/Payment";
+import axios from "axios";
 
 import {
   Home,
@@ -31,9 +33,16 @@ import {
 
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
+  const [stripeapikey, setStripeapikey] = useState("");
+
+  async function getStripeApiKey() {
+    const { data } = await axios.get("/api/v1/stripeapi");
+    setStripeapikey(data.stripeapikey);
+  }
   // console.log(user,"app vala");
   useEffect(() => {
     store.dispatch(loadUser());
+    getStripeApiKey();
   }, []);
 
   return (
@@ -57,6 +66,7 @@ function App() {
           <Route path="/password/reset/:token" element={<ResetPassword />} />
           <Route path="/shipping" element={<Shipping />} />
           <Route path="/order/confirm" element={<ConfirmOrder/>} />
+          <Route path ="/process/payment" element={<Payment/>} />
           
 
           <Route
