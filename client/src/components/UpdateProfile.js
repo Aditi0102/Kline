@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
-// import "./UpdateProfile.css";
+import "./UpdateProfile.css";
 import Loader from "./layout/Loader";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import FaceIcon from "@material-ui/icons/Face";
@@ -14,13 +14,13 @@ const UpdateProfile = () => {
   const dispatch = useDispatch();
 //    const alert = useAlert();
   const navigate = useNavigate();
-  const { user } = useSelector((state) => state.user);
+  const { user, isAuthenticated } = useSelector((state) => state.user);
   const { error, isUpdated, loading } = useSelector((state) => state.profile);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [avatar, setAvatar] = useState();
-  const [avatarPreview, setAvatarPreview] = useState("/Profile.png");
+  const [avatarPreview, setAvatarPreview] = useState();
 
   const updateProfileSubmit = (e) => {
     e.preventDefault();
@@ -47,14 +47,14 @@ const UpdateProfile = () => {
   };
 
   useEffect(() => {
-    if (user) {
+    if (isAuthenticated) {
       setName(user.name);
       setEmail(user.email);
       setAvatarPreview(user.avatar.url);
     }
 
     if (error) {
-      console.log(error);
+      console.log(error, 'update profile me error');
       dispatch(clearErrors());
     }
 
@@ -68,7 +68,7 @@ const UpdateProfile = () => {
         type: UPDATE_PROFILE_RESET,
       });
     }
-  }, [dispatch, error, navigate, user, isUpdated]);
+  }, [dispatch, error, navigate, user, isUpdated, isAuthenticated]);
   return (
     <Fragment>
       {loading ? (

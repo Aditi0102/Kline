@@ -30,6 +30,7 @@ export const createOrder = (order) => async (dispatch) => {
     const config = {
       headers: {
         "Content-Type": "application/json",
+        Authorization: `${localStorage.getItem('token')}`
       },
     };
     const { data } = await axios.post(`${allUrls.backend_url}/api/v1/order/new`, order, config);
@@ -83,6 +84,7 @@ export const updateOrder = (id, order) => async (dispatch) => {
     const config = {
       headers: {
         "Content-Type": "application/json",
+        Authorization: `${localStorage.getItem('token')}`
       },
     };
     const { data } = await axios.put(

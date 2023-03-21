@@ -31,7 +31,6 @@ const CheckoutForm = () => {
     try {
       const { data } = await axios.post(
         'client/functions/create-payment-intent',
-
         JSON.stringify({ cart, shipping_fee, total_amount })
       );
       setClientSecret(data.clientSecret);

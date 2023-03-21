@@ -12,7 +12,7 @@ const Profile = () => {
     if (isAuthenticated === false) {
       navigate("/");
     }
-  }, [isAuthenticated]);
+  }, [navigate, isAuthenticated]);
 
   if(!isAuthenticated)return null;
 
