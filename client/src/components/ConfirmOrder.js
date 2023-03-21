@@ -20,7 +20,7 @@ const ConfirmOrder = () => {
 
   const cartItems = cart_Items.cartItems;
   const navigate = useNavigate();
-  console.log(cartItems, "cartItems");
+  // console.log(cartItems, "cartItems");
   const subtotal = cartItems.reduce(
     (acc, item) => acc + (item.amount * item.price) / 100,
     0
@@ -82,8 +82,8 @@ const ConfirmOrder = () => {
             <Typography>Your Cart Items:</Typography>
             <div className="confirmCartItemsContainer">
               {cartItems &&
-                cartItems.map((item) => (
-                  <div key={item.product}>
+                cartItems.map((item , index) => (
+                  <div key={index}>
                     <img
                       src={`https://drive.google.com/uc?export=view&id=${string_between_strings(
                         "/d/",
@@ -94,7 +94,7 @@ const ConfirmOrder = () => {
                     />
                     <Link to={`/product/${item.product}`}>{item.name}</Link>{" "}
                     <span>
-                      {item.amount} X ₹{item.price / 100} ={" "}
+                      {item.amount} * ₹{item.price / 100} ={" "}
                       <b>${(item.price / 100) * item.amount}</b>
                     </span>
                   </div>

@@ -24,8 +24,8 @@ exports.registerUser = catchAsyncErrors( async (req, res, next) => {
         email,
         password,
         avatar: {
-            public_id: "myCloud.public_id",
-            url: "myCloud.secure_url",
+            public_id: "",
+            url: "",
         },
     });
 

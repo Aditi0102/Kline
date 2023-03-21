@@ -1,9 +1,9 @@
-import React, { Fragment, useEffect, useRef } from "react";
+import React, {  useEffect, useRef } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 
 import { Typography } from "@material-ui/core";
-import {useNavigate} from  "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 import {
   CardNumberElement,
@@ -19,23 +19,27 @@ import CreditCardIcon from "@material-ui/icons/CreditCard";
 import EventIcon from "@material-ui/icons/Event";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import { createOrder, clearErrors } from "../actions/orderAction";
+import allUrls from "../config/config";
+
 
 const Payment = () => {
   const orderInfo = JSON.parse(sessionStorage.getItem("orderInfo"));
+  const { shippingInfo, cart: cart_Items } = useSelector((state) => state.cart);
+  const { isAuthenticated ,  user } = useSelector((state) => state.user);
 
   const dispatch = useDispatch();
-
-  const stripe = useStripe();
   const elements = useElements();
+  const stripe = useStripe();
   const payBtn = useRef(null);
   const navigate = useNavigate();
 
-  const { shippingInfo, cartItems } = useSelector((state) => state.cart);
-  const { user } = useSelector((state) => state.user);
-  const { error } = useSelector((state) => state.newOrder);
 
+ 
+  const cartItems = cart_Items.cartItems;
   const paymentData = {
     amount: Math.round(orderInfo.totalPrice * 100),
+    shippingInfo : shippingInfo,
+    user : user
   };
 
   const order = {
@@ -58,8 +62,9 @@ const Payment = () => {
           "Content-Type": "application/json",
         },
       };
+
       const { data } = await axios.post(
-        "/api/v1/payment/process",
+        `${allUrls.backend_url}/api/v1/payment/process`,
         paymentData,
         config
       );
@@ -105,19 +110,17 @@ const Payment = () => {
       }
     } catch (error) {
       payBtn.current.disabled = false;
-      
     }
   };
 
   useEffect(() => {
-    if (error) {
-      dispatch(clearErrors());
-    }
-  }, [dispatch, error]);
+    // if (error) {
+    //   dispatch(clearErrors());
+    // }
+  }, [dispatch]);
 
   return (
-    <Fragment>
-     
+    
       <div className="paymentContainer">
         <form className="paymentForm" onSubmit={(e) => submitHandler(e)}>
           <Typography>Card Info</Typography>
@@ -136,13 +139,13 @@ const Payment = () => {
 
           <input
             type="submit"
-            value={`Pay - ₹${orderInfo && orderInfo.totalPrice}`}
+            value={`Pay - $${orderInfo && orderInfo.totalPrice}`}
             ref={payBtn}
             className="paymentFormBtn"
           />
         </form>
       </div>
-    </Fragment>
+    
   );
 };
 

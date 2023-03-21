@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from "react";
 import "./Header.css";
+import avatar from "../assets/avatar.png";
 import { SpeedDial, SpeedDialAction } from "@material-ui/lab";
 import Backdrop from "@material-ui/core/Backdrop";
  import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
@@ -65,7 +66,7 @@ const UserOptions = ({ user }) => {
         icon={
           <img
             className="speedDialIcon"
-            src={user.avatar.url ? user.avatar.url : "/avatar.jpg"}
+            src={user.avatar.url ? user.avatar.url : avatar}
             alt="Profile"
           />
         }

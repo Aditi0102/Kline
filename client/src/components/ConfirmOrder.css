@@ -3,6 +3,7 @@
     background-color: white;
     display: grid;
     grid-template-columns: 6fr 3fr;
+    margin-top: 80px;
   }
   
   .confirmOrderPage > div:last-child {

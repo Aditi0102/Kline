@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Navbar, Sidebar, Footer } from "./components";
-import store from "./store";
-import { loadUser } from "./actions/userAction";
+
 import UserOptions from "./components/UserOptions";
 import { useSelector } from "react-redux";
 // import ProtectedRoute from './components/ProtectedRoute'
@@ -11,8 +10,7 @@ import UpdatePassword from "./components/UpdatePassword";
 import ForgotPassword from "./components/ForgotPassword";
 import ResetPassword from "./components/ResetPassword";
 import ConfirmOrder from "./components/ConfirmOrder";
-import Payment from "./components/Payment";
-import axios from "axios";
+
 
 import {
   Home,
@@ -28,29 +26,22 @@ import {
   LoginSignUp,
   Profile,
   Shipping,
+  MyOrders,
 } from "./pages";
+import ElementProvider from "./components/ElementProvider";
+import OrderSuccess from "./components/OrderSuccess";
 // import { Switch } from '@material-ui/core'
 
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
-  const [stripeapikey, setStripeapikey] = useState("");
-
-  async function getStripeApiKey() {
-    const { data } = await axios.get("/api/v1/stripeapi");
-    setStripeapikey(data.stripeapikey);
-  }
-  // console.log(user,"app vala");
-  useEffect(() => {
-    store.dispatch(loadUser());
-    getStripeApiKey();
-  }, []);
+ 
 
   return (
     <AuthWrapper>
       <Router>
         <Navbar />
         <Sidebar />
-        {isAuthenticated && <UserOptions user={user} />}
+        {/* {isAuthenticated && <UserOptions user={user} />} */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="about" element={<About />} />
@@ -66,7 +57,10 @@ function App() {
           <Route path="/password/reset/:token" element={<ResetPassword />} />
           <Route path="/shipping" element={<Shipping />} />
           <Route path="/order/confirm" element={<ConfirmOrder/>} />
-          <Route path ="/process/payment" element={<Payment/>} />
+          <Route path ="/process/payment" element={<ElementProvider/>} />
+          <Route path ="/success" element={<OrderSuccess/>} />
+          <Route path ="/orders" element={<MyOrders/>} />
+            {/* <Route path="/payment" element={<Payment />} /> */}
           
 
           <Route

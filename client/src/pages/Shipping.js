@@ -41,7 +41,7 @@ const Shipping = () => {
     dispatch(
       saveShippingInfo({ address, city, state, country, pinCode, phoneNo })
     );
-    console.log(user, "user shipping submit function");
+    // console.log(user, "user shipping submit function");
     navigate("/order/confirm");
     // console.log(shippingInfo)
   };

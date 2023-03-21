@@ -4,6 +4,11 @@
 import {configureStore} from "@reduxjs/toolkit"
 import { userReducer, profileReducer, forgotPasswordReducer } from "./reducers/userReducer";
 import  cart_reducer  from "./reducers/cart_reducer";
+import { allOrdersReducer,
+  myOrdersReducer,
+  newOrderReducer,
+  orderDetailsReducer,
+  orderReducer, } from "./reducers/order_reducer";
 
 
 // const reducer = combineReducers({
@@ -26,6 +31,8 @@ const store = configureStore({
     profile: profileReducer,
     forgotPassword: forgotPasswordReducer,
     cart: cart_reducer,
+    newOrder: newOrderReducer,
+    allOrders: allOrdersReducer,
   }
 }
   // reducer,

@@ -6,6 +6,7 @@ import { useProductsContext } from '../context/products_context'
 import { useCartContext } from '../context/cart_context'
 import { useUserContext } from '../context/user_context'
 import { useSelector } from 'react-redux'
+import UserOptions from './UserOptions'
 const CartButton = () => {
   const { closeSidebar } = useProductsContext()
   const { total_items, clearCart } = useCartContext()
@@ -21,17 +22,20 @@ const CartButton = () => {
         </span>
       </Link>
       {isAuthenticated ? (
-        <button
-          type='button'
-          className='auth-btn'
-          onClick={() => {
-            clearCart()
-            localStorage.removeItem('user')
-            logout({ returnTo: window.location.origin })
-          }}
-        >
-          Logout <FaUserMinus />
-        </button>
+        // <button
+        //   type='button'
+        //   className='auth-btn'
+        //   onClick={() => {
+        //     clearCart()
+        //     localStorage.removeItem('user')
+        //     logout({ returnTo: window.location.origin })
+        //   }}
+        // >
+        //   Logout <FaUserMinus />
+        // </button>
+        <div>
+          <UserOptions user={user} />
+        </div>
       ) : (
         <button type='button' className='auth-btn'>
           <Link to = "/login">

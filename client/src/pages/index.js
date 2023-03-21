@@ -11,6 +11,7 @@ import TermsAndConditions from './TermsAndConditions'
 import LoginSignUp from './LoginSignUp'
 import Profile from './Profile'
 import Shipping from './Shipping'
+import MyOrders from './MyOrders'
 
 export {
   Home,
@@ -26,4 +27,5 @@ export {
   LoginSignUp,
   Profile,
   Shipping,
+  MyOrders,
 }
