@@ -18,6 +18,8 @@ const Shipping = () => {
   const dispatch = useDispatch();
   // const alert = useAlert();
   const { shippingInfo } = useSelector((state) => state.cart);
+  const { user } = useSelector((state) => state.user);
+  console.log(user, "user shipping");
   // const something = useSelector((state) => state.cart.shippingInfo);
   // console.log(something, 'something');
 
@@ -39,6 +41,7 @@ const Shipping = () => {
     dispatch(
       saveShippingInfo({ address, city, state, country, pinCode, phoneNo })
     );
+    console.log(user, "user shipping submit function");
     navigate("/order/confirm");
     // console.log(shippingInfo)
   };
