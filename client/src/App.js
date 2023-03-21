@@ -10,7 +10,7 @@ import UpdateProfile from "./components/UpdateProfile";
 import UpdatePassword from "./components/UpdatePassword";
 import ForgotPassword from "./components/ForgotPassword";
 import ResetPassword from "./components/ResetPassword";
-import ConfirmOrder from "./components/ConfirrmOrder";
+import ConfirmOrder from "./components/ConfirmOrder";
 
 import {
   Home,
