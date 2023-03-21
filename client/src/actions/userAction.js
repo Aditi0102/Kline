@@ -52,6 +52,7 @@ export const login = (email, password) => async (dispatch) => {
       { email, password },
       config
     );
+    localStorage.setItem("token", data.token);
 
     dispatch({ type: LOGIN_SUCCESS, payload: data.user });
   } catch (error) {
@@ -66,6 +67,8 @@ export const register = (userData) => async (dispatch) => {
     const config = { headers: { "Content-Type": "multipart/form-data" } };
 
     const { data } = await axios.post(`${allUrls.backend_url}/api/v1/register`, userData, config);
+
+    localStorage.setItem("token", data.token);
 
     dispatch({ type: REGISTER_USER_SUCCESS, payload: data.user });
   } catch (error) {
@@ -93,6 +96,8 @@ export const loadUser = () => async (dispatch) => {
 export const logout = () => async (dispatch) => {
   try {
     await axios.get(`${allUrls.backend_url}/api/v1/logout`);
+
+    localStorage.removeItem("token");
 
     dispatch({ type: LOGOUT_SUCCESS });
   } catch (error) {
@@ -131,6 +136,8 @@ export const updatePassword = (passwords) => async (dispatch) => {
       config
     );
 
+    localStorage.setItem("token", data.token);
+
     dispatch({ type: UPDATE_PASSWORD_SUCCESS, payload: data.success });
   } catch (error) {
     dispatch({
@@ -148,6 +155,7 @@ export const forgotPassword = (email) => async (dispatch) => {
     const config = { headers: { "Content-Type": "application/json" } };
 
     const { data } = await axios.post(`${allUrls.backend_url}/api/v1/password/forgot`, email, config);
+    
 
     dispatch({ type: FORGOT_PASSWORD_SUCCESS, payload: data.message });
   } catch (error) {
@@ -170,6 +178,8 @@ export const resetPassword = (token, passwords) => async (dispatch) => {
       passwords,
       config
     );
+
+    localStorage.setItem("token", data.token);
 
     dispatch({ type: RESET_PASSWORD_SUCCESS, payload: data.success });
   } catch (error) {

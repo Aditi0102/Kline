@@ -30,16 +30,18 @@ import {
 } from "./pages";
 import ElementProvider from "./components/ElementProvider";
 import OrderSuccess from "./components/OrderSuccess";
+
+import { useProductsContext } from './context/products_context';
 // import { Switch } from '@material-ui/core'
 
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
  
-
+  const { isSidebarOpen } = useProductsContext();
   return (
     <AuthWrapper>
       <Router>
-        <Navbar />
+        {!isSidebarOpen && <Navbar setopenNavbar/>}
         <Sidebar />
         {/* {isAuthenticated && <UserOptions user={user} />} */}
         <Routes>

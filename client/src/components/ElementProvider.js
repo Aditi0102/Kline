@@ -14,9 +14,13 @@ export default function ElementProvider() {
   const {shippingInfo} = useSelector((state) => state.cart);
   console.log(shippingInfo, "shipping_info");
   async function getStripeApiKey() {
+    const config = {
+      headers: { Authorization: `${localStorage.getItem('token')}` }
+  };
     if(isAuthenticated){
         const { data : stripeapikey } = await axios.get(
           `${allUrls.backend_url}/api/v1/stripeapikey`
+          ,config
         );
         setStripeApiKey(stripeapikey.stripeApiKey);
     }else{
