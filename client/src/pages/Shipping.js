@@ -30,7 +30,7 @@ const Shipping = () => {
 
   const shippingSubmit = (e) => {
     e.preventDefault();
-    console.log("you hit me")
+    // console.log("you hit me")
 
     if (phoneNo.length < 10 || phoneNo.length > 10) {
       // alert.error("Phone Number should be 10 digits Long");
@@ -39,13 +39,12 @@ const Shipping = () => {
     dispatch(
       saveShippingInfo({ address, city, state, country, pinCode, phoneNo })
     );
-    // navigate("/order/confirm");
-    console.log(shippingInfo)
+    navigate("/order/confirm");
+    // console.log(shippingInfo)
   };
 
   return (
     <Fragment>
-
       {/* <CheckoutSteps activeStep={0} /> */}
 
       <div className="shippingContainer">
@@ -140,12 +139,7 @@ const Shipping = () => {
               </div>
             )}
 
-            <input
-              type="submit"
-              value="Continue"
-              className="shippingBtn"
-              
-            />
+            <input type="submit" value="Continue" className="shippingBtn" />
           </form>
         </div>
       </div>

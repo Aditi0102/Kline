@@ -10,6 +10,7 @@ import UpdateProfile from "./components/UpdateProfile";
 import UpdatePassword from "./components/UpdatePassword";
 import ForgotPassword from "./components/ForgotPassword";
 import ResetPassword from "./components/ResetPassword";
+import ConfirmOrder from "./components/ConfirrmOrder";
 
 import {
   Home,
@@ -55,6 +56,9 @@ function App() {
           <Route path="/password/forgot" element={<ForgotPassword />} />
           <Route path="/password/reset/:token" element={<ResetPassword />} />
           <Route path="/shipping" element={<Shipping />} />
+          <Route path="/order/confirm" element={<ConfirmOrder/>} />
+          
+
           <Route
             path="checkout"
             element={
