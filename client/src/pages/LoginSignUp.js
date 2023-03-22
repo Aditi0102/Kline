@@ -127,7 +127,7 @@ export default function LoginSignUp() {
                 onChange={(e) => setLoginPassword(e.target.value)}
               />
             </div>
-            <Link to="/password/forgot">Forget Password</Link>
+            {/* <Link to="/password/forgot">Forget Password</Link> */}
             <input type="submit" value="Login" className="loginBtn" />
           </form>
           <form
@@ -170,7 +170,7 @@ export default function LoginSignUp() {
               />
             </div>
 
-            <div id="registerImage">
+            {/* <div id="registerImage">
               <img src={avatarPreview} alt="Avatar Preview" />
               <input
                 type="file"
@@ -178,7 +178,7 @@ export default function LoginSignUp() {
                 accept="image/*"
                 onChange={registerDataChange}
               />
-            </div>
+            </div> */}
             <input type="submit" value="Register" className="signUpBtn" />
           </form>
         </div>

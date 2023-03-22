@@ -52,7 +52,7 @@ function App() {
           <Route path="product/:productid" element={<SingleProductPage />} />
           <Route path="terms" element={<TermsAndConditions />} />
           <Route path="login" element={<LoginSignUp />} />
-          <Route path="/account" element={<Profile />} />
+          <  Route path="/account" element={<Profile />} />
           <Route path="/me/update" element={<UpdateProfile />} />
           <Route path="/password/update" element={<UpdatePassword />} />
           <Route path="/password/forgot" element={<ForgotPassword />} />
