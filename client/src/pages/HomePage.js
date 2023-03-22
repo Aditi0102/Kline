@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { FeaturedProducts, Hero, Services, Contact } from '../components'
+import { FeaturedProducts, Contact } from '../components'
 import Carousel from '../components/Carousel'
 
 

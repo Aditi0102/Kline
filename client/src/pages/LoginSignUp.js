@@ -16,7 +16,7 @@ export default function LoginSignUp() {
 
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
-  const { error, loading, isAuthenticated } = useSelector(
+  const { error, isAuthenticated } = useSelector(
     (state) => state.user
   );
 

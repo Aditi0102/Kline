@@ -7,8 +7,7 @@ import  cart_reducer  from "./reducers/cart_reducer";
 import { allOrdersReducer,
   myOrdersReducer,
   newOrderReducer,
-  orderDetailsReducer,
-  orderReducer, } from "./reducers/order_reducer";
+ } from "./reducers/order_reducer";
 
 
 // const reducer = combineReducers({

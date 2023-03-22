@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { PageHero, StripeCheckout2, StripeCheckout } from "../components";
+import { PageHero, StripeCheckout } from "../components";
 
 // extra imports
 
