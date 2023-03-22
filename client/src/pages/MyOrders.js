@@ -17,6 +17,9 @@ const MyOrders = () => {
 
   const { loading, error, orders } = useSelector((state) => state.myOrders);
   const { user } = useSelector((state) => state.user);
+  // console.log(user, "myorders");
+  console.log(orders,"my orders");
+
 
   const columns = [
     { field: "id", headerName: "Order ID", minWidth: 300, flex: 1 },
@@ -76,22 +79,23 @@ const MyOrders = () => {
       });
     });
 
-  useEffect(() => {
-    if (error) {
-    //   alert.error(error);
-      dispatch(clearErrors());
-    }
+  // useEffect(() => {
+  //   if (error) {
+  //   //   alert.error(error);
+  //     dispatch(clearErrors());
+  //   }
 
-    dispatch(myOrders());
-  }, [dispatch, error]);
+  //   dispatch(myOrders());
+  // }, [dispatch, error]);
 
   return (
     <Fragment>
       {/* <MetaData title={`${user.name} - Orders`} /> */}
 
-      {loading ? (
+      {/* {loading ? (
         <Loader />
-      ) : (
+      ) :  */}
+      (
         <div className="myOrdersPage">
           <DataGrid
             rows={rows}
@@ -104,7 +108,7 @@ const MyOrders = () => {
 
           <Typography id="myOrdersHeading">{user.name}'s Orders</Typography>
         </div>
-      )}
+      )
     </Fragment>
   );
 };

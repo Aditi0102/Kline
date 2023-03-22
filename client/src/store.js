@@ -33,6 +33,7 @@ const store = configureStore({
     cart: cart_reducer,
     newOrder: newOrderReducer,
     allOrders: allOrdersReducer,
+    myOrders: myOrdersReducer,
   }
 }
   // reducer,

@@ -33,7 +33,7 @@ const ConfirmOrder = () => {
   const tax = (total_amount / 100) * 0.18;
 
   // const totalPrice = subtotal + tax + shippingCharges;
-  const totalPrice = total_amount / 100 + tax + shippingCharges;
+  const totalPrice = total_amount / 100 ;
 
   const address = `${shippingInfo.address}, ${shippingInfo.city}, ${shippingInfo.state}, ${shippingInfo.pinCode}, ${shippingInfo.country}`;
 
@@ -111,14 +111,14 @@ const ConfirmOrder = () => {
                 <p>Subtotal:</p>
                 <span>${total_amount / 100}</span>
               </div>
-              <div>
+              {/* <div>
                 <p>Shipping Charges:</p>
                 <span>${shippingCharges}</span>
               </div>
               <div>
                 <p>GST:</p>
                 <span>${tax}</span>
-              </div>
+              </div> */}
             </div>
 
             <div className="orderSummaryTotal">
