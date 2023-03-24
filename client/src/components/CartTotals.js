@@ -22,7 +22,7 @@ const CartTotals = () => {
           </p>
           <hr />
           <h4>
-            order total :<span>{formatPrice(total_amount + shipping_fee)}</span>
+            order total :<span>{formatPrice(total_amount)}</span>
           </h4>
         </article>
         {isAuthenticated ? (

@@ -29,9 +29,15 @@ const MyOrders = () => {
       minWidth: 150,
       flex: 0.5,
       cellClassName: (params) => {
-        return params.getValue(params.id, "status") === "Delivered"
-          ? "greenColor"
-          : "redColor";
+    //     console.log(params,"params printed")
+    //     console.log(typeof(params),"params.type printed")
+    //  console.log(Object.keys(params),"params.keys printed")
+    //  console.log(Object.values(params),"params.values printed")
+    //  console.log(params.value);
+     return params.value === "Delivered"? "greenColor" : "redColor";
+        // return params.getValue(params.id, "status") === "Delivered"
+        //   ? "greenColor"
+        //   : "redColor";
       },
     },
     {
@@ -50,21 +56,21 @@ const MyOrders = () => {
       flex: 0.5,
     },
 
-    {
-      field: "actions",
-      flex: 0.3,
-      headerName: "Actions",
-      minWidth: 150,
-      type: "number",
-      sortable: false,
-      renderCell: (params) => {
-        return (
-          <Link to={`/order/${params.getValue(params.id, "id")}`}>
-            <LaunchIcon />
-          </Link>
-        );
-      },
-    },
+    // {
+    //   field: "actions",
+    //   flex: 0.3,
+    //   headerName: "Actions",
+    //   minWidth: 150,
+    //   type: "number",
+    //   sortable: false,
+    //   renderCell: (params) => {
+    //     return (
+    //       <Link to={`/order/${params.getValue(params.id, "id")}`}>
+    //         <LaunchIcon />
+    //       </Link>
+    //     );
+    //   },
+    // },
   ];
   const rows = [];
 
@@ -104,6 +110,7 @@ const MyOrders = () => {
             autoHeight
           />
 
+          
           <Typography id="myOrdersHeading">{user.name}'s Orders</Typography>
         </div>
       )}

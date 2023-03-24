@@ -7,6 +7,7 @@ import AmountButtons from './AmountButtons'
 const AddToCart = ({ product }) => {
   // add to cart
   console.log(product , 'add to cart'); 
+  
   const { addToCart } = useCartContext()
   const { _id : id, stock } = product;
   const [mainColor, setMainColor] = useState(colors[0])

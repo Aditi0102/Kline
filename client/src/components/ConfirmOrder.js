@@ -19,8 +19,10 @@ const ConfirmOrder = () => {
   // console.log(isAuthenticated, "user auth");
 
   const cartItems = cart_Items.cartItems;
+ 
+  
   const navigate = useNavigate();
-  // console.log(cartItems, "cartItems");
+  //console.log(cart_Items, "cartItems");
   const subtotal = cartItems.reduce(
     (acc, item) => acc + (item.amount * item.price) / 100,
     0
