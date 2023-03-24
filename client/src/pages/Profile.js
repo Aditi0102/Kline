@@ -2,6 +2,7 @@ import React, { Fragment, useEffect } from "react";
 import { useSelector } from "react-redux";
 import Loader from "../components/Loading";
 import { Link, useNavigate } from "react-router-dom";
+import profileImg from '../assets/avatar.png'
 import "./Profile.css";
 
 const Profile = () => {
@@ -25,7 +26,7 @@ const Profile = () => {
           <div className="profileContainer">
             <div>
               <h1>My Profile</h1>
-              <img src="./avatar.jpg" alt={user.name} />
+              <img src={profileImg} alt={user.name} />
               <Link to="/me/update">Edit Profile</Link>
             </div>
             <div>

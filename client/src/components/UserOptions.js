@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import "./Header.css";
+import "./UserOptions.css";
 import avatar from "../assets/avatar.png";
 import { SpeedDial, SpeedDialAction } from "@material-ui/lab";
 import Backdrop from "@material-ui/core/Backdrop";
@@ -68,6 +68,7 @@ const UserOptions = ({ user }) => {
             className="speedDialIcon"
             src={avatar}
             alt="Profile"
+            // style={{ width: "100%", height: "100%", objectFit: "contain" }}
           />
         }
       >
@@ -84,5 +85,6 @@ const UserOptions = ({ user }) => {
     </Fragment>
   );
 };
+
 
 export default UserOptions;

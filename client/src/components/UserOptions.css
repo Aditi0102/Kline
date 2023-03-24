@@ -1,0 +1,11 @@
+.speedDial {
+  position: fixed;
+  z-index: 11;
+  right: 15vmax;
+  top: 1vmax;
+}
+
+img.speedDialIcon{
+  width: 100%;
+  object-fit: contain;
+}
