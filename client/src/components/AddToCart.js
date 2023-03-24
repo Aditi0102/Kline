@@ -1,15 +1,32 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { FaCheck } from 'react-icons/fa'
 import { useCartContext } from '../context/cart_context'
 import AmountButtons from './AmountButtons'
+import { useDispatch, useSelector } from "react-redux";
+import { addItemsToCart } from '../actions/cartAction'
+
 const AddToCart = ({ product }) => {
+
+  const dispatch = useDispatch();
+
   // add to cart
-  const { addToCart } = useCartContext()
-  const { id, stock, colors } = product
+  console.log(product , 'add to cart'); 
+  
+  
+  //const { addToCart } = useCartContext()
+  
+  const { _id : id, stock } = product;
   const [mainColor, setMainColor] = useState(colors[0])
   const [amount, setAmount] = useState(1)
+
+  const addToCart = (e) => {
+      dispatch(addItemsToCart(id,amount));
+  };
+
+  console.log(id, 'id');
+  console.log(amount, 'quantity');
 
   const increase = () => {
     setAmount((oldAmount) => {
@@ -32,7 +49,7 @@ const AddToCart = ({ product }) => {
   return (
     <Wrapper>
       <div className='colors'>
-        <span>colors :</span>
+        {/* <span>colors :</span>
         <div>
           {colors.map((color, index) => {
             return (
@@ -48,7 +65,7 @@ const AddToCart = ({ product }) => {
               </button>
             )
           })}
-        </div>
+        </div> */}
       </div>
       <div className='btn-container'>
         <AmountButtons
@@ -62,7 +79,7 @@ const AddToCart = ({ product }) => {
           className='btn'
           onClick={() => addToCart(id, mainColor, amount, product)}
         >
-          add to cart
+          Pre-order NOW
         </Link>
       </div>
     </Wrapper>
@@ -110,7 +127,9 @@ const Wrapper = styled.section`
 
   .btn {
     margin-top: 1rem;
-    width: 140px;
+    width: auto;
   }
 `
 export default AddToCart
+
+const colors = ['#222', '#f15025', '#ff523b', '#fcb045', '#eccc68', '#f5cd79']

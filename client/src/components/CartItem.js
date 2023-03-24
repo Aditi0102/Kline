@@ -12,16 +12,23 @@ const CartItem = ({ id, image, name, color, price, amount }) => {
   const decrease = () => {
     toggleAmount(id, 'dec')
   }
+  
+  function string_between_strings(startStr, endStr, str) {
+    let pos = str?.indexOf(startStr) + startStr?.length;
+    return str?.substring(pos, str.indexOf(endStr, pos));
+  }
+  let img_id = string_between_strings("/d/", "/view?", image);
+
   return (
     <Wrapper>
       <div className='title'>
-        <img src={image} alt={name} />
+        <img src={`https://drive.google.com/uc?export=view&id=${img_id}`}alt={name} />
         <div>
-          <h5 className='name'>{name}</h5>
-          <p className='color'>
+          <h4 className='name'>{name}</h4>
+          {/* <p className='color'>
             color :
             <span style={{ background: color }} />
-          </p>
+          </p> */}
           <h5 className='price-small'>{formatPrice(price)}</h5>
         </div>
       </div>
@@ -63,8 +70,9 @@ const Wrapper = styled.article`
     display: block;
     // border-radius: var(--radius);
     object-fit: cover;
+    border: 1px solid var(--clr-grey-10);
   }
-  h5 {
+  h4 {
     font-size: 0.75rem;
     margin-bottom: 0;
   }
@@ -134,7 +142,8 @@ const Wrapper = styled.article`
       font-weight: 400;
     }
     .name {
-      font-size: 0.85rem;
+      font-size: 1rem;
+      font-weight: 700;
     }
     .color {
       font-size: 0.85rem;

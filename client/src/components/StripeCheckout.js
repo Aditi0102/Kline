@@ -13,7 +13,7 @@ import { useUserContext } from '../context/user_context';
 import { formatPrice } from '../utils/helpers';
 import { useNavigate } from 'react-router-dom';
 
-const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
+const promise = loadStripe(process.env.STRIPE_PUBLIC_KEY);
 
 const CheckoutForm = () => {
   const { cart, total_amount, shipping_fee, clearCart } = useCartContext();
@@ -30,8 +30,7 @@ const CheckoutForm = () => {
   const createPaymentIntent = async () => {
     try {
       const { data } = await axios.post(
-        '/.netlify/functions/create-payment-intent',
-
+        'client/functions/create-payment-intent',
         JSON.stringify({ cart, shipping_fee, total_amount })
       );
       setClientSecret(data.clientSecret);
@@ -70,6 +69,10 @@ const CheckoutForm = () => {
   const handleSubmit = async (ev) => {
     ev.preventDefault();
     setProcessing(true);
+    const {error , paymentMethod} = await stripe.createPaymentMethod({
+      type: 'card',
+      card: elements.getElement(CardElement),
+    });
     const payload = await stripe.confirmCardPayment(clientSecret, {
       payment_method: {
         card: elements.getElement(CardElement),
@@ -109,7 +112,7 @@ const CheckoutForm = () => {
           options={cardStyle}
           onChange={handleChange}
         />
-        <button disabled={processing || disabled || succeeded} id='submit'>
+        <button disabled={false} id='submit'>
           <span id='button-text'>
             {processing ? <div className='spinner' id='spinner'></div> : 'Pay'}
           </span>
@@ -137,7 +140,7 @@ const CheckoutForm = () => {
 const StripeCheckout = () => {
   return (
     <Wrapper>
-      <Elements stripe={promise}>
+      <Elements stripe={promise} options = {{clientSecret : `{{${process.env.CLIENT_SECRET}}}`}}>
         <CheckoutForm />
       </Elements>
     </Wrapper>

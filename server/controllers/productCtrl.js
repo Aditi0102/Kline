@@ -10,7 +10,7 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
 
     const product = await Product.create(req.body);
     res.status(201).json({
-        success: true,
+        // success: true,
         product,
     });
 });
@@ -20,7 +20,7 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
 exports.getAllProducts = catchAsyncErrors( async(req, res) => {
     const products = await Product.find();
     res.status(200).json({
-        success: true,
+        // success: true,
         products
     });
 });
@@ -38,7 +38,7 @@ exports.updateProduct = catchAsyncErrors( async (req, res, next) => {
         useFindAndModify: false
         });
         res.status(200).json({
-            success: true,
+            // success: true,
             product
         });
 });
@@ -52,7 +52,7 @@ exports.deleteProduct = catchAsyncErrors( async (req, res, next) => {
     }
     await product.remove();
     res.status(200).json({
-        success: true,
+        // success: true,
         message: 'Product is deleted'
     })
 });
@@ -65,7 +65,7 @@ exports.getProductDetails = catchAsyncErrors( async(req,res,next)=>{
         return next(new ErrorHandler('Product not found', 404));
     }
     res.status(200).json({
-        success: true,
+        // success: true,
         product
     });
 });

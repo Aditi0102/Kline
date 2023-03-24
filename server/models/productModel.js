@@ -38,19 +38,21 @@ const productSchema = new mongoose.Schema({
         required: [true, 'Please select category for this product'],
         enum: {
             values: [
-                'Wine Glasses',
-                'Beer Glasses',
-                'Cocktail Glasses',
-                'Coffee Mugs',
-                'Wiskey Glasses',
-                'Accessories',
-                'Outdoor',
-                'Home'
+                'Ashtray',
+                'Soap Dispenser',
+                'Oil Dispenser',
+                'Beer Glass',
+                'Juice Glass',
+                'Shot Glass',
+                'Whiskey Glass',
+                'Wine Glass',
+                'Coffee Mug',
+                'Bulb Holder',
             ],
             message: 'Please select correct category for product'
         }
     },
-    Stock:{
+    stock:{
         type: Number,
         required: [true, 'Please enter product stock'],
         maxLength: [5, 'Product stock cannot exceed 5 characters'],
@@ -85,8 +87,6 @@ const productSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
-
-    
 
 })
 

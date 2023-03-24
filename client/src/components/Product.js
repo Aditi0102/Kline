@@ -3,12 +3,28 @@ import styled from "styled-components";
 import { formatPrice } from "../utils/helpers";
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
-const Product = ({ image, name, price, id }) => {
+const Product = ({ images, name, price, _id }) => {
+  // console.log(images);
+  const id = _id;
+  // console.log(id, "product id");
+  let img_id = images[0].url;
+  // console.log(img_id);
+  function string_between_strings(startStr, endStr, str) {
+    let pos = str.indexOf(startStr) + startStr.length;
+    return str.substring(pos, str.indexOf(endStr, pos));
+  }
+  img_id = string_between_strings("/d/", "/view?", img_id);
+
+  // console.log(img_id)
+
   return (
     <Wrapper>
       <div className="container">
-        <img src={image} alt={name} />
-        <Link to={`/products/${id}`} className="link">
+        <img
+          src={`https://drive.google.com/uc?export=view&id=${img_id}`}
+          alt={name}
+        />
+        <Link to={`/product/${id}`} className="link">
           <FaSearch />
         </Link>
       </div>

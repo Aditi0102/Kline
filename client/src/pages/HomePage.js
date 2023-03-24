@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { FeaturedProducts, Hero, Services, Contact } from '../components'
+import { FeaturedProducts, Contact } from '../components'
 import Carousel from '../components/Carousel'
 
 
@@ -17,7 +17,10 @@ const HomePage = () => {
         <Carousel/>     
       </StyledContainer>
 
-      <FeaturedProducts /> 
+      <FeaturedProducts  title='TABLE LAMP SERIES' start = {3} end = {6}/> 
+      
+      <FeaturedProducts  title='WHISKEY GLASS SERIES' start = {0} end = {3}/> 
+      
 
       <Contact />
     </main>

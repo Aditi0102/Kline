@@ -5,6 +5,7 @@ import { FiMail, FiPhone } from "react-icons/fi";
 import { BsPinterest, BsLinkedin, BsInstagram } from "react-icons/bs";
 import { FaSnapchat } from "react-icons/fa";
 import { AiFillTwitterCircle } from "react-icons/ai";
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <>
@@ -15,7 +16,7 @@ const Footer = () => {
           Kline Decor is a Home Decor and Premium Glassware company that specializes in creating elegant and sophisticated pieces to enhance the beauty of any living space.
           </span>
           <br />
-          <article>
+          {/* <article>
             {" "}
             <TfiLocationPin /> Address of the company, street, city, state,
             country, zip code
@@ -23,20 +24,22 @@ const Footer = () => {
           <article>
             {" "}
             <FiPhone /> Phone: +1 234 567 890
-          </article>
+          </article> */}
           <article>
             {" "}
-            <FiMail /> Email: dummy@gmail.com.
+            <FiMail /> Email: support@klinedecor.com.
           </article>
         </div>
         <div className="Container2">
           <h5>Customer Service</h5>
           <ul>
-            <li>Shipping Policy</li>
-            <li>Help & ContactUs</li>
-            <li>Returns & Refunds</li>
-            <li>Online Stores</li>
-            <li>Terms & Conditions</li>
+            <li><Link to="/" style={{color: `var(--clr-footer-white)`}}>Shipping Policy</Link></li>
+            <li>
+              <Link to="/" style={{color: `var(--clr-footer-white)`}}>Returns & Refunds</Link>
+            </li>
+            <li>
+              <Link to="/terms" style={{color: `var(--clr-footer-white)`}}>Terms & Conditions</Link>
+            </li>
           </ul>
         </div>
       </StyledFooterContainer>
@@ -61,7 +64,7 @@ const Footer = () => {
           <a href="https://www.snapchat.com/add/klinedecor.us" target="blank">
             <FaSnapchat></FaSnapchat>
           </a>
-          <a href="https://www.linkedin.com/klinedecor/" target="blank">
+          <a href="https://www.linkedin.com/company/klinedecor/" target="blank">
             <BsLinkedin></BsLinkedin>
           </a>
         </div>
@@ -74,6 +77,7 @@ const StyledFooterContainer = styled.footer`
 background: var(--clr-black);
 padding: 3rem 18%;
 border-bottom: 2px solid #2a2a2a;
+  
   h3 {
     width: 100%;
     color: var(--clr-text-brown);
@@ -94,6 +98,9 @@ border-bottom: 2px solid #2a2a2a;
 
   .Container2 {
     margin-top: 2rem;
+    Link {
+      color: var(--clr-footer-white);
+    }
     h5 {
       width: 100%;
       color: var(--clr-white);
@@ -103,9 +110,11 @@ border-bottom: 2px solid #2a2a2a;
       color: var(--clr-footer-white);
     }
     li {
+      color: var(--clr-footer-white);
       margin: 0.5rem 0;
     }
-    li:hover {
+    
+    li:hover { 
       border-bottom: 1px solid var(--clr-footer-white);
     }
   }
@@ -156,6 +165,7 @@ border-bottom: 2px solid #2a2a2a;
       li {
         width: 100%;
         margin: 0.5rem 0;
+        color: var(--clr-footer-white);
       }
       li:hover {
         border-bottom: 1px solid var(--clr-footer-white);

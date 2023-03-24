@@ -1,7 +1,7 @@
-import axios from 'axios'
-import React, { useContext, useEffect, useReducer } from 'react'
-import reducer from '../reducers/products_reducer'
-import { products_url as url } from '../utils/constants'
+import axios from "axios";
+import React, { useContext, useEffect, useReducer } from "react";
+import reducer from "../reducers/products_reducer";
+import { products_url as url } from "../utils/constants";
 import {
   SIDEBAR_OPEN,
   SIDEBAR_CLOSE,
@@ -11,8 +11,11 @@ import {
   GET_SINGLE_PRODUCT_BEGIN,
   GET_SINGLE_PRODUCT_SUCCESS,
   GET_SINGLE_PRODUCT_ERROR,
+
 } from '../actions'
-import product_s from '../assets/products/products.json' 
+
+// import product_s from '../assets/products/products.json' 
+
 
 const initialState = {
   isSidebarOpen: false,
@@ -23,44 +26,50 @@ const initialState = {
   single_product_loading: false,
   single_product_error: false,
   single_product: {},
-}
+};
 
-const ProductsContext = React.createContext()
+const ProductsContext = React.createContext();
 
 export const ProductsProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState)
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const openSidebar = () => {
-    dispatch({ type: SIDEBAR_OPEN })
-  }
+    dispatch({ type: SIDEBAR_OPEN });
+  };
   const closeSidebar = () => {
-    dispatch({ type: SIDEBAR_CLOSE })
-  }
+    dispatch({ type: SIDEBAR_CLOSE });
+  };
 
   const fetchProducts = async (url) => {
-    dispatch({ type: GET_PRODUCTS_BEGIN })
+    dispatch({ type: GET_PRODUCTS_BEGIN });
     try {
-      const response = await axios.get(url)
-      const products = product_s
-      dispatch({ type: GET_PRODUCTS_SUCCESS, payload: products })
+      const response = await axios.get(url);
+      // console.log(response.data)
+      // const products = product_s
+      const products = response.data.products;
+      dispatch({ type: GET_PRODUCTS_SUCCESS, payload: products });
     } catch (error) {
-      dispatch({ type: GET_PRODUCTS_ERROR })
+      dispatch({ type: GET_PRODUCTS_ERROR });
     }
-  }
-  const fetchSingleProduct = async (url) => {
-    dispatch({ type: GET_SINGLE_PRODUCT_BEGIN })
-    try {
-      const response = await axios.get(url)
-      const singleProduct = response.data
-      dispatch({ type: GET_SINGLE_PRODUCT_SUCCESS, payload: singleProduct })
-    } catch (error) {
-      dispatch({ type: GET_SINGLE_PRODUCT_ERROR })
-    }
-  }
+  };
 
+  const fetchSingleProduct = async (url) => {
+    console.log(url, "fetch single product url");
+    dispatch({ type: GET_SINGLE_PRODUCT_BEGIN });
+    try {
+      console.log(url, 'single product url')
+      const response = await axios.get(url);
+      const singleProduct = response.data;
+      console.log(singleProduct);
+
+      dispatch({ type: GET_SINGLE_PRODUCT_SUCCESS, payload: singleProduct });
+    } catch (error) {
+      dispatch({ type: GET_SINGLE_PRODUCT_ERROR });
+    }
+  };
   useEffect(() => {
-    fetchProducts(url)
-  }, [])
+    fetchProducts(url);
+  }, []);
 
   return (
     <ProductsContext.Provider
@@ -73,9 +82,9 @@ export const ProductsProvider = ({ children }) => {
     >
       {children}
     </ProductsContext.Provider>
-  )
-}
+  );
+};
 // make sure use
 export const useProductsContext = () => {
-  return useContext(ProductsContext)
-}
+  return useContext(ProductsContext);
+};

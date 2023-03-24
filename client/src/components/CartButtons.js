@@ -5,10 +5,13 @@ import styled from 'styled-components'
 import { useProductsContext } from '../context/products_context'
 import { useCartContext } from '../context/cart_context'
 import { useUserContext } from '../context/user_context'
+import { useSelector } from 'react-redux'
+import UserOptions from './UserOptions'
 const CartButton = () => {
   const { closeSidebar } = useProductsContext()
   const { total_items, clearCart } = useCartContext()
   const { loginWithRedirect, myUser, logout } = useUserContext()
+  const { user, loading, isAuthenticated } = useSelector((state) => state.user);
   return (
     <Wrapper className='cart-btn-wrapper'>
       <Link to='/cart' className='cart-btn' onClick={closeSidebar}>
@@ -18,21 +21,26 @@ const CartButton = () => {
           <span className='cart-value'>{total_items}</span>
         </span>
       </Link>
-      {myUser ? (
-        <button
-          type='button'
-          className='auth-btn'
-          onClick={() => {
-            clearCart()
-            localStorage.removeItem('user')
-            logout({ returnTo: window.location.origin })
-          }}
-        >
-          Logout <FaUserMinus />
-        </button>
+      {isAuthenticated ? (
+        // <button
+        //   type='button'
+        //   className='auth-btn'
+        //   onClick={() => {
+        //     clearCart()
+        //     localStorage.removeItem('user')
+        //     logout({ returnTo: window.location.origin })
+        //   }}
+        // >
+        //   Logout <FaUserMinus />
+        // </button>
+        <div>
+          <UserOptions user={user} />
+        </div>
       ) : (
-        <button type='button' className='auth-btn' onClick={loginWithRedirect}>
-          Login <FaUserPlus />
+        <button type='button' className='auth-btn'>
+          <Link to = "/login">
+            Login <FaUserPlus/>
+          </Link>
         </button>
       )}
     </Wrapper>

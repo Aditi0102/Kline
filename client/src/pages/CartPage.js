@@ -10,7 +10,9 @@ const CartPage = () => {
       <Wrapper className='page-100'>
         <div className='empty'>
           <h2>Your cart is empty</h2>
-          <Link to='/products' className='btn'>
+          {/* ye niche wale link se pehle /products pe ja rha tha abhi ke liye
+            home page pe jaata hai */}
+          <Link to='/' className='btn'>
             fill it
           </Link>
         </div>
@@ -29,6 +31,7 @@ const CartPage = () => {
 
 const Wrapper = styled.main`
   .empty {
+    margin-top: 5rem;
     text-align: center;
     h2 {
       margin-bottom: 1rem;
