@@ -6,8 +6,8 @@ const orderSchema = new mongoose.Schema({
         city: { type: String, required: true },
         state: { type: String, required: true },
         country:{ type: String, required: true },
-        pinCode: { type: Number, required: true },
-        phoneNo: { type: Number, required: true },
+        pinCode: { type: String, required: true },
+        phoneNo: { type: String, required: true },
     },
     orderItems: [
         {
@@ -53,14 +53,14 @@ const orderSchema = new mongoose.Schema({
          },
     orderStatus: {
         type: String,
-        required: true,
+        required: false,
         default: 'Processing',
     },
-    deliveredAt: Date,
     createdAt: {
         type: Date,
         default: Date.now,
     },
+
 });
 
 

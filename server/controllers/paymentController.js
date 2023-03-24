@@ -41,26 +41,3 @@ exports.sendClientSecretKey = catchAsyncErrors(async (req, res, next) => {
     stripeApiKey: process.env.STRIPE_SECRET_KEY,
   });
 });
-
-// exports.createPatent = catchAsyncErrors(async (req, res, next) => {
-//   // console.log(req.body, 'req.body')
-//   const shipping = {
-//     name: req.body.user.name,
-//     address: {
-//       line1: req.body.shippingInfo.address,
-//       postal_code: req.body.shippingInfo.pinCode,
-//       city: req.body.shippingInfo.city,
-//       state: req.body.shippingInfo.state,
-//       country: req.body.shippingInfo.country,
-//     },
-//   };
-//   const paymentIntent = await stripe.paymentIntents.create({
-//     amount: 1099,
-//     currency: "usd",
-//     description: "Software development services",
-//     shipping: shipping,
-//   });
-//   res.status(200).json({
-//     client_secret: paymentIntent.client_secret,
-//   });
-// });

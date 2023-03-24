@@ -14,7 +14,7 @@ const ConfirmOrder = () => {
   const { total_amount, shipping_fee } = useCartContext();
 
   // console.log(shippingInfo, "shippingInfo");
-  // console.log(cartItems, "cartItems");
+  console.log(cart_Items,localStorage.getItem('cart'),  "cartItems");
   // console.log(user, "user");
   // console.log(isAuthenticated, "user auth");
 

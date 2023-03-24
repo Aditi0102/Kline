@@ -84,7 +84,9 @@ export const loadUser = () => async (dispatch) => {
   try {
     dispatch({ type: LOAD_USER_REQUEST });
 
-    const { data } = await axios.get(`${allUrls.backend_url}/api/v1/me`);
+    const config = { headers: { "Content-Type": "multipart/form-data", Authorization: `${localStorage.getItem('token')}` } };
+    
+    const { data } = await axios.get(`${allUrls.backend_url}/api/v1/me`, config);
 
     dispatch({ type: LOAD_USER_SUCCESS, payload: data.user });
   } catch (error) {

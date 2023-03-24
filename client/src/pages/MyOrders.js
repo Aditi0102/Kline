@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from "react";
-import { DataGrid } from '@mui/x-data-grid';    
+import { DataGrid } from "@mui/x-data-grid";
 import "./MyOrders.css";
 import { useSelector, useDispatch } from "react-redux";
 import { clearErrors, myOrders } from "../actions/orderAction";
@@ -13,13 +13,12 @@ import LaunchIcon from "@material-ui/icons/Launch";
 const MyOrders = () => {
   const dispatch = useDispatch();
 
-//   const alert = useAlert();
+  //   const alert = useAlert();
 
   const { loading, error, orders } = useSelector((state) => state.myOrders);
   const { user } = useSelector((state) => state.user);
-  console.log(user, "myorders");
-  console.log(orders,"my orders");
-
+  // console.log(user, "myorders");
+  console.log(orders, "my orders");
 
   const columns = [
     { field: "id", headerName: "Order ID", minWidth: 300, flex: 1 },
@@ -81,7 +80,7 @@ const MyOrders = () => {
 
   useEffect(() => {
     if (error) {
-    //   alert.error(error);
+      //   alert.error(error);
       dispatch(clearErrors());
     }
 
@@ -94,8 +93,7 @@ const MyOrders = () => {
 
       {loading ? (
         <Loader />
-      ) : 
-      (
+      ) : (
         <div className="myOrdersPage">
           <DataGrid
             rows={rows}

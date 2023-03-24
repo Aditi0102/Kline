@@ -25,16 +25,28 @@ import axios from "axios";
 // Create Order
 export const createOrder = (order) => async (dispatch) => {
   try {
-    dispatch({ type: CREATE_ORDER_REQUEST });
 
+    dispatch({ type: CREATE_ORDER_REQUEST });
     const config = {
       headers: {
         "Content-Type": "application/json",
         Authorization: `${localStorage.getItem('token')}`
       },
     };
-    const { data } = await axios.post(`${allUrls.backend_url}/api/v1/order/new`, order, config);
 
+    const orderItems = order.orderItems.map((item) => {
+      return {
+        product : item.id ,
+        name  : item.name , 
+        quantity : item.amount,
+        image : item.image,
+        price : item.price
+      };
+    })
+    const newOrder = {...order , orderItems : orderItems};
+    console.log(newOrder , 'order data');
+    const { data } = await axios.post(`${allUrls.backend_url}/api/v1/order/new`, newOrder, config);
+    console.log(data)
     dispatch({ type: CREATE_ORDER_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
@@ -48,8 +60,13 @@ export const createOrder = (order) => async (dispatch) => {
 export const myOrders = () => async (dispatch) => {
   try {
     dispatch({ type: MY_ORDERS_REQUEST });
-
-    const { data } = await axios.get(`${allUrls.backend_url}/api/v1/orders/me`);
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `${localStorage.getItem('token')}`
+      },
+    };
+    const { data } = await axios.get(`${allUrls.backend_url}/api/v1/orders/me`, config);
 
     dispatch({ type: MY_ORDERS_SUCCESS, payload: data.orders });
   } catch (error) {
@@ -64,8 +81,14 @@ export const myOrders = () => async (dispatch) => {
 export const getAllOrders = () => async (dispatch) => {
   try {
     dispatch({ type: ALL_ORDERS_REQUEST });
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `${localStorage.getItem('token')}`,
+      },
+    };
 
-    const { data } = await axios.get(`${allUrls.backend_url}/api/v1/admin/orders`);
+    const { data } = await axios.get(`${allUrls.backend_url}/api/v1/admin/orders`, config);
 
     dispatch({ type: ALL_ORDERS_SUCCESS, payload: data.orders });
   } catch (error) {
@@ -92,7 +115,6 @@ export const updateOrder = (id, order) => async (dispatch) => {
       order,
       config
     );
-
     dispatch({ type: UPDATE_ORDER_SUCCESS, payload: data.success });
   } catch (error) {
     dispatch({
@@ -106,8 +128,14 @@ export const updateOrder = (id, order) => async (dispatch) => {
 export const deleteOrder = (id) => async (dispatch) => {
   try {
     dispatch({ type: DELETE_ORDER_REQUEST });
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `${localStorage.getItem('token')}`,
+      },
+    };
 
-    const { data } = await axios.delete(`${allUrls.backend_url}/api/v1/admin/order/${id}`);
+    const { data } = await axios.delete(`${allUrls.backend_url}/api/v1/admin/order/${id}`, config);
 
     dispatch({ type: DELETE_ORDER_SUCCESS, payload: data.success });
   } catch (error) {
@@ -122,8 +150,14 @@ export const deleteOrder = (id) => async (dispatch) => {
 export const getOrderDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: ORDER_DETAILS_REQUEST });
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `${localStorage.getItem('token')}`,
+      },
+    };
 
-    const { data } = await axios.get(`${allUrls.backend_url}/api/v1/order/${id}`);
+    const { data } = await axios.get(`${allUrls.backend_url}/api/v1/order/${id}`, config);
 
     dispatch({ type: ORDER_DETAILS_SUCCESS, payload: data.order });
   } catch (error) {

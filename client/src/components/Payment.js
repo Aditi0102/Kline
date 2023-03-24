@@ -60,7 +60,7 @@ const Payment = () => {
       const config = {
         headers: {
           "Content-Type": "application/json",
-          headers: { Authorization: `${localStorage.getItem('token')}` }
+          Authorization: `${localStorage.getItem('token')}`,
         },
       };
 
