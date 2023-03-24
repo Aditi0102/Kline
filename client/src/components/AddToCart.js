@@ -1,17 +1,32 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { FaCheck } from 'react-icons/fa'
 import { useCartContext } from '../context/cart_context'
 import AmountButtons from './AmountButtons'
+import { useDispatch, useSelector } from "react-redux";
+import { addItemsToCart } from '../actions/cartAction'
+
 const AddToCart = ({ product }) => {
+
+  const dispatch = useDispatch();
+
   // add to cart
   console.log(product , 'add to cart'); 
   
-  const { addToCart } = useCartContext()
+  
+  //const { addToCart } = useCartContext()
+  
   const { _id : id, stock } = product;
   const [mainColor, setMainColor] = useState(colors[0])
   const [amount, setAmount] = useState(1)
+
+  const addToCart = (e) => {
+      dispatch(addItemsToCart(id,amount));
+  };
+
+  console.log(id, 'id');
+  console.log(amount, 'quantity');
 
   const increase = () => {
     setAmount((oldAmount) => {

@@ -5,8 +5,10 @@ import { useUserContext } from '../context/user_context'
 import { formatPrice } from '../utils/helpers'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+
 const CartTotals = () => {
   const { total_amount, shipping_fee } = useCartContext()
+  const {cartItem, amount} = useSelector((state) => state.cart);
   // const { myUser, loginWithRedirect } = useUserContext()
   const { user, loading, isAuthenticated } = useSelector((state) => state.user);
 
