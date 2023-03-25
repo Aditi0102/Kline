@@ -15,15 +15,15 @@ const AddToCart = ({ product }) => {
   console.log(product , 'add to cart'); 
   
   
-  //const { addToCart } = useCartContext()
+  const { addToCart } = useCartContext()
   
   const { _id : id, stock } = product;
   const [mainColor, setMainColor] = useState(colors[0])
   const [amount, setAmount] = useState(1)
 
-  const addToCart = (e) => {
-      dispatch(addItemsToCart(id,amount));
-  };
+  // const addToCart = (e) => {
+  //     dispatch(addItemsToCart(id,amount));
+  // };
 
   console.log(id, 'id');
   console.log(amount, 'quantity');
