@@ -20,11 +20,13 @@ import EventIcon from "@material-ui/icons/Event";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import { createOrder, clearErrors } from "../actions/orderAction";
 import allUrls from "../config/config";
+import { useCartContext } from "../context/cart_context";
 
 
 const Payment = () => {
   const orderInfo = JSON.parse(sessionStorage.getItem("orderInfo"));
-  const { shippingInfo, cart: cart_Items } = useSelector((state) => state.cart);
+  const {cart: cartItems} = useCartContext();
+  const { shippingInfo } = useSelector((state) => state.cart);
   const { isAuthenticated ,  user } = useSelector((state) => state.user);
 
   const dispatch = useDispatch();
@@ -35,7 +37,7 @@ const Payment = () => {
 
 
  
-  const cartItems = cart_Items.cartItems;
+ // const cartItems = cart_Items.cartItems;
   const paymentData = {
     amount: Math.round(orderInfo.totalPrice * 100),
     shippingInfo : shippingInfo,
