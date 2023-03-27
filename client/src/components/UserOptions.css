@@ -6,6 +6,6 @@
 }
 
 img.speedDialIcon{
-  width: 100%;
+  width: 100% !important;
   object-fit: contain;
 }

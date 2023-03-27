@@ -37,11 +37,11 @@ const CartButton = () => {
           <UserOptions user={user} />
         </div>
       ) : (
-        <button type='button' className='auth-btn'>
-          <Link to = "/login">
-            Login <FaUserPlus/>
-          </Link>
-        </button>
+        <Link to = "/login">
+          <button type='button' className='auth-btn'>
+              Login <FaUserPlus/>
+          </button>
+        </Link>
       )}
     </Wrapper>
   )

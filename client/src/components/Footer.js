@@ -16,15 +16,6 @@ const Footer = () => {
           Kline Decor is a Home Decor and Premium Glassware company that specializes in creating elegant and sophisticated pieces to enhance the beauty of any living space.
           </span>
           <br />
-          {/* <article>
-            {" "}
-            <TfiLocationPin /> Address of the company, street, city, state,
-            country, zip code
-          </article>
-          <article>
-            {" "}
-            <FiPhone /> Phone: +1 234 567 890
-          </article> */}
           <article>
             {" "}
             <FiMail /> Email: support@klinedecor.com.
@@ -33,12 +24,12 @@ const Footer = () => {
         <div className="Container2">
           <h5>Customer Service</h5>
           <ul>
-            <li><Link to="/" style={{color: `var(--clr-footer-white)`}}>Shipping Policy</Link></li>
+            <li><Link to="/"> <p className="hovertext">Shipping Policy</p></Link></li>
             <li>
-              <Link to="/" style={{color: `var(--clr-footer-white)`}}>Returns & Refunds</Link>
+              <Link to="/"> <p className="hovertext">Returns & Refunds</p></Link>
             </li>
             <li>
-              <Link to="/terms" style={{color: `var(--clr-footer-white)`}}>Terms & Conditions</Link>
+              <Link to="/terms"><p className="hovertext">Terms & Conditions</p></Link>
             </li>
           </ul>
         </div>
@@ -98,9 +89,6 @@ border-bottom: 2px solid #2a2a2a;
 
   .Container2 {
     margin-top: 2rem;
-    Link {
-      color: var(--clr-footer-white);
-    }
     h5 {
       width: 100%;
       color: var(--clr-white);
@@ -112,11 +100,7 @@ border-bottom: 2px solid #2a2a2a;
     li {
       color: var(--clr-footer-white);
       margin: 0.5rem 0;
-    }
-    
-    li:hover { 
-      border-bottom: 1px solid var(--clr-footer-white);
-    }
+    }  
   }
 
   @media (min-width: 776px) {
@@ -149,7 +133,6 @@ border-bottom: 2px solid #2a2a2a;
     .Container2 {
       margin-left: 10rem;
       width: 40%;
-      // border: 1px solid var(--clr-footer-white);
       display: flex;
       flex-direction: column;
       h5 {
@@ -167,7 +150,12 @@ border-bottom: 2px solid #2a2a2a;
         margin: 0.5rem 0;
         color: var(--clr-footer-white);
       }
-      li:hover {
+      .hovertext {
+        color: var(--clr-footer-white);
+        display: inline-block;
+        margin-bottom: 0;
+      }
+      .hovertext:hover {
         border-bottom: 1px solid var(--clr-footer-white);
       }
     }

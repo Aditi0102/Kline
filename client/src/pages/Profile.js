@@ -10,12 +10,10 @@ const Profile = () => {
   const { user, loading, isAuthenticated } = useSelector((state) => state.user);
 
   useEffect(() => {
-    if (isAuthenticated === false) {
+    if (!isAuthenticated) {
       navigate("/");
     }
   }, [navigate, isAuthenticated]);
-
-  if(!isAuthenticated)return null;
 
   return (
     <Fragment>

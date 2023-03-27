@@ -7,6 +7,7 @@
     left: 0%;
     max-width: 100%;
     background-color: white;
+    padding-top: 80px;
 }
 
 .profileContainer>div {
@@ -95,6 +96,7 @@
 @media screen and (max-width: 600px) {
     .profileContainer {
         flex-direction: column;
+        padding-top: 80px;
     }
 
     .profileContainer>div:first-child>h1 {

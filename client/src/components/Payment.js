@@ -1,7 +1,5 @@
 import React, {  useEffect, useRef } from "react";
-
 import { useSelector, useDispatch } from "react-redux";
-
 import { Typography } from "@material-ui/core";
 import { useNavigate } from "react-router-dom";
 
@@ -21,6 +19,8 @@ import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import { createOrder, clearErrors } from "../actions/orderAction";
 import allUrls from "../config/config";
 import { useCartContext } from "../context/cart_context";
+import Error from "./Error";
+import Loading from "./Loading";
 
 
 const Payment = () => {
@@ -95,7 +95,6 @@ const Payment = () => {
 
       if (result.error) {
         payBtn.current.disabled = false;
-
         console.log(result.error.message);
       } else {
         if (result.paymentIntent.status === "succeeded") {
@@ -117,10 +116,13 @@ const Payment = () => {
   };
 
   useEffect(() => {
+    if(!isAuthenticated){
+      navigate("/");
+    }
     // if (error) {
     //   dispatch(clearErrors());
     // }
-  }, [dispatch]);
+  }, [dispatch, navigate, isAuthenticated]);
 
   return (
     

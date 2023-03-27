@@ -3,8 +3,8 @@ import { DataGrid } from "@mui/x-data-grid";
 import "./MyOrders.css";
 import { useSelector, useDispatch } from "react-redux";
 import { clearErrors, myOrders } from "../actions/orderAction";
-import Loader from "../components/layout/Loader";
-import { Link } from "react-router-dom";
+import Loader from "../components/Loading";
+import { useNavigate } from "react-router-dom";
 // import { useAlert } from "react-alert";
 import Typography from "@material-ui/core/Typography";
 // import MetaData from "../layout/MetaData";
@@ -13,12 +13,10 @@ import LaunchIcon from "@material-ui/icons/Launch";
 const MyOrders = () => {
   const dispatch = useDispatch();
 
-  //   const alert = useAlert();
-
   const { loading, error, orders } = useSelector((state) => state.myOrders);
-  const { user } = useSelector((state) => state.user);
-  // console.log(user, "myorders");
-  console.log(orders, "my orders");
+  const { isAuthenticated, user } = useSelector((state) => state.user);
+
+  const navigate = useNavigate();
 
   const columns = [
     { field: "id", headerName: "Order ID", minWidth: 300, flex: 1 },
@@ -29,12 +27,7 @@ const MyOrders = () => {
       minWidth: 150,
       flex: 0.5,
       cellClassName: (params) => {
-    //     console.log(params,"params printed")
-    //     console.log(typeof(params),"params.type printed")
-    //  console.log(Object.keys(params),"params.keys printed")
-    //  console.log(Object.values(params),"params.values printed")
-    //  console.log(params.value);
-     return params.value === "Delivered"? "greenColor" : "redColor";
+      return params.value === "Delivered"? "greenColor" : "redColor";
         // return params.getValue(params.id, "status") === "Delivered"
         //   ? "greenColor"
         //   : "redColor";
@@ -85,13 +78,16 @@ const MyOrders = () => {
     });
 
   useEffect(() => {
+    if(!isAuthenticated){
+      navigate("/");
+    }
     if (error) {
       //   alert.error(error);
       dispatch(clearErrors());
     }
 
     dispatch(myOrders());
-  }, [dispatch, error]);
+  }, [dispatch, error, isAuthenticated, navigate]);
 
   return (
     <Fragment>
