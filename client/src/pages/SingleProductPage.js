@@ -68,12 +68,14 @@ const SingleProductPage = () => {
     .desc {
       line-height: 2;
       max-width: 45em;
+      color: var(--clr-grey-3);
     }
     .info {
       text-transform: capitalize;
       width: 300px;
       display: grid;
       grid-template-columns: 125px 1fr;
+      color: var(--clr-grey-3);
       span {
         font-weight: 700;
       }
@@ -100,14 +102,14 @@ const SingleProductPage = () => {
     <Wrapper>
       <PageHero title={name} product />
       <div className="section section-center page">
-        <Link to="/products" className="btn">
+        {/* <Link to="/products" className="btn">
           back to products
-        </Link>
+        </Link> */}
         <div className="product-center">
           <ProductImages images={images} />
           <section className="content">
             <h2>{name}</h2>
-            <Stars stars={stars} reviews={reviews} />
+            {/* <Stars stars={stars} reviews={reviews} /> */}
             <h5 className="price">{formatPrice(price)}</h5>
             <p className="desc">{description}</p>
             <p className="info">
