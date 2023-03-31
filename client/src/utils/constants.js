@@ -1,5 +1,6 @@
 import React from 'react'
 import { GiCompass, GiDiamondHard, GiStabbedNote } from 'react-icons/gi'
+import allUrls from '../config/config'
 export const links = [
   {
     id: 1,
@@ -42,6 +43,6 @@ export const services = [
   },
 ]
 
-export const products_url = 'http://localhost:4000/api/v1/products/'
+export const products_url = `${allUrls.backend_url}/api/v1/products/`
 
-export const single_product_url = `http://localhost:4000/api/v1/product/`
+export const single_product_url = `${allUrls.backend_url}/api/v1/product/`

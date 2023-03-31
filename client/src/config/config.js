@@ -1,4 +1,4 @@
 const allUrls = {
-    backend_url : 'http://localhost:4000',
-}
+  backend_url: "https://kline420.onrender.com",
+};
 export default allUrls;
