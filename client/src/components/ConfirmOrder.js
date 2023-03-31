@@ -12,18 +12,9 @@ const ConfirmOrder = () => {
   const{cart: cartItems} = useCartContext();
   const { shippingInfo, cart: cart_Items } = useSelector((state) => state.cart);
   const { user } = useSelector((state) => state.user);
-  const { total_amount, shipping_fee } = useCartContext();
-
-  // console.log(shippingInfo, "shippingInfo");
-  console.log(cart_Items,localStorage.getItem('cart'),  "cartItems");
-  // console.log(user, "user");
-  // console.log(isAuthenticated, "user auth");
-
- // const cartItems = cart_Items.cartItems;
- 
-  
+  const { total_amount, shipping_fee } = useCartContext(); 
   const navigate = useNavigate();
-  //console.log(cart_Items, "cartItems");
+  
   const subtotal = cartItems.reduce(
     (acc, item) => acc + (item.amount * item.price) / 100,
     0
