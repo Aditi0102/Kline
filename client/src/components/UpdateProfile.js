@@ -5,9 +5,7 @@ import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import FaceIcon from "@mui/icons-material/Face";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, updateProfile, loadUser } from "../actions/userAction";
-// import { useAlert } from "react-alert";
 import { UPDATE_PROFILE_RESET } from "../actions";
-// import MetaData from "../layout/MetaData";
 import { useNavigate } from "react-router";
 
 const UpdateProfile = () => {

@@ -3,14 +3,11 @@ import "./ResetPassword.css";
 import Loader from "./layout/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, resetPassword } from "../actions/userAction";
-// import { useAlert } from "react-alert";
-// import MetaData from "../layout/MetaData";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
 import LockIcon from "@mui/icons-material/Lock";
 
 const ResetPassword = ({ history, match }) => {
   const dispatch = useDispatch();
-  // const alert = useAlert();
 
   const { error, success, loading } = useSelector(
     (state) => state.forgotPassword
