@@ -3,22 +3,17 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useProductsContext } from "../context/products_context";
 import { single_product_url as url } from "../utils/constants";
 import { formatPrice } from "../utils/helpers";
-// import indvProduct from "../assets/products/products_indv.json";
+import Loader from "../components/layout/Loader";
 import {
-  Loading,
   Error,
   ProductImages,
   AddToCart,
-  Stars,
   PageHero,
 } from "../components";
-import styled, { createGlobalStyle } from "styled-components";
-import { Link } from "react-router-dom";
+import styled from "styled-components";
 const SingleProductPage = () => {
   const { productid } = useParams();
   const id = productid;
-  // console.log(url);
-  // console.log(`ye useParam ke baad wali hai ${id}`);
   const navigate = useNavigate();
 
   const {
@@ -28,7 +23,6 @@ const SingleProductPage = () => {
     fetchSingleProduct,
   } = useProductsContext();
 
-  console.log(`${url}${id}`, "single product url in single product page");
 
   useEffect(() => {
     fetchSingleProduct(`${url}${id}`);
@@ -36,6 +30,7 @@ const SingleProductPage = () => {
   }, [id]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (error) {
       setTimeout(() => {
         navigate("/");
@@ -43,15 +38,13 @@ const SingleProductPage = () => {
     }
     // eslint-disable-next-line
   }, [error]);
-  console.log(product, "single product");
+
   const single_product = { ...product.product };
   const {
     name,
     price,
     description,
     stock,
-    rating: stars,
-    reviews,
     _id: sku,
     images,
   } = single_product;
@@ -93,7 +86,7 @@ const SingleProductPage = () => {
   `;
 
   if (loading) {
-    return <Loading />;
+    return <Loader />;
   }
   if (error) {
     return <Error />;
@@ -120,10 +113,6 @@ const SingleProductPage = () => {
               <span>SKU :</span>
               {sku}
             </p>
-            {/* <p className="info">
-              <span>Brand :</span>
-              {company}
-            </p> */}
             <hr />
             {stock > 0 && <AddToCart product={single_product} />}
           </section>

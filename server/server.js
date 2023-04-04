@@ -9,8 +9,6 @@ process.on("uncaughtException", (err) => {
   process.exit(1);
 });
 
-
-
 //config
 dotenv.config({ path: "./config/config.env" });
 
@@ -21,9 +19,6 @@ cloudinary.config({
   api_key: process.env.CLOUDINARY_APIKEY,
   api_secret: process.env.CLOUDINARY_SECRET,
 });
-
-
-// console.log(process.env.CLOUDINARY_NAME, 'cloudinary name')
 
 const server = app.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${process.env.PORT}`);

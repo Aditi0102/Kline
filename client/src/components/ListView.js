@@ -7,20 +7,20 @@ const ListView = ({ products }) => {
     let pos = str.indexOf(startStr) + startStr.length;
     return str.substring(pos, str.indexOf(endStr, pos));
   }
-  console.log(products)
+
   return (
     <Wrapper>
       {products.map((product) => {
 
-        // console.log(product)
+
         const { _id, images, name, price, description } = product
         const listViewimages=images.map((image) => {
-          // console.log(image.url, "image.url")
+
           let img_id = image.url;
           img_id = string_between_strings("/d/", "/view?", img_id);
           return { ...image, url: `https://drive.google.com/uc?export=view&id=${img_id}` }
         })
-        console.log(listViewimages)
+
         const id = _id
 
         return (

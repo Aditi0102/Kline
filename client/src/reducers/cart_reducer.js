@@ -28,7 +28,7 @@ const cart_reducer = (
 ) => {
   if (action.type === ADD_TO_CART) {
     const { id, color, amount, product } = action.payload;
-    console.log(action.payload, "cart reduder payload")
+    
     const tempItem = state.cart.find((i) => i.id === id);
     if (tempItem) {
       const tempCart = state.cart.map((cartItem) => {
@@ -104,7 +104,7 @@ const cart_reducer = (
       shippingInfo: action.payload,
     };
   }
-  console.log(action.type);
+  
   return state;
   // throw new Error(`No Matching "${action.type}" - action type`);
 };

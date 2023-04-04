@@ -54,7 +54,6 @@ const UpdateProfile = () => {
     }
 
     if (error) {
-      console.log(error, 'update profile me error');
       dispatch(clearErrors());
     }
 

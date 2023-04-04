@@ -12,7 +12,7 @@ export const addItemsToCart = (id, quantity) => async (dispatch, getState) => {
     `${allUrls.backend_url}/api/v1/product/${id}`
   );
 
-  console.log(data, "data of cartAction");
+
 
   dispatch({
     type: ADD_TO_CART,
@@ -41,7 +41,7 @@ export const removeItemsFromCart = (id) => async (dispatch, getState) => {
 
 // SAVE SHIPPING INFO
 export const saveShippingInfo = (data) => async (dispatch, getState) => {
-  // console.log("saved shipping info");
+
   dispatch({
     type: SAVE_SHIPPING_INFO,
     payload: data,

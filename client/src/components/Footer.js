@@ -1,11 +1,11 @@
-import React from "react";
+import React from "react"; 
 import styled from "styled-components";
-import { TfiLocationPin } from "react-icons/tfi";
-import { FiMail, FiPhone } from "react-icons/fi";
+import { FiMail } from "react-icons/fi";
 import { BsPinterest, BsLinkedin, BsInstagram } from "react-icons/bs";
-import { FaSnapchat } from "react-icons/fa";
+import { FaSnapchat, FaTiktok } from "react-icons/fa";
 import { AiFillTwitterCircle } from "react-icons/ai";
 import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
     <>
@@ -58,6 +58,9 @@ const Footer = () => {
           <a href="https://www.linkedin.com/company/klinedecor/" target="blank">
             <BsLinkedin></BsLinkedin>
           </a>
+          <a href="https://www.tiktok.com/@klinedecor?lang=en" target="blank">
+            <FaTiktok></FaTiktok>
+          </a>
         </div>
       </StyledFooterContainer4>
     </>
@@ -98,9 +101,18 @@ border-bottom: 2px solid #2a2a2a;
       color: var(--clr-footer-white);
     }
     li {
-      color: var(--clr-footer-white);
+      width: 100%;
       margin: 0.5rem 0;
-    }  
+      color: var(--clr-footer-white);
+    }
+    .hovertext {
+      color: var(--clr-footer-white);
+      display: inline-block;
+      margin-bottom: 0;
+    }
+    .hovertext:hover {
+      border-bottom: 1px solid var(--clr-footer-white);
+    }
   }
 
   @media (min-width: 776px) {
