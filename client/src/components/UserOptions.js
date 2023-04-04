@@ -1,20 +1,19 @@
 import React, { Fragment, useState } from "react";
 import "./UserOptions.css";
 import avatar from "../assets/avatar.png";
-import { SpeedDial, SpeedDialAction } from "@material-ui/lab";
-import Backdrop from "@material-ui/core/Backdrop";
+import { SpeedDial, SpeedDialAction } from "@mui/lab";
+import Backdrop from "@mui/material/Backdrop";
 import { useNavigate } from "react-router-dom";
 import { logout } from "../actions/userAction";
-import { useDispatch} from "react-redux";
-import PersonIcon from "@material-ui/icons/Person";
-import ExitToAppIcon from "@material-ui/icons/ExitToApp";
-import ListAltIcon from "@material-ui/icons/ListAlt";
+import { useDispatch } from "react-redux";
+import PersonIcon from "@mui/icons-material/Person";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import ListAltIcon from "@mui/icons-material/ListAlt";
 
 const UserOptions = ({ user }) => {
-
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
-  
+
   const dispatch = useDispatch();
 
   const options = [
@@ -23,17 +22,17 @@ const UserOptions = ({ user }) => {
     { icon: <ExitToAppIcon />, name: "Logout", func: logoutUser },
   ];
 
-//   if (user.role === "admin") {
-//     options.unshift({
-//       icon: <DashboardIcon />,
-//       name: "Dashboard",
-//       func: dashboard,
-//     });
-//   }
+  //   if (user.role === "admin") {
+  //     options.unshift({
+  //       icon: <DashboardIcon />,
+  //       name: "Dashboard",
+  //       func: dashboard,
+  //     });
+  //   }
 
-//   function dashboard() {
-//     navigate("/admin/dashboard");
-//   }
+  //   function dashboard() {
+  //     navigate("/admin/dashboard");
+  //   }
 
   function orders() {
     navigate("/orders");
@@ -41,14 +40,14 @@ const UserOptions = ({ user }) => {
   function account() {
     navigate("/account");
   }
-//   function cart() {
-//     navigate("/cart");
-//   }
+  //   function cart() {
+  //     navigate("/cart");
+  //   }
   function logoutUser() {
     dispatch(logout());
     navigate("/");
     // alert.success("Logout Successfully");
-  };
+  }
 
   return (
     <Fragment>
@@ -61,13 +60,7 @@ const UserOptions = ({ user }) => {
         open={open}
         direction="down"
         className="speedDial"
-        icon={
-          <img
-            className="speedDialIcon"
-            src={avatar}
-            alt="Profile"
-          />
-        }
+        icon={<img className="speedDialIcon" src={avatar} alt="Profile" />}
       >
         {options.map((item) => (
           <SpeedDialAction
@@ -82,6 +75,5 @@ const UserOptions = ({ user }) => {
     </Fragment>
   );
 };
-
 
 export default UserOptions;

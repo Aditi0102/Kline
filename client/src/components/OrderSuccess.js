@@ -1,17 +1,16 @@
 import React, { useEffect } from "react";
-import CheckCircleIcon from "@material-ui/icons/CheckCircle";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import "./OrderSuccess.css";
-import { Typography } from "@material-ui/core";
+import { Typography } from "@mui/material";
 import { Link } from "react-router-dom";
-import { useCartContext } from '../context/cart_context'
+import { useCartContext } from "../context/cart_context";
 
 const OrderSuccess = () => {
-
-  const {clearCart } = useCartContext();
+  const { clearCart } = useCartContext();
   useEffect(() => {
     clearCart();
   });
-  
+
   return (
     <div className="orderSuccess">
       <CheckCircleIcon />

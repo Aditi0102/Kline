@@ -4,17 +4,17 @@ import { useSelector } from "react-redux";
 // import MetaData from "../layout/MetaData";
 import "./ConfirmOrder.css";
 import { Link } from "react-router-dom";
-import { Typography } from "@material-ui/core";
+import { Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useCartContext } from "../context/cart_context";
 
 const ConfirmOrder = () => {
-  const{cart: cartItems} = useCartContext();
+  const { cart: cartItems } = useCartContext();
   const { shippingInfo, cart: cart_Items } = useSelector((state) => state.cart);
   const { user } = useSelector((state) => state.user);
-  const { total_amount, shipping_fee } = useCartContext(); 
+  const { total_amount, shipping_fee } = useCartContext();
   const navigate = useNavigate();
-  
+
   const subtotal = cartItems.reduce(
     (acc, item) => acc + (item.amount * item.price) / 100,
     0
@@ -27,7 +27,7 @@ const ConfirmOrder = () => {
   const tax = (total_amount / 100) * 0.18;
 
   // const totalPrice = subtotal + tax + shippingCharges;
-  const totalPrice = total_amount / 100 ;
+  const totalPrice = total_amount / 100;
 
   const address = `${shippingInfo.address}, ${shippingInfo.city}, ${shippingInfo.state}, ${shippingInfo.pinCode}, ${shippingInfo.country}`;
 
@@ -76,7 +76,7 @@ const ConfirmOrder = () => {
             <Typography>Your Cart Items:</Typography>
             <div className="confirmCartItemsContainer">
               {cartItems &&
-                cartItems.map((item , index) => (
+                cartItems.map((item, index) => (
                   <div key={index}>
                     <img
                       src={`https://drive.google.com/uc?export=view&id=${string_between_strings(

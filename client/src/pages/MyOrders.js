@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { clearErrors, myOrders } from "../actions/orderAction";
 import Loader from "../components/layout/Loader";
 import { useNavigate } from "react-router-dom";
-import Typography from "@material-ui/core/Typography";
+import Typography from "@mui/material/Typography";
 
 const MyOrders = () => {
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ const MyOrders = () => {
       minWidth: 150,
       flex: 0.5,
       cellClassName: (params) => {
-      return params.value === "Delivered"? "greenColor" : "redColor";
+        return params.value === "Delivered" ? "greenColor" : "redColor";
       },
     },
     {
@@ -56,7 +56,7 @@ const MyOrders = () => {
     });
 
   useEffect(() => {
-    if(!isAuthenticated){
+    if (!isAuthenticated) {
       navigate("/");
     }
     if (error) {
@@ -68,7 +68,6 @@ const MyOrders = () => {
 
   return (
     <Fragment>
-
       {loading ? (
         <Loader />
       ) : (
@@ -82,7 +81,6 @@ const MyOrders = () => {
             autoHeight
           />
 
-          
           <Typography id="myOrdersHeading">{user.name}'s Orders</Typography>
         </div>
       )}

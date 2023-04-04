@@ -1,6 +1,6 @@
-import React, {  useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Typography } from "@material-ui/core";
+import { Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 import {
@@ -13,21 +13,20 @@ import {
 
 import axios from "axios";
 import "./Payment.css";
-import CreditCardIcon from "@material-ui/icons/CreditCard";
-import EventIcon from "@material-ui/icons/Event";
-import VpnKeyIcon from "@material-ui/icons/VpnKey";
-import { createOrder} from "../actions/orderAction";
+import CreditCardIcon from "@mui/icons-material/CreditCard";
+import EventIcon from "@mui/icons-material/Event";
+import VpnKeyIcon from "@mui/icons-material/VpnKey";
+import { createOrder } from "../actions/orderAction";
 import allUrls from "../config/config";
 import { useCartContext } from "../context/cart_context";
 // import Error from "./Error";
 // import Loading from "./layout//Loader";
 
-
 const Payment = () => {
   const orderInfo = JSON.parse(sessionStorage.getItem("orderInfo"));
-  const {cart: cartItems} = useCartContext();
+  const { cart: cartItems } = useCartContext();
   const { shippingInfo } = useSelector((state) => state.cart);
-  const { isAuthenticated ,  user } = useSelector((state) => state.user);
+  const { isAuthenticated, user } = useSelector((state) => state.user);
 
   const dispatch = useDispatch();
   const elements = useElements();
@@ -35,13 +34,11 @@ const Payment = () => {
   const payBtn = useRef(null);
   const navigate = useNavigate();
 
-
- 
- // const cartItems = cart_Items.cartItems;
+  // const cartItems = cart_Items.cartItems;
   const paymentData = {
     amount: Math.round(orderInfo.totalPrice * 100),
-    shippingInfo : shippingInfo,
-    user : user
+    shippingInfo: shippingInfo,
+    user: user,
   };
 
   const order = {
@@ -62,7 +59,7 @@ const Payment = () => {
       const config = {
         headers: {
           "Content-Type": "application/json",
-          Authorization: `${localStorage.getItem('token')}`,
+          Authorization: `${localStorage.getItem("token")}`,
         },
       };
 
@@ -95,7 +92,6 @@ const Payment = () => {
 
       if (result.error) {
         payBtn.current.disabled = false;
-
       } else {
         if (result.paymentIntent.status === "succeeded") {
           order.paymentInfo = {
@@ -116,7 +112,7 @@ const Payment = () => {
   };
 
   useEffect(() => {
-    if(!isAuthenticated){
+    if (!isAuthenticated) {
       navigate("/");
     }
     // if (error) {
@@ -125,32 +121,30 @@ const Payment = () => {
   }, [dispatch, navigate, isAuthenticated]);
 
   return (
-    
-      <div className="paymentContainer">
-        <form className="paymentForm" onSubmit={(e) => submitHandler(e)}>
-          <Typography>Card Info</Typography>
-          <div>
-            <CreditCardIcon />
-            <CardNumberElement className="paymentInput" />
-          </div>
-          <div>
-            <EventIcon />
-            <CardExpiryElement className="paymentInput" />
-          </div>
-          <div>
-            <VpnKeyIcon />
-            <CardCvcElement className="paymentInput" />
-          </div>
+    <div className="paymentContainer">
+      <form className="paymentForm" onSubmit={(e) => submitHandler(e)}>
+        <Typography>Card Info</Typography>
+        <div>
+          <CreditCardIcon />
+          <CardNumberElement className="paymentInput" />
+        </div>
+        <div>
+          <EventIcon />
+          <CardExpiryElement className="paymentInput" />
+        </div>
+        <div>
+          <VpnKeyIcon />
+          <CardCvcElement className="paymentInput" />
+        </div>
 
-          <input
-            type="submit"
-            value={`Pay - $${orderInfo && orderInfo.totalPrice}`}
-            ref={payBtn}
-            className="paymentFormBtn"
-          />
-        </form>
-      </div>
-    
+        <input
+          type="submit"
+          value={`Pay - $${orderInfo && orderInfo.totalPrice}`}
+          ref={payBtn}
+          className="paymentFormBtn"
+        />
+      </form>
+    </div>
   );
 };
 
