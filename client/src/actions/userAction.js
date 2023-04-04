@@ -44,7 +44,7 @@ export const login = (email, password) => async (dispatch) => {
   try {
     dispatch({ type: LOGIN_REQUEST });
 
-    // console.log(allUrls.backend_url);
+
     const config = { headers: { "Content-Type": "application/json", Authorization: `${localStorage.getItem('token')}` } };
 
     const { data } = await axios.post(

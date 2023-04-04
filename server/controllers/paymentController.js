@@ -3,7 +3,7 @@ const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 exports.processPayment = catchAsyncErrors(async (req, res, next) => {
-  // console.log(req.body , '')
+
   const shipping = {
     name: req.body.user.name,
     address: {
@@ -15,7 +15,6 @@ exports.processPayment = catchAsyncErrors(async (req, res, next) => {
     },
   };
   
-  // console.log('this api got hit')
   const myPayment = await stripe.paymentIntents.create({
     amount: req.body.amount,
     currency: "usd",

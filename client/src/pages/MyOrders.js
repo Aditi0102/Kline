@@ -3,12 +3,9 @@ import { DataGrid } from "@mui/x-data-grid";
 import "./MyOrders.css";
 import { useSelector, useDispatch } from "react-redux";
 import { clearErrors, myOrders } from "../actions/orderAction";
-import Loader from "../components/Loading";
+import Loader from "../components/layout/Loader";
 import { useNavigate } from "react-router-dom";
-// import { useAlert } from "react-alert";
 import Typography from "@material-ui/core/Typography";
-// import MetaData from "../layout/MetaData";
-import LaunchIcon from "@material-ui/icons/Launch";
 
 const MyOrders = () => {
   const dispatch = useDispatch();
@@ -28,9 +25,6 @@ const MyOrders = () => {
       flex: 0.5,
       cellClassName: (params) => {
       return params.value === "Delivered"? "greenColor" : "redColor";
-        // return params.getValue(params.id, "status") === "Delivered"
-        //   ? "greenColor"
-        //   : "redColor";
       },
     },
     {
@@ -48,22 +42,6 @@ const MyOrders = () => {
       minWidth: 270,
       flex: 0.5,
     },
-
-    // {
-    //   field: "actions",
-    //   flex: 0.3,
-    //   headerName: "Actions",
-    //   minWidth: 150,
-    //   type: "number",
-    //   sortable: false,
-    //   renderCell: (params) => {
-    //     return (
-    //       <Link to={`/order/${params.getValue(params.id, "id")}`}>
-    //         <LaunchIcon />
-    //       </Link>
-    //     );
-    //   },
-    // },
   ];
   const rows = [];
 
@@ -82,7 +60,6 @@ const MyOrders = () => {
       navigate("/");
     }
     if (error) {
-      //   alert.error(error);
       dispatch(clearErrors());
     }
 
@@ -91,7 +68,6 @@ const MyOrders = () => {
 
   return (
     <Fragment>
-      {/* <MetaData title={`${user.name} - Orders`} /> */}
 
       {loading ? (
         <Loader />

@@ -1,17 +1,16 @@
 import React from 'react'
-import { FaShoppingCart, FaUserMinus, FaUserPlus } from 'react-icons/fa'
+import { FaShoppingCart, FaUserPlus } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { useProductsContext } from '../context/products_context'
 import { useCartContext } from '../context/cart_context'
-import { useUserContext } from '../context/user_context'
 import { useSelector } from 'react-redux'
 import UserOptions from './UserOptions'
+
 const CartButton = () => {
-  const { closeSidebar } = useProductsContext()
-  const { total_items, clearCart } = useCartContext()
-  const { loginWithRedirect, myUser, logout } = useUserContext()
-  const { user, loading, isAuthenticated } = useSelector((state) => state.user);
+  const { isSidebarOpen ,closeSidebar } = useProductsContext()
+  const { total_items} = useCartContext()
+  const { user, isAuthenticated } = useSelector((state) => state.user);
   return (
     <Wrapper className='cart-btn-wrapper'>
       <Link to='/cart' className='cart-btn' onClick={closeSidebar}>
@@ -22,23 +21,10 @@ const CartButton = () => {
         </span>
       </Link>
       {isAuthenticated ? (
-        // <button
-        //   type='button'
-        //   className='auth-btn'
-        //   onClick={() => {
-        //     clearCart()
-        //     localStorage.removeItem('user')
-        //     logout({ returnTo: window.location.origin })
-        //   }}
-        // >
-        //   Logout <FaUserMinus />
-        // </button>
-        <div>
-          <UserOptions user={user} />
-        </div>
+          <UserOptions user={user}/>     
       ) : (
         <Link to = "/login">
-          <button type='button' className='auth-btn'>
+          <button type='button' className='auth-btn' onClick={isSidebarOpen ? {closeSidebar}: null } >
               Login <FaUserPlus/>
           </button>
         </Link>
@@ -59,7 +45,6 @@ const Wrapper = styled.div`
     letter-spacing: var(--spacing);
     color: var(--clr-grey-1);
     display: flex;
-
     align-items: center;
   }
   .cart-container {

@@ -12,7 +12,6 @@ const AddToCart = ({ product }) => {
   const dispatch = useDispatch();
 
   // add to cart
-  console.log(product , 'add to cart'); 
   
   
   const { addToCart } = useCartContext()
@@ -25,8 +24,7 @@ const AddToCart = ({ product }) => {
   //     dispatch(addItemsToCart(id,amount));
   // };
 
-  console.log(id, 'id');
-  console.log(amount, 'quantity');
+
 
   const increase = () => {
     setAmount((oldAmount) => {

@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect } from "react";
 import { useSelector } from "react-redux";
-import Loader from "../components/Loading";
+import Loader from "../components/layout/Loader";
 import { Link, useNavigate } from "react-router-dom";
 import profileImg from '../assets/avatar.png'
 import "./Profile.css";

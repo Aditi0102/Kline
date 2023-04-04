@@ -12,7 +12,7 @@ const ProductImages = ({ images = [[]] }) => {
   }
 
   const newImages = images.map((image) => {
-    // console.log(image.url, "image.url")
+  
     let img_id = image.url;
     img_id = string_between_strings("/d/", "/view?", img_id);
     return {
@@ -26,8 +26,7 @@ const ProductImages = ({ images = [[]] }) => {
   useEffect(() => {
     setMain(newImages[0]);
   }, []);
-  // console.log(main, "mains");
-  // console.log(newImages, "newImages");
+
   //RENDER
 
 

@@ -16,11 +16,11 @@ import "./Payment.css";
 import CreditCardIcon from "@material-ui/icons/CreditCard";
 import EventIcon from "@material-ui/icons/Event";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
-import { createOrder, clearErrors } from "../actions/orderAction";
+import { createOrder} from "../actions/orderAction";
 import allUrls from "../config/config";
 import { useCartContext } from "../context/cart_context";
-import Error from "./Error";
-import Loading from "./Loading";
+// import Error from "./Error";
+// import Loading from "./layout//Loader";
 
 
 const Payment = () => {
@@ -95,7 +95,7 @@ const Payment = () => {
 
       if (result.error) {
         payBtn.current.disabled = false;
-        console.log(result.error.message);
+
       } else {
         if (result.paymentIntent.status === "succeeded") {
           order.paymentInfo = {

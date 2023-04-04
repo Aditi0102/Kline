@@ -44,9 +44,9 @@ export const createOrder = (order) => async (dispatch) => {
       };
     })
     const newOrder = {...order , orderItems : orderItems};
-    console.log(newOrder , 'order data');
+  
     const { data } = await axios.post(`${allUrls.backend_url}/api/v1/order/new`, newOrder, config);
-    console.log(data)
+ 
     dispatch({ type: CREATE_ORDER_SUCCESS, payload: data });
   } catch (error) {
     dispatch({

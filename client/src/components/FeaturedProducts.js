@@ -1,23 +1,18 @@
 import React from "react";
 import { useFilterContext} from "../context/filter_context";
+import { useProductsContext } from "../context/products_context";
 import styled from "styled-components";
 import Error from "./Error";
-import Loading from "./Loading";
+import Loading from "./layout/Loader";
 import Product from "./Product";
 
 const FeaturedProducts = ({title, start, end}) => {
-  // const {
-  //   products_loading: loading,
-  //   products_error: error,
-  //   featured_products: featured,
-  // } = useProductsContext();
-  const { filtered_products: featured , loading , error } = useFilterContext()
+  const {
+    products_loading: loading,
+    products_error: error,
+  } = useProductsContext();
 
-  // console.log(featured, "featured products")
-  // console.log(title, "featured products props")
-  // console.log(start, `featured products ${title} start`)
-  // console.log(typeof(start), `featured products ${title} start`)
-  // console.log(end, `featured products ${title} end`)
+  const { filtered_products: featured} = useFilterContext()
 
   if (loading) {
     return <Loading />;
@@ -34,13 +29,9 @@ const FeaturedProducts = ({title, start, end}) => {
       </div>
       <div className="section-center featured">
         {featured.slice(start, end).map((product) => {
-          console.log(product, "featured products")
           return <Product key={product._id} {...product} />;
         })}
       </div>
-      {/* <Link to="/products" className="btn">
-        all products
-      </Link> */}
     </Wrapper>
   );
 };

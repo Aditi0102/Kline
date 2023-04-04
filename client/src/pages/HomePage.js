@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { FeaturedProducts, Contact } from '../components'
 import Carousel from '../components/Carousel'
@@ -9,6 +9,11 @@ const StyledContainer = styled.div`
   overflow: hidden;
 `
 const HomePage = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+  
   return (
     <main>
       {/* <Hero /> */}

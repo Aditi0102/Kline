@@ -12,7 +12,7 @@ export default function ElementProvider() {
   const [stripeApiKey, setStripeApiKey] = useState("");
   const {user, isAuthenticated} = useSelector((state) => state.user);
   const {shippingInfo} = useSelector((state) => state.cart);
-  console.log(shippingInfo, "shipping_info");
+
   async function getStripeApiKey() {
     const config = {
       headers: { Authorization: `${localStorage.getItem('token')}` }

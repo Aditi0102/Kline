@@ -1,10 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Navbar, Sidebar, Footer } from "./components";
-
-import UserOptions from "./components/UserOptions";
-import { useSelector } from "react-redux";
-// import ProtectedRoute from './components/ProtectedRoute'
 import UpdateProfile from "./components/UpdateProfile";
 import UpdatePassword from "./components/UpdatePassword";
 import ForgotPassword from "./components/ForgotPassword";
@@ -30,12 +26,9 @@ import {
 } from "./pages";
 import ElementProvider from "./components/ElementProvider";
 import OrderSuccess from "./components/OrderSuccess";
-
 import { useProductsContext } from './context/products_context';
-// import { Switch } from '@material-ui/core'
 
 function App() {
-  const { isAuthenticated, user } = useSelector((state) => state.user);
  
   const { isSidebarOpen } = useProductsContext();
   return (
@@ -43,7 +36,6 @@ function App() {
       <Router>
         {!isSidebarOpen && <Navbar setopenNavbar/>}
         <Sidebar />
-        {/* {isAuthenticated && <UserOptions user={user} />} */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="about" element={<About />} />
@@ -52,7 +44,7 @@ function App() {
           <Route path="product/:productid" element={<SingleProductPage />} />
           <Route path="terms" element={<TermsAndConditions />} />
           <Route path="login" element={<LoginSignUp />} />
-          <  Route path="/account" element={<Profile />} />
+          <Route path="/account" element={<Profile />} />
           <Route path="/me/update" element={<UpdateProfile />} />
           <Route path="/password/update" element={<UpdatePassword />} />
           <Route path="/password/forgot" element={<ForgotPassword />} />
@@ -62,8 +54,6 @@ function App() {
           <Route path ="/process/payment" element={<ElementProvider/>} />
           <Route path ="/success" element={<OrderSuccess/>} />
           <Route path ="/orders" element={<MyOrders/>} />
-            {/* <Route path="/payment" element={<Payment />} /> */}
-          
 
           <Route
             path="checkout"

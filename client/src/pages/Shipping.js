@@ -19,9 +19,6 @@ const Shipping = () => {
   // const alert = useAlert();
   const { shippingInfo } = useSelector((state) => state.cart);
   const { user } = useSelector((state) => state.user);
-  console.log(user, "user shipping");
-  // const something = useSelector((state) => state.cart.shippingInfo);
-  // console.log(something, 'something');
 
   const [address, setAddress] = useState(shippingInfo.address);
   const [city, setCity] = useState(shippingInfo.city);
@@ -32,23 +29,20 @@ const Shipping = () => {
 
   const shippingSubmit = (e) => {
     e.preventDefault();
-    // console.log("you hit me")
+    
 
     if (phoneNo.length < 10 || phoneNo.length > 10) {
-      // alert.error("Phone Number should be 10 digits Long");
       return;
     }
     dispatch(
       saveShippingInfo({ address, city, state, country, pinCode, phoneNo })
     );
-    // console.log(user, "user shipping submit function");
     navigate("/order/confirm");
-    // console.log(shippingInfo)
+   
   };
 
   return (
     <Fragment>
-      {/* <CheckoutSteps activeStep={0} /> */}
 
       <div className="shippingContainer">
         <div className="shippingBox">
