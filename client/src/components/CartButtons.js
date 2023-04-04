@@ -21,7 +21,9 @@ const CartButton = () => {
         </span>
       </Link>
       {isAuthenticated ? (
-          <UserOptions user={user}/>     
+        <div>
+          <UserOptions user={user}/> 
+        </div>    
       ) : (
         <Link to = "/login">
           <button type='button' className='auth-btn' onClick={isSidebarOpen ? {closeSidebar}: null } >
