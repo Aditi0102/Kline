@@ -3,17 +3,26 @@ import { useSelector } from "react-redux";
 import Loader from "../components/layout/Loader";
 import { Link, useNavigate } from "react-router-dom";
 import profileImg from '../assets/avatar.png'
+import { logout } from "../actions/userAction";
+import { useDispatch } from "react-redux";
 import "./Profile.css";
 
 const Profile = () => {
   const navigate = useNavigate();
   const { user, loading, isAuthenticated } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (!isAuthenticated) {
       navigate("/");
     }
   }, [navigate, isAuthenticated]);
+
+  function logoutUser() {
+    dispatch(logout());
+    navigate("/");
+    // alert.success("Logout Successfully");
+  }
 
   return (
     <Fragment>
@@ -25,7 +34,8 @@ const Profile = () => {
             <div>
               <h1>My Profile</h1>
               <img src={profileImg} alt={user.name} />
-              <Link to="/me/update">Edit Profile</Link>
+              <Link to="/me/update" className="Editprofilebtn">
+              <button type="button" className="btn" >Edit Profile</button></Link>
             </div>
             <div>
               <div>
@@ -41,9 +51,10 @@ const Profile = () => {
                 <p>{String(user.createdAt).substr(0, 10)}</p>
               </div>
 
-              <div>
-                <Link to="/orders">My Orders</Link>
-                {/* <Link to="/password/update">Change Password</Link> */}
+              <div className="profile-buttons">
+                <Link to="/orders"><button type="button" className="btn">My Orders</button></Link>
+
+                <Link to="/"><button type="button" className="btn" onClick={logoutUser}>Logout</button></Link>
               </div>
             </div>
           </div>

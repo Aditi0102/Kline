@@ -125,6 +125,12 @@ const Carousel = () => {
   const [currentImage, setCurrentImage] = useState("");
 
   useEffect(() => {
+    // setTimeout(() => {
+    //   setCurrentIndex(currentIndex => {
+    //     const newIndex = currentIndex + 1;
+    //     return newIndex > slides.length - 1 ? 0 : newIndex;
+    //   });
+    // }, 2000);
     setCurrentImage(slides[currentIndex].img);
   }, [currentIndex]);
 
@@ -136,7 +142,7 @@ const Carousel = () => {
     <StyledCarouselContainer>
       {currentImage === slides[currentIndex].img && (
         <StyledImageContainer>
-          <StyledImage src={slides[currentIndex].img} />
+          <StyledImage src={currentImage} />
         </StyledImageContainer>
       )}
       {/* {currentImage === slides[currentIndex].img && (

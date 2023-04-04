@@ -36,7 +36,7 @@
     transform: scale(1.05);
 }
 
-.profileContainer>div:first-child>a {
+/* .profileContainer>div:first-child>a {
     border: none;
     background-color: var(--clr-primary-5);
     font: 400 1vmax "Helvetica";
@@ -51,8 +51,10 @@
 
 .profileContainer>div:first-child>a:hover {
     background-color: var(--clr-primary-5);
+} */
+.Editprofilebtn{
+    margin-top: 3rem;
 }
-
 .profileContainer>div:last-child {
     justify-content: space-evenly;
     align-items: flex-start;
@@ -71,13 +73,20 @@
     margin: 0.2vmax;
 }
 
-.profileContainer>div:last-child>div:last-child {
+/* .profileContainer>div:last-child>div:last-child {
     display: flex;
     flex-direction: column;
     width: 60%;
+} */
+.profile-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 60%;
 }
 
-.profileContainer>div:last-child>div:last-child>a {
+/* .profileContainer>div:last-child>div:last-child>a {
     border: none;
     background-color: var(--clr-primary-5);
     font: 400 1vmax "Helvetica";
@@ -91,7 +100,7 @@
 
 .profileContainer>div:last-child>div:last-child>a:hover {
     background-color: rgb(31, 31, 31);
-}
+} */
 
 @media screen and (max-width: 600px) {
     .profileContainer {

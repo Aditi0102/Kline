@@ -28,7 +28,7 @@ const AboutPage = () => {
             We reserve the right to end this promotion at any time without prior
             notice.<br></br>
             3. Delivery: The pre-ordered product will be shipped after the offer
-            is over i.e. from 1st April, 2023. The free smartwatch will be
+            is over i.e. from 15th April, 2023. The free smartwatch will be
             shipped with the pre-ordered product. Delivery times may vary
             depending on your location.<br></br>
             4. Payment: Full payment is required at the time of pre-order.

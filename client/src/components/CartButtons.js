@@ -21,9 +21,11 @@ const CartButton = () => {
         </span>
       </Link>
       {isAuthenticated ? (
-        <div>
-          <UserOptions user={user}/> 
-        </div>    
+        <Link to = "/account">
+        <button type='button' className='auth-btn' >
+            <span className='account-user'>{user.name.split(' ')[0]}</span>
+        </button>
+      </Link>    
       ) : (
         <Link to = "/login">
           <button type='button' className='auth-btn' onClick={isSidebarOpen ? {closeSidebar}: null } >
@@ -41,6 +43,11 @@ const Wrapper = styled.div`
   align-items: center;
   width: 200px;
 
+  .account-user {
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
   .cart-btn {
     color: var(--clr-grey-1);
     font-size: 1.2rem;
