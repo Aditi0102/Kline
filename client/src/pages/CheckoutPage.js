@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { PageHero, StripeCheckout } from "../components";
+import { PageHero } from "../components";
 
 // extra imports
 
@@ -23,9 +23,7 @@ const CheckoutPage = () => {
               fill it
             </Link>
           </div>
-        ) : (
-          <StripeCheckout />
-        )}
+        ) : null}
       </Wrapper>
     </main>
   );

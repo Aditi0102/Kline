@@ -16,8 +16,6 @@ import {
   Error,
   About,
   Products,
-  PrivateRoute,
-  AuthWrapper,
   TermsAndConditions,
   LoginSignUp,
   Profile,
@@ -32,7 +30,6 @@ function App() {
  
   const { isSidebarOpen } = useProductsContext();
   return (
-    <AuthWrapper>
       <Router>
         {!isSidebarOpen && <Navbar setopenNavbar/>}
         <Sidebar />
@@ -58,16 +55,15 @@ function App() {
           <Route
             path="checkout"
             element={
-              <PrivateRoute>
+              
                 <Checkout />
-              </PrivateRoute>
+    
             }
           />
           <Route path="error" element={<Error />} />
         </Routes>
         <Footer />
       </Router>
-    </AuthWrapper>
   );
 }
 
