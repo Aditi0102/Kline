@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
-
+import {MdKeyboardArrowLeft, MdKeyboardArrowRight} from "react-icons/md";
 import desktop_carousel_1 from "../assets/carouselImg/Preorder_Desktop_1.webp";
 import desktop_carousel_2 from "../assets/carouselImg/Preorder_Desktop_2.webp";
 import mobile_carousel_1 from "../assets/carouselImg/Preorder_Mobile_1.webp";
@@ -84,6 +84,30 @@ const StyledIndicator = styled.div`
   border: 2px solid ${(props) => props.bgBorder}};
 `;
 
+const StyledArrowContainer = styled.div`
+  width: 50px;
+  height: 50px;
+  font-size: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 10%;
+  cursor: pointer;
+  :hover {
+    background-color: #d9d9d9;
+  }
+
+
+}
+`
+  ;
+
+
+
+  
+  
+
 const Carousel = () => {
   if (window.innerWidth < 790) {
     slides = [
@@ -133,18 +157,34 @@ const Carousel = () => {
     // }, 2000);
     setCurrentImage(slides[currentIndex].img);
   }, [currentIndex]);
-
+  const nextImage = () => {
+    setCurrentIndex(prevIndex => prevIndex+1);
+  }
+  const prevImage = () => {
+    setCurrentIndex(prevIndex => prevIndex-1);
+  }
   const setSlide = (index) => {
     setCurrentIndex(index);
   };
 
   return (
     <StyledCarouselContainer>
+      {currentIndex !== 0 && 
+      <StyledArrowContainer  onClick={prevImage}>
+          <MdKeyboardArrowLeft/>
+      </StyledArrowContainer>
+      };
       {currentImage === slides[currentIndex].img && (
         <StyledImageContainer>
           <StyledImage src={currentImage} />
         </StyledImageContainer>
+       
       )}
+      {currentIndex !== slides.length-1 && 
+      <StyledArrowContainer onClick={nextImage}>
+         <MdKeyboardArrowRight/>
+       </StyledArrowContainer>  
+     }; 
       {/* {currentImage === slides[currentIndex].img && (
         <StyledTextContainer>
           <h2>{slides[currentIndex].name}</h2>
