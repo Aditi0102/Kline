@@ -2,7 +2,7 @@ const app = require("./app");
 const cloudinary = require("cloudinary");
 const dotenv = require("dotenv");
 const connectDatabase = require("./config/database");
-
+const cors = require("cors");
 process.on("uncaughtException", (err) => {
   console.log(`Error: ${err.message}`);
   console.log("Shutting down the server due to uncaught exception");
@@ -19,7 +19,13 @@ cloudinary.config({
   api_key: process.env.CLOUDINARY_APIKEY,
   api_secret: process.env.CLOUDINARY_SECRET,
 });
-app.post("/my-server/create-paypal-order", async (req, res ,next) => {
+
+app.use(
+  cors({
+    origin: "*",
+  })
+);
+app.post("/my-server/create-paypal-order", async (req, res, next) => {
   try {
     const order = await paypal.createOrder(req.body);
     res.json(order);
@@ -29,7 +35,7 @@ app.post("/my-server/create-paypal-order", async (req, res ,next) => {
   next();
 });
 
-app.post("/my-server/capture-paypal-order", async (req, res ,next) => {
+app.post("/my-server/capture-paypal-order", async (req, res, next) => {
   const { orderID } = req.body;
   try {
     const captureData = await paypal.capturePayment(orderID);
@@ -42,7 +48,6 @@ app.post("/my-server/capture-paypal-order", async (req, res ,next) => {
 const server = app.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${process.env.PORT}`);
 });
-
 
 //unhandled promise rejections
 
