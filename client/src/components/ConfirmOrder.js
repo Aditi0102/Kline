@@ -10,7 +10,7 @@ import { useCartContext } from "../context/cart_context";
 
 const ConfirmOrder = () => {
   const { cart: cartItems } = useCartContext();
-  const { shippingInfo, cart: cart_Items } = useSelector((state) => state.cart);
+  const { shippingInfo } = useSelector((state) => state.cart);
   const { user } = useSelector((state) => state.user);
   const { total_amount, shipping_fee } = useCartContext();
   const navigate = useNavigate();

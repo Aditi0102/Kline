@@ -25,7 +25,7 @@ const ProductImages = ({ images = [[]] }) => {
 
   useEffect(() => {
     setMain(newImages[0]);
-  }, []);
+  },[newImages]);
 
   //RENDER
 

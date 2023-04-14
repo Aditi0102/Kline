@@ -5,7 +5,6 @@ import styled from 'styled-components'
 import { useProductsContext } from '../context/products_context'
 import { useCartContext } from '../context/cart_context'
 import { useSelector } from 'react-redux'
-import UserOptions from './UserOptions'
 
 const CartButton = () => {
   const { isSidebarOpen ,closeSidebar } = useProductsContext()

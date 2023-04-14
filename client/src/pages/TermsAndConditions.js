@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import { PageHero } from "../components";
+// import { PageHero } from "../components";
 
 const AboutPage = () => {
   useEffect(() => {
@@ -9,7 +9,7 @@ const AboutPage = () => {
 
   return (
     <main>
-      <PageHero title="Terms And Conditions" />
+      {/* <PageHero title="Terms And Conditions" /> */}
       <Wrapper className="page section section-center">
         {/* <img src={logo} alt='kline decor logo' /> */}
         <article>

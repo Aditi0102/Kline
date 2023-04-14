@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import styled from 'styled-components'
-import { PageHero } from '../components'
+// import { PageHero } from '../components'
 import logo from "../assets/logo.png";
 
 const AboutPage = () => {
@@ -11,7 +11,7 @@ const AboutPage = () => {
 
   return (
     <main>
-      <PageHero title='about' />
+      {/* <PageHero title='about' /> */}
       <Wrapper className='page section section-center'>
         <img src={logo} alt='kline decor logo' />
         <article>

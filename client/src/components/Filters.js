@@ -9,7 +9,6 @@ const Filters = () => {
     filters: {
       text,
       category,
-      company,
       color,
       min_price,
       price,
@@ -22,7 +21,6 @@ const Filters = () => {
   } = useFilterContext()
 
   const categories = getUniqueValues(all_products, 'category')
-  const companies = getUniqueValues(all_products, 'company')
   const colors = getUniqueValues(all_products, 'colors')
   return (
     <Wrapper>

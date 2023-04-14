@@ -3,15 +3,12 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import allUrls from "../config/config";
 import axios from "axios";
-import store from "../store";
-import { loadUser } from "../actions/userAction";
 import Payment from "./Payment";
 import { useSelector } from "react-redux";
 
 export default function ElementProvider() {
   const [stripeApiKey, setStripeApiKey] = useState("");
-  const {user, isAuthenticated} = useSelector((state) => state.user);
-  const {shippingInfo} = useSelector((state) => state.cart);
+  const {isAuthenticated} = useSelector((state) => state.user);
 
   async function getStripeApiKey() {
     const config = {
@@ -30,7 +27,7 @@ export default function ElementProvider() {
   useEffect(() => {
     // store.dispatch(loadUser());
     getStripeApiKey();
-  }, []);
+  });
 
   return (
     <Elements stripe={loadStripe(stripeApiKey)}>

@@ -1,15 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { FaCheck } from 'react-icons/fa'
 import { useCartContext } from '../context/cart_context'
 import AmountButtons from './AmountButtons'
-import { useDispatch, useSelector } from "react-redux";
-import { addItemsToCart } from '../actions/cartAction'
 
 const AddToCart = ({ product }) => {
-
-  const dispatch = useDispatch();
 
   // add to cart
   

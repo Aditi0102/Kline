@@ -8,7 +8,6 @@ import {
   Error,
   ProductImages,
   AddToCart,
-  PageHero,
 } from "../components";
 import styled from "styled-components";
 const SingleProductPage = () => {
@@ -93,7 +92,7 @@ const SingleProductPage = () => {
   }
   return (
     <Wrapper>
-      <PageHero title={name} product />
+      {/* <PageHero title={name} product /> */}
       <div className="section section-center page">
         {/* <Link to="/products" className="btn">
           back to products
