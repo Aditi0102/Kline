@@ -25,26 +25,26 @@ app.use(
     origin: "*",
   })
 );
-app.post("/my-server/create-paypal-order", async (req, res, next) => {
-  try {
-    const order = await paypal.createOrder(req.body);
-    res.json(order);
-  } catch (err) {
-    res.status(500).send(err.message);
-  }
-  next();
-});
+// app.post("/my-server/create-paypal-order", async (req, res, next) => {
+//   try {
+//     const order = await paypal.createOrder(req.body);
+//     res.json(order);
+//   } catch (err) {
+//     res.status(500).send(err.message);
+//   }
+//   next();
+// });
 
-app.post("/my-server/capture-paypal-order", async (req, res, next) => {
-  const { orderID } = req.body;
-  try {
-    const captureData = await paypal.capturePayment(orderID);
-    res.json(captureData);
-  } catch (err) {
-    res.status(500).send(err.message);
-  }
-  next();
-});
+// app.post("/my-server/capture-paypal-order", async (req, res, next) => {
+//   const { orderID } = req.body;
+//   try {
+//     const captureData = await paypal.capturePayment(orderID);
+//     res.json(captureData);
+//   } catch (err) {
+//     res.status(500).send(err.message);
+//   }
+//   next();
+// });
 const server = app.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${process.env.PORT}`);
 });
