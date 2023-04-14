@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 
 import {
   CardNumberElement,
@@ -19,8 +20,7 @@ import VpnKeyIcon from "@mui/icons-material/VpnKey";
 import { createOrder } from "../actions/orderAction";
 import allUrls from "../config/config";
 import { useCartContext } from "../context/cart_context";
-// import Error from "./Error";
-// import Loading from "./layout//Loader";
+import PaypalPayment from "./PaypalPayment";
 
 const Payment = () => {
   const orderInfo = JSON.parse(sessionStorage.getItem("orderInfo"));
@@ -34,6 +34,13 @@ const Payment = () => {
   const payBtn = useRef(null);
   const navigate = useNavigate();
 
+  //paypal
+  const initialOptions = {
+    "client-id": "test",
+    currency: "USD",
+    intent: "capture",
+    // "data-client-token": "abc123xyz==",
+  };
   // const cartItems = cart_Items.cartItems;
   const paymentData = {
     amount: Math.round(orderInfo.totalPrice * 100),
@@ -122,28 +129,9 @@ const Payment = () => {
 
   return (
     <div className="paymentContainer">
-      <form className="paymentForm" onSubmit={(e) => submitHandler(e)}>
-        <Typography>Card Info</Typography>
-        <div>
-          <CreditCardIcon />
-          <CardNumberElement className="paymentInput" />
-        </div>
-        <div>
-          <EventIcon />
-          <CardExpiryElement className="paymentInput" />
-        </div>
-        <div>
-          <VpnKeyIcon />
-          <CardCvcElement className="paymentInput" />
-        </div>
-
-        <input
-          type="submit"
-          value={`Pay - $${orderInfo && orderInfo.totalPrice}`}
-          ref={payBtn}
-          className="paymentFormBtn"
-        />
-      </form>
+    <PayPalScriptProvider options={initialOptions}>
+        <PaypalPayment/>
+    </PayPalScriptProvider>
     </div>
   );
 };

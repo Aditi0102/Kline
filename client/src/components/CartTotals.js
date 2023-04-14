@@ -4,10 +4,19 @@ import { useCartContext } from '../context/cart_context'
 import { formatPrice } from '../utils/helpers'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 const CartTotals = () => {
   const { total_amount } = useCartContext()
   const { isAuthenticated } = useSelector((state) => state.user);
+
+  //paypal
+  const initialOptions = {
+    "client-id": "test",
+    currency: "USD",
+    intent: "capture",
+    // "data-client-token": "abc123xyz==",
+  };
 
   return (
     <Wrapper>
@@ -25,6 +34,9 @@ const CartTotals = () => {
           </h4>
         </article>
         {isAuthenticated ? (
+          // <PayPalScriptProvider options={initialOptions}>
+          //   <PayPalButtons />
+          // </PayPalScriptProvider>
           <Link to='/shipping' className='btn'>
             proceed to checkout
           </Link>

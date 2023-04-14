@@ -19,7 +19,24 @@ cloudinary.config({
   api_key: process.env.CLOUDINARY_APIKEY,
   api_secret: process.env.CLOUDINARY_SECRET,
 });
+app.post("/my-server/create-paypal-order", async (req, res) => {
+  try {
+    const order = await paypal.createOrder(req.body);
+    res.json(order);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+});
 
+app.post("/my-server/capture-paypal-order", async (req, res) => {
+  const { orderID } = req.body;
+  try {
+    const captureData = await paypal.capturePayment(orderID);
+    res.json(captureData);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+});
 const server = app.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${process.env.PORT}`);
 });
