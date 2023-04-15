@@ -1,6 +1,6 @@
 import React from "react";
 import { PayPalButtons } from "@paypal/react-paypal-js";
-import allUrls from "../config/allUrls";
+import allUrls from "../config/config";
 
 export default function PaypalPayment() {
     const createOrder = (data) => {
@@ -40,7 +40,7 @@ export default function PaypalPayment() {
           })
         })
         .then((response) => {
-          console.log("PayPal payment approved", response.json());
+          console.log("PayPal payment approved", response);
           response.json()});
       };
     return (
