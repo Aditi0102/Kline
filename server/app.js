@@ -32,7 +32,7 @@ app.use("/api/v1", product);
 app.use("/api/v1", user);
 app.use("/api/v1", order);
 app.use("/api/v1", payment);
-app.use("api/v1",  paypal);
+app.use("/api/v1",  paypal);
 
 //middleware for Errors
 app.use(errorMiddleware);

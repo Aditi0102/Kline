@@ -36,7 +36,7 @@ const Payment = () => {
 
   //paypal
   const initialOptions = {
-    "client-id": "Ad02b5_l_2gnU06cuUlNkOaOgCsB1f_ltiYoY-i3tlzmmWB3Euq5CcTMzEXHGH68A0wa3swDxibNUitj",
+    "client-id": "Af-AliRniYS7qcDXCo0mYJJQ5rytzn8p4xuofvKm6NoW-Vv6qPm12gwOX6w92BuxAvWZgFvPWlmm7C15",
     currency: "USD",
     intent: "capture",
     // "data-client-token": "abc123xyz==",
@@ -128,11 +128,11 @@ const Payment = () => {
   }, [dispatch, navigate, isAuthenticated]);
 
   return (
-    <div className="paymentContainer">
     <PayPalScriptProvider options={initialOptions}>
+      <div className="paymentContainer">
         <PaypalPayment/>
+      </div>
     </PayPalScriptProvider>
-    </div>
   );
 };
 
