@@ -50,7 +50,6 @@ async function createOrder(data) {
       ],
     }),
   });
-  // console.log(response, 'response of create order')
   return handleResponse(response);
 }
 

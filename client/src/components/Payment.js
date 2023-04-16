@@ -39,9 +39,8 @@ const Payment = () => {
     "client-id": "Af-AliRniYS7qcDXCo0mYJJQ5rytzn8p4xuofvKm6NoW-Vv6qPm12gwOX6w92BuxAvWZgFvPWlmm7C15",
     currency: "USD",
     intent: "capture",
-    // "data-client-token": "abc123xyz==",
   };
-  // const cartItems = cart_Items.cartItems;
+
   const paymentData = {
     amount: Math.round(orderInfo.totalPrice * 100),
     shippingInfo: shippingInfo,
