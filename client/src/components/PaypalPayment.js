@@ -1,8 +1,16 @@
 import React from "react";
 import { PayPalButtons } from "@paypal/react-paypal-js";
 import allUrls from "../config/config";
+import { useCartContext } from "../context/cart_context";
 
 export default function PaypalPayment() {
+  const { cart: cartItems } = useCartContext();
+  
+  let price = 0;
+  cartItems.forEach((item) => {
+    price += item.price/100 * item.amount;
+  });
+  console.log(price, "price");
   const createOrder = async (data) => {
     // Order is created on the server and the order id is returned
     const url = `${allUrls.backend_url}/api/v1/create-paypal-order`;
@@ -17,8 +25,8 @@ export default function PaypalPayment() {
         // like product skus and quantities
         body: JSON.stringify({
           product: {
-            discription: "a unique product",
-            cost: 0.01,
+            cartItems,
+            cost : price
           },
           // cart: [
           //   {

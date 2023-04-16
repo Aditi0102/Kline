@@ -36,7 +36,7 @@ const Payment = () => {
 
   //paypal
   const initialOptions = {
-    "client-id": "Af-AliRniYS7qcDXCo0mYJJQ5rytzn8p4xuofvKm6NoW-Vv6qPm12gwOX6w92BuxAvWZgFvPWlmm7C15",
+    "client-id": "Ad02b5_l_2gnU06cuUlNkOaOgCsB1f_ltiYoY-i3tlzmmWB3Euq5CcTMzEXHGH68A0wa3swDxibNUitj",
     currency: "USD",
     intent: "capture",
   };

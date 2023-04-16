@@ -140,7 +140,7 @@ const Carousel = () => {
       <StyledArrowContainer  onClick={prevImage}>
           <MdKeyboardArrowLeft/>
       </StyledArrowContainer>
-      };
+      }
       {currentImage === slides[currentIndex].img && (
         <StyledImageContainer>
           <StyledImage src={currentImage} />
@@ -151,7 +151,7 @@ const Carousel = () => {
       <StyledArrowContainer onClick={nextImage}>
          <MdKeyboardArrowRight/>
        </StyledArrowContainer>  
-     }; 
+     }
 
       <StyledIndicatorContainer>
         {slides.map((img, index) => (
