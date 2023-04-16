@@ -7,16 +7,6 @@ import mobile_carousel_1 from "../assets/carouselImg/Preorder_Mobile_1.webp";
 import mobile_carousel_2 from "../assets/carouselImg/Preorder_Mobile_2.webp";
 
 let slides = [];
-// const TextAnimation = keyframes`
-// 0% {
-//     bottom: 30%;
-//     opacity: 0;
-// }
-// 100% {
-//     bottom: 35%;
-//     opacity: 1;
-// }
-// `;
 const ImageAnimation = keyframes`
 0% {
   opacity: 0;
@@ -44,26 +34,6 @@ const StyledImage = styled.img`
   height: 100%;
   object-fit: cover;
 `;
-
-// const StyledTextContainer = styled.div`
-//   width: 30%;
-//   height: 30%;
-//   left: 15%;
-//   bottom: 35%;
-//   position: absolute;
-//   animation: ${TextAnimation} 1s ease-out;
-//   h2 {
-//     font-size: 2.5rem;
-//     font-weight: 700;
-//   }
-//   p {
-//     margin-top: 2rem;
-//   }
-//   .btn {
-//     margin-top: 1rem;
-//     padding: 0.8rem 1.5rem;
-//   }
-// `;
 
 const StyledIndicatorContainer = styled.div`
   width: 50px;
@@ -149,20 +119,17 @@ const Carousel = () => {
   const [currentImage, setCurrentImage] = useState("");
 
   useEffect(() => {
-    // setTimeout(() => {
-    //   setCurrentIndex(currentIndex => {
-    //     const newIndex = currentIndex + 1;
-    //     return newIndex > slides.length - 1 ? 0 : newIndex;
-    //   });
-    // }, 2000);
     setCurrentImage(slides[currentIndex].img);
   }, [currentIndex]);
+
   const nextImage = () => {
     setCurrentIndex(prevIndex => prevIndex+1);
   }
+
   const prevImage = () => {
     setCurrentIndex(prevIndex => prevIndex-1);
   }
+
   const setSlide = (index) => {
     setCurrentIndex(index);
   };
@@ -185,15 +152,6 @@ const Carousel = () => {
          <MdKeyboardArrowRight/>
        </StyledArrowContainer>  
      }; 
-      {/* {currentImage === slides[currentIndex].img && (
-        <StyledTextContainer>
-          <h2>{slides[currentIndex].name}</h2>
-          <p>{slides[currentIndex].discription}</p>
-          <Link to="/products" className="btn hero-btn">
-            Discover Now
-          </Link>
-        </StyledTextContainer>
-      )} */}
 
       <StyledIndicatorContainer>
         {slides.map((img, index) => (
