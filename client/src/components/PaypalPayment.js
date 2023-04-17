@@ -10,7 +10,7 @@ export default function PaypalPayment() {
   cartItems.forEach((item) => {
     price += item.price/100 * item.amount;
   });
-  console.log(price, "price");
+  // console.log(price, "price");
   const createOrder = async (data) => {
     // Order is created on the server and the order id is returned
     const url = `${allUrls.backend_url}/api/v1/create-paypal-order`;
