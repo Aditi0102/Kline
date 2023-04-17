@@ -2,10 +2,11 @@ import React from "react";
 import { PayPalButtons } from "@paypal/react-paypal-js";
 import allUrls from "../config/config";
 import { useCartContext } from "../context/cart_context";
+import { useNavigate } from "react-router-dom";
 
-export default function PaypalPayment() {
+export default function PaypalPayment(order) {
   const { cart: cartItems } = useCartContext();
-  
+  const navigate = useNavigate();
   let price = 0;
   cartItems.forEach((item) => {
     price += item.price/100 * item.amount;
@@ -58,6 +59,7 @@ export default function PaypalPayment() {
     }).then((response) => {
       console.log("PayPal payment approved", response);
       response.json();
+      navigate("/success");
     });
   };
   return (

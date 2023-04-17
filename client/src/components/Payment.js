@@ -48,11 +48,8 @@ const Payment = () => {
   };
 
   const order = {
-    shippingInfo,
     orderItems: cartItems,
     itemsPrice: orderInfo.subtotal,
-    taxPrice: orderInfo.tax,
-    shippingPrice: orderInfo.shippingCharges,
     totalPrice: orderInfo.totalPrice,
   };
 
@@ -129,7 +126,7 @@ const Payment = () => {
   return (
     <PayPalScriptProvider options={initialOptions}>
       <div className="paymentContainer">
-        <PaypalPayment/>
+        <PaypalPayment order={order}/>
       </div>
     </PayPalScriptProvider>
   );
