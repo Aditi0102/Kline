@@ -3,9 +3,11 @@ import { PayPalButtons } from "@paypal/react-paypal-js";
 import allUrls from "../config/config";
 import { useCartContext } from "../context/cart_context";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 export default function PaypalPayment(order) {
   const { cart: cartItems } = useCartContext();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   let price = 0;
   cartItems.forEach((item) => {
@@ -60,6 +62,7 @@ export default function PaypalPayment(order) {
       console.log("PayPal payment approved", response);
       response.json();
       navigate("/success");
+      dispatch(createOrder(order));
     });
   };
   return (
