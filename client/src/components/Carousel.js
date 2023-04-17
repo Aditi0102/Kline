@@ -54,29 +54,36 @@ const StyledIndicator = styled.div`
   border: 2px solid ${(props) => props.bgBorder}};
 `;
 
-const StyledArrowContainer = styled.div`
+const StyledArrowRight = styled(MdKeyboardArrowRight)`
+color: black;
+z-index: 1;
+position: absolute;
+right: 5%;
+top : 50%;
+width: 50px;
+height: 50px;
+font-size: 35px;
+align-items: center;
+cursor: pointer;
+:hover {
+  background-color: #d9d9d9;
+}
+`;
+
+const StyledArrowLeft = styled(MdKeyboardArrowLeft)`
+  color: white;
+  z-index: 1;
+  position: absolute;
+  left: 5%;
   width: 50px;
   height: 50px;
   font-size: 35px;
-  display: flex;
-  justify-content: center;
   align-items: center;
-  position: absolute;
-  right: 10%;
   cursor: pointer;
   :hover {
     background-color: #d9d9d9;
   }
-
-
-}
-`
-  ;
-
-
-
-  
-  
+`;
 
 const Carousel = () => {
   if (window.innerWidth < 790) {
@@ -137,9 +144,9 @@ const Carousel = () => {
   return (
     <StyledCarouselContainer>
       {currentIndex !== 0 && 
-      <StyledArrowContainer  onClick={prevImage}>
-          <MdKeyboardArrowLeft/>
-      </StyledArrowContainer>
+          <StyledArrowLeft onClick={prevImage}>
+            <MdKeyboardArrowLeft/>
+          </StyledArrowLeft>
       }
       {currentImage === slides[currentIndex].img && (
         <StyledImageContainer>
@@ -148,9 +155,9 @@ const Carousel = () => {
        
       )}
       {currentIndex !== slides.length-1 && 
-      <StyledArrowContainer onClick={nextImage}>
+      <StyledArrowRight onClick={nextImage}>
          <MdKeyboardArrowRight/>
-       </StyledArrowContainer>  
+      </StyledArrowRight>  
      }
 
       <StyledIndicatorContainer>
