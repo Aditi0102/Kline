@@ -67,7 +67,7 @@ const MyOrders = () => {
   }, [dispatch, error, isAuthenticated, navigate]);
 
   return (
-    <Fragment>
+    <div className="orderPage">
       {loading ? (
         <Loader />
       ) : (
@@ -84,7 +84,7 @@ const MyOrders = () => {
           <Typography id="myOrdersHeading">{user.name}'s Orders</Typography>
         </div>
       )}
-    </Fragment>
+    </div>
   );
 };
 

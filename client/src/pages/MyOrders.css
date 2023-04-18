@@ -1,13 +1,10 @@
 .myOrdersPage {
     width: 100vw;
     max-width: 100%;
-    padding: 1 7vmax;
     box-sizing: border-box;
     background-color: rgb(235, 235, 235);
-    position: fixed;
-    top: 0;
-    left: 0;
     height: 100vh;
+    position: fixed;
     display: flex;
     flex-direction: column;
     padding-top: 80px;
