@@ -11,8 +11,7 @@ const ProductImages = ({ images = [[]] }) => {
     return str?.substring(pos, str.indexOf(endStr, pos));
   }
 
-  const newImages = images.map((image) => {
-  
+  const newImages = images.map((image) => { 
     let img_id = image.url;
     img_id = string_between_strings("/d/", "/view?", img_id);
     return {
@@ -25,14 +24,14 @@ const ProductImages = ({ images = [[]] }) => {
 
   useEffect(() => {
     setMain(newImages[0]);
-  },[newImages]);
+  },[]);
 
   //RENDER
 
 
   return (
     <Wrapper>
-      <img src={main?.url} alt="" className="main " />
+      <img src={main?.url} alt="" className="main"/>
       <div className="gallery">
         {newImages?.map((newImages, index) => {
           return (
