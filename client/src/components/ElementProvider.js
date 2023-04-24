@@ -31,7 +31,7 @@ export default function ElementProvider() {
 
   return (
     <Elements stripe={loadStripe(stripeApiKey)}>
-      <Payment />
+      <Payment/>
     </Elements>
   );
 }

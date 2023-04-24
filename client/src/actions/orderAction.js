@@ -25,7 +25,6 @@ import axios from "axios";
 // Create Order
 export const createOrder = (order) => async (dispatch) => {
   try {
-
     dispatch({ type: CREATE_ORDER_REQUEST });
     const config = {
       headers: {
@@ -33,8 +32,9 @@ export const createOrder = (order) => async (dispatch) => {
         Authorization: `${localStorage.getItem('token')}`
       },
     };
+    console.log(order, 'order')
 
-    const orderItems = order.orderItems.map((item) => {
+    const orderItems = order.order.orderItems.map((item) => {
       return {
         product : item.id ,
         name  : item.name , 
@@ -44,9 +44,10 @@ export const createOrder = (order) => async (dispatch) => {
       };
     })
     const newOrder = {...order , orderItems : orderItems};
+    // console.log(newOrder , 'newOrder');
   
-    const { data } = await axios.post(`${allUrls.backend_url}/api/v1/order/new`, newOrder, config);
- 
+    const {data} = await axios.post(`${allUrls.backend_url}/api/v1/order/new`, newOrder, config);
+    
     dispatch({ type: CREATE_ORDER_SUCCESS, payload: data });
   } catch (error) {
     dispatch({

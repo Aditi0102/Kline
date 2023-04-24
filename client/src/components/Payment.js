@@ -25,8 +25,6 @@ const Payment = () => {
     totalPrice: orderInfo.totalPrice,
   };
 
-  
-
   useEffect(() => {
     if (!isAuthenticated) {
       navigate("/");

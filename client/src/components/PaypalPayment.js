@@ -4,6 +4,8 @@ import allUrls from "../config/config";
 import { useCartContext } from "../context/cart_context";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { createOrder } from "../actions/orderAction";
+import "./PaypalPayment.css";
 
 export default function PaypalPayment(order) {
   const { cart: cartItems } = useCartContext();
@@ -14,10 +16,10 @@ export default function PaypalPayment(order) {
     price += item.price/100 * item.amount;
   });
   // console.log(price, "price");
-  const createOrder = async (data) => {
+  const createPaypalOrder = async (data) => {
     // Order is created on the server and the order id is returned
     const url = `${allUrls.backend_url}/api/v1/create-paypal-order`;
-    // console.log(url, 'url')
+    // console.log(data, 'url')
     try {
       const response = await fetch(url, {
         method: "POST",
@@ -41,15 +43,16 @@ export default function PaypalPayment(order) {
       });
 
       const order = await response.json();
+      // console.log(order, "create order")
       return order.id;
     } catch (err) {
       console.log("err is ", err);
     }
   };
 
-  const onApprove = (data) => {
+  const onApprove = async (data) => {
     // Order is captured on the server and the response is returned to the browser
-    console.log(data, "data onapprove");
+    // console.log(data, "data onapprove");
     return fetch(`${allUrls.backend_url}/api/v1/capture-paypal-order`, {
       method: "POST",
       headers: {
@@ -59,19 +62,22 @@ export default function PaypalPayment(order) {
         orderID: data.orderID,
       }),
     }).then((response) => {
-      console.log("PayPal payment approved", response);
+      // console.log("PayPal payment approved", response);
       response.json();
-      navigate("/success");
-      dispatch(createOrder(order));
+      createPaypalOrder(order).then(() => {
+        dispatch(createOrder(order));
+        navigate("/success");
+      });
     });
   };
   return (
-    <PayPalButtons
-      createOrder={async (data, actions) => {
-        // console.log(data, "value");
-        return await createOrder(data, actions);
-      }}
-      onApprove={(data, actions) => onApprove(data, actions)}
-    />
+    <div className="paypal-button">
+      <PayPalButtons
+        createOrder={async (data, actions) => {
+          return await createPaypalOrder(data, actions);
+        }}
+        onApprove={async (data, actions) => await onApprove(data, actions)}
+      />
+    </div>
   );
 }

@@ -15,7 +15,7 @@ import Sort from './Sort'
 import Stars from './Stars'
 import CartContent from './CarContent'
 import PageHero from './PageHero'
-import ElementProvider from './ElementProvider'
+import PaypalPayment from './PaypalPayment'
 import Payment from './Payment'
 
 export {
@@ -36,6 +36,6 @@ export {
   Stars,
   CartContent,
   PageHero,
-  ElementProvider,
+  PaypalPayment,
   Payment,
 }
