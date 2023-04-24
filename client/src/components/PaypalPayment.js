@@ -13,9 +13,21 @@ export default function PaypalPayment(order) {
   const navigate = useNavigate();
   let price = 0;
   cartItems.forEach((item) => {
-    price += item.price/100 * item.amount;
+    price += (item.price / 100) * item.amount;
   });
-  // console.log(price, "price");
+  console.log(cartItems, "cartItems");
+  const newCartItems = cartItems.map((item) => {
+    console.log((item.price/100).toFixed(2));
+    return {
+      unit_amount: {
+        value: String((item.price / 100).toFixed(2)),
+        currency_code: "USD",
+      },
+      quantity: String(item.amount),
+      name: item.name,
+    };
+  });
+  console.log(newCartItems, "newCartItems");
   const createPaypalOrder = async (data) => {
     // Order is created on the server and the order id is returned
     const url = `${allUrls.backend_url}/api/v1/create-paypal-order`;
@@ -30,8 +42,8 @@ export default function PaypalPayment(order) {
         // like product skus and quantities
         body: JSON.stringify({
           product: {
-            cartItems,
-            cost : price
+            cartItems: newCartItems,
+            cost: price,
           },
           // cart: [
           //   {
@@ -64,10 +76,8 @@ export default function PaypalPayment(order) {
     }).then((response) => {
       // console.log("PayPal payment approved", response);
       response.json();
-      createPaypalOrder(order).then(() => {
-        dispatch(createOrder(order));
-        navigate("/success");
-      });
+      dispatch(createOrder(order));
+      navigate("/success");
     });
   };
   return (
@@ -81,3 +91,56 @@ export default function PaypalPayment(order) {
     </div>
   );
 }
+
+const data = {
+  purchase_units: [
+    {
+      reference_id: "Kline Decor Store",
+      description: "Mobile World Store order-1234",
+      amount: {
+        currency: "USD",
+        details: { subtotal: "price", shipping: "0", tax: "0" },
+        total: "price",
+      },
+      payee: { email: "seller@example.com" },
+      items: [
+        {
+          name: "NeoPhone",
+          sku: "sku03",
+          price: "0.54",
+          currency: "USD",
+          quantity: "1",
+        },
+        {
+          name: "Fitness Watch",
+          sku: "sku04",
+          price: "0.55",
+          currency: "USD",
+          quantity: "1",
+        },
+      ],
+      shipping_address: {
+        line1: "2211 N First Street",
+        line2: "Building 17",
+        city: "San Jose",
+        country_code: "US",
+        postal_code: "95131",
+        state: "CA",
+        phone: "(123) 456-7890",
+      },
+      shipping_method: "United Postal Service",
+      partner_fee_details: {
+        receiver: { email: "partner@example.com" },
+        amount: { value: "0.01", currency: "USD" },
+      },
+      payment_linked_group: 1,
+      custom: "custom_value_2388",
+      invoice_number: "invoice_number_2388",
+      payment_descriptor: "Payment Mobile World",
+    },
+  ],
+  redirect_urls: {
+    return_url: "https://example.com/return",
+    cancel_url: "https://example.com/cancel",
+  },
+};
