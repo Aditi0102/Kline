@@ -14,7 +14,7 @@ const Payment = () => {
 
   //paypal
   const initialOptions = {
-    "client-id": "Aave2RH0c-nptoRV1FLUVf8UuLC_XNHC0G6IFEX7NK4aaW3A6Cdwc9nVe9o7oQNvhhq7wurfTbJGG4DM",
+    "client-id": "Ad02b5_l_2gnU06cuUlNkOaOgCsB1f_ltiYoY-i3tlzmmWB3Euq5CcTMzEXHGH68A0wa3swDxibNUitj",
     currency: "USD",
     intent: "capture",
   };
