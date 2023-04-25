@@ -15,9 +15,9 @@ export default function PaypalPayment(order) {
   cartItems.forEach((item) => {
     price += (item.price / 100) * item.amount;
   });
-  console.log(cartItems, "cartItems");
+  // console.log(cartItems, "cartItems");
   const newCartItems = cartItems.map((item) => {
-    console.log((item.price/100).toFixed(2));
+    // console.log((item.price/100).toFixed(2));
     return {
       unit_amount: {
         value: String((item.price / 100).toFixed(2)),
@@ -27,7 +27,7 @@ export default function PaypalPayment(order) {
       name: item.name,
     };
   });
-  console.log(newCartItems, "newCartItems");
+  // console.log(newCartItems, "newCartItems");
   const createPaypalOrder = async (data) => {
     // Order is created on the server and the order id is returned
     const url = `${allUrls.backend_url}/api/v1/create-paypal-order`;
