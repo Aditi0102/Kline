@@ -5,7 +5,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const { CLIENT_ID, APP_SECRET } = process.env;
-const base = process.env.SANDBOX_URI;
+const base = process.env.PAYPAL_URI;
 // const base = process.env.PRODUCTION_URI;
 console.log(base, "base");
 
